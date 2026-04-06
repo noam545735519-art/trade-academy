@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 1 – מבוא לשוק ההון</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Heebo', Arial, sans-serif;
+      background: #f0f4f8;
+      color: #1a1a2e;
+      direction: rtl;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: linear-gradient(135deg, #0f3460 0%, #16213e 60%, #1a1a2e 100%);
+      color: white;
+      padding: 44px 48px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(229,57,53,0.15);
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -40px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .course-tag {
+      display: inline-block;
+      background: #e53935;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .header h1 {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .header .subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+    }
+    .header-meta {
+      display: flex;
+      gap: 24px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+    .meta-item .icon {
+      font-size: 15px;
+    }
+
+    /* ===== OBJECTIVES BOX ===== */
+    .objectives {
+      background: #fff8e1;
+      border-right: 5px solid #ffc107;
+      margin: 36px 48px 0;
+      padding: 20px 24px;
+      border-radius: 0 10px 10px 0;
+    }
+    .objectives h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #e65100;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .objectives ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .objectives ul li {
+      font-size: 13.5px;
+      color: #5d4037;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .objectives ul li::before {
+      content: '✓';
+      color: #ffc107;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ===== CONTENT ===== */
+    .content {
+      padding: 36px 48px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .section-number {
+      background: linear-gradient(135deg, #0f3460, #16213e);
+      color: white;
+      font-size: 13px;
+      font-weight: 800;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f3460;
+    }
+
+    p {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 12px;
+    }
+
+    /* ===== INFO CARDS GRID ===== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .card {
+      border: 1.5px solid #e8edf5;
+      border-radius: 12px;
+      padding: 18px 20px;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .card-icon { font-size: 24px; margin-bottom: 10px; }
+    .card h4 { font-size: 14px; font-weight: 700; color: #0f3460; margin-bottom: 6px; }
+    .card p { font-size: 13px; line-height: 1.7; color: #555; margin: 0; }
+
+    /* ===== HIGHLIGHT BOX ===== */
+    .highlight-box {
+      background: linear-gradient(135deg, #0f3460, #1a237e);
+      color: white;
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin: 20px 0;
+    }
+    .highlight-box h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #90caf9;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+    .highlight-box p { color: rgba(255,255,255,0.9); font-size: 14px; margin: 0; }
+
+    /* ===== TERMS TABLE ===== */
+    .terms-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 13.5px;
+    }
+    .terms-table thead tr {
+      background: #0f3460;
+      color: white;
+    }
+    .terms-table thead th {
+      padding: 13px 18px;
+      text-align: right;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    .terms-table tbody tr:nth-child(even) { background: #f5f7fb; }
+    .terms-table tbody tr:nth-child(odd) { background: #ffffff; }
+    .terms-table tbody tr:hover { background: #e8f0fe; }
+    .terms-table tbody td {
+      padding: 11px 18px;
+      border-bottom: 1px solid #e8edf5;
+      color: #333;
+    }
+    .terms-table tbody td:first-child {
+      font-weight: 700;
+      color: #0f3460;
+    }
+
+    /* ===== EXAMPLE BOX ===== */
+    .example-box {
+      background: #e8f5e9;
+      border: 1.5px solid #a5d6a7;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+    .example-box .example-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #2e7d32;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .example-box p { font-size: 14px; color: #1b5e20; margin: 0; }
+
+    /* ===== RULE BOX ===== */
+    .rule-box {
+      background: #fce4ec;
+      border: 1.5px solid #f48fb1;
+      border-radius: 12px;
+      padding: 18px 24px;
+      margin: 16px 0;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .rule-box .rule-icon { font-size: 22px; flex-shrink: 0; }
+    .rule-box p { font-size: 13.5px; color: #880e4f; margin: 0; line-height: 1.7; }
+
+    /* ===== MARKET PLAYERS ===== */
+    .players-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .player-card {
+      flex: 1;
+      background: #f5f7fb;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .player-card .p-icon { font-size: 28px; margin-bottom: 8px; }
+    .player-card h4 { font-size: 13px; font-weight: 700; color: #0f3460; margin-bottom: 4px; }
+    .player-card p { font-size: 12px; color: #666; margin: 0; line-height: 1.5; }
+
+    /* ===== QUIZ ===== */
+    .quiz-section {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      border-radius: 16px;
+      padding: 30px 32px;
+      margin-top: 8px;
+    }
+    .quiz-section h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin-bottom: 6px;
+    }
+    .quiz-section .quiz-subtitle {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 24px;
+    }
+    .quiz-question {
+      background: rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+    .quiz-question .q-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: #ffc107;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .quiz-question p { font-size: 14px; color: #e2e8f0; margin: 0; line-height: 1.6; }
+    .quiz-answer-space {
+      border-bottom: 1.5px dashed rgba(255,255,255,0.2);
+      margin-top: 12px;
+      padding-bottom: 16px;
+    }
+
+    /* ===== HOMEWORK ===== */
+    .homework {
+      background: #fff3e0;
+      border: 1.5px solid #ffcc02;
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin-top: 28px;
+    }
+    .homework .hw-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .homework .hw-header .hw-icon { font-size: 22px; }
+    .homework .hw-header h3 { font-size: 16px; font-weight: 700; color: #e65100; }
+    .homework ol {
+      padding-right: 20px;
+    }
+    .homework ol li {
+      font-size: 14px;
+      color: #5d4037;
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #0f3460;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 18px;
+      font-size: 12px;
+    }
+    .footer span { color: #e53935; }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to left, transparent, #e8edf5, transparent);
+      margin: 6px 0 28px;
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; margin: 0; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="course-tag">קורס מסחר מקצועי · שיעור 1 מתוך 6</div>
+    <h1>מבוא לשוק ההון</h1>
+    <p class="subtitle">הבסיס שכל סוחר מקצועי חייב להכיר — לפני שמסחרים, מבינים</p>
+    <div class="header-meta">
+      <div class="meta-item"><span class="icon">⏱</span> 60 דקות</div>
+      <div class="meta-item"><span class="icon">📊</span> רמה: מתחיל</div>
+      <div class="meta-item"><span class="icon">📋</span> כולל תרגיל</div>
+    </div>
+  </div>
+
+  <!-- OBJECTIVES -->
+  <div class="objectives">
+    <h3>🎯 מטרות השיעור</h3>
+    <ul>
+      <li>להבין מהו שוק ההון ואיך הוא עובד</li>
+      <li>להכיר את המינוח הבסיסי של המסחר</li>
+      <li>לדעת מה זה מניה ולמה חברות מנפיקות אותה</li>
+      <li>להכיר את השחקנים המרכזיים בשוק</li>
+      <li>להבין את ההבדל בין שוק שורי לדובי</li>
+      <li>להיות מוכן לשיעור 2 — ניתוח טכני</li>
+    </ul>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- SECTION 1 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div class="section-title">מה זה שוק ההון?</div>
+      </div>
+
+      <p>שוק ההון הוא המקום שבו חברות, ממשלות ומשקיעים מגייסים ומשקיעים כסף. בניגוד לשוק המוצרים שבו קונים ומוכרים מוצרים פיזיים — בשוק ההון קונים ומוכרים <strong>נכסים פיננסיים</strong> כמו מניות, אגרות חוב ותעודות סל.</p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🏦</div>
+          <h4>שוק ראשוני (Primary Market)</h4>
+          <p>המקום שבו חברות מנפיקות מניות לראשונה — כמו IPO. הכסף עובר ישירות לחברה.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔄</div>
+          <h4>שוק משני (Secondary Market)</h4>
+          <p>המסחר היומיומי בבורסה — קנייה ומכירה בין משקיעים. הכסף עובר בין הצדדים.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h4>שוק המניות (Stock Market)</h4>
+          <p>החלק של שוק ההון שבו נסחרות מניות של חברות ציבוריות.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📜</div>
+          <h4>שוק האג"ח (Bond Market)</h4>
+          <p>שוק ההלוואות — חברות וממשלות לווים כסף ומבטיחים להחזיר עם ריבית.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div class="section-title">מה זה מניה?</div>
+      </div>
+
+      <p>מניה היא <strong>חלק בעלות בחברה</strong>. כשאתה קונה מניה של Apple, אתה הופך לבעלים של חלק קטן מ-Apple. אם החברה מרוויחה — ערך המניה עולה. אם היא מפסידה — ערך המניה יורד.</p>
+
+      <div class="example-box">
+        <div class="example-label">📌 דוגמה</div>
+        <p>חברת XYZ שווה 1,000,000 ₪ ויש לה 100,000 מניות. מחיר כל מניה = 10 ₪.<br>
+        קנית 1,000 מניות = השקעת 10,000 ₪ = בעלות על 1% מהחברה.<br>
+        אם שווי החברה עלה ל-1,500,000 ₪ — המניה שלך שווה עכשיו 15 ₪. רווח של 5,000 ₪ (50%).</p>
+      </div>
+
+      <p>חברות מנפיקות מניות כדי <strong>לגייס הון</strong> לצמיחה, מחקר ופיתוח — במקום ללוות מהבנק. המשקיע מקבל בתמורה שותפות ברווחים העתידיים.</p>
+
+      <div class="highlight-box">
+        <h4>💡 האם מניות תמיד עולות?</h4>
+        <p>לא. מניות עולות ויורדות בהתאם לביצועי החברה, הכלכלה, הריבית, חדשות, ומה שמשקיעים <em>מאמינים</em> שיקרה בעתיד. זו בדיוק הסיבה שחובה ללמוד ניהול סיכונים לפני שמתחילים לסחור.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">מה זה בורסה וסוגי מדדים</div>
+      </div>
+
+      <p>הבורסה היא שוק מסודר שבו קונים ומוכרים מניות. היא מווסתת על ידי גופי פיקוח (כמו ה-SEC בארה"ב) כדי להגן על המשקיעים.</p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🇺🇸</div>
+          <h4>NYSE</h4>
+          <p>הבורסה הגדולה בעולם — נוי יורק. מכילה חברות כמו Coca-Cola, ExxonMobil.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💻</div>
+          <h4>NASDAQ</h4>
+          <p>בורסת הטכנולוגיה. Apple, Google, Microsoft, Meta — כולן כאן.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🇮🇱</div>
+          <h4>תל אביב (TASE)</h4>
+          <p>הבורסה הישראלית. מדד ת"א 35 כולל 35 החברות הגדולות בישראל.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h4>S&P 500</h4>
+          <p>מדד 500 החברות הגדולות בארה"ב — הברומטר הכי חשוב לבריאות הכלכלה האמריקאית.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">השחקנים בשוק</div>
+      </div>
+
+      <div class="players-row">
+        <div class="player-card">
+          <div class="p-icon">👤</div>
+          <h4>Retail Traders</h4>
+          <p>משקיעים קטנים כמוך — פועלים דרך ברוקר מהבית</p>
+        </div>
+        <div class="player-card">
+          <div class="p-icon">🏛</div>
+          <h4>Institutional Investors</h4>
+          <p>קרנות פנסיה, גידור וביטוח — מהלכים מאות מיליונים</p>
+        </div>
+        <div class="player-card">
+          <div class="p-icon">🤖</div>
+          <h4>Market Makers</h4>
+          <p>מספקים נזילות — תמיד מוכנים לקנות ולמכור</p>
+        </div>
+        <div class="player-card">
+          <div class="p-icon">🏦</div>
+          <h4>ברוקרים</h4>
+          <p>מתווכים בין הקונה למוכר — Interactive Brokers, eToro וכו'</p>
+        </div>
+      </div>
+
+      <div class="rule-box" style="margin-top: 20px;">
+        <div class="rule-icon">⚠️</div>
+        <p><strong>חשוב לדעת:</strong> הגופים המוסדיים (Institutions) שולטים בנפח עצום של המסחר. כסוחרים קטנים, אנחנו צריכים <em>לזהות לאן הכסף הגדול זורם</em> — ולסחור בכיוון שלו, לא נגדו.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">מינוח בסיסי שחייבים להכיר</div>
+      </div>
+
+      <table class="terms-table">
+        <thead>
+          <tr>
+            <th>מושג</th>
+            <th>באנגלית</th>
+            <th>הסבר</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>שוק שורי</td>
+            <td>Bull Market</td>
+            <td>שוק עולה — מחירים עולים 20%+ מהשפל</td>
+          </tr>
+          <tr>
+            <td>שוק דובי</td>
+            <td>Bear Market</td>
+            <td>שוק יורד — מחירים ירדו 20%+ מהשיא</td>
+          </tr>
+          <tr>
+            <td>נפח מסחר</td>
+            <td>Volume</td>
+            <td>כמות המניות שנסחרו בפרק זמן מסוים</td>
+          </tr>
+          <tr>
+            <td>שווי שוק</td>
+            <td>Market Cap</td>
+            <td>מחיר מניה × מספר מניות = שווי כולל של החברה</td>
+          </tr>
+          <tr>
+            <td>פער מחירים</td>
+            <td>Spread</td>
+            <td>ההפרש בין מחיר הקנייה (Ask) למחיר המכירה (Bid)</td>
+          </tr>
+          <tr>
+            <td>נזילות</td>
+            <td>Liquidity</td>
+            <td>קלות הקנייה/מכירה של נכס ללא פגיעה במחיר</td>
+          </tr>
+          <tr>
+            <td>תנודתיות</td>
+            <td>Volatility</td>
+            <td>עוצמת תנועות המחיר — גבוהה = סיכון + הזדמנות</td>
+          </tr>
+          <tr>
+            <td>ניסחר בפער</td>
+            <td>Gap</td>
+            <td>פתיחה במחיר שונה מסגירת יום קודם — אירוע מסחרי חשוב</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6 — QUIZ -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div class="section-title">בדיקת הבנה — שאלות לחשיבה</div>
+      </div>
+
+      <div class="quiz-section">
+        <h3>🧠 שאלות חשיבה</h3>
+        <p class="quiz-subtitle">ענה על השאלות הבאות בכתב — השאלות האלו ילוו אותנו לאורך כל הקורס</p>
+
+        <div class="quiz-question">
+          <div class="q-number">שאלה 1</div>
+          <p>חברה מנפיקה IPO במחיר של 50$ למניה. שבוע לאחר מכן המניה עומדת על 42$. מה לדעתך יכול להסביר את הירידה? האם זה אומר שהחברה גרועה?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+
+        <div class="quiz-question">
+          <div class="q-number">שאלה 2</div>
+          <p>מה ההבדל בין להיות בעל מניה ב-Apple לבין לקנות מוצר של Apple? איזו מהן עדיפה מבחינת בניית עושר לאורך זמן?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+
+        <div class="quiz-question">
+          <div class="q-number">שאלה 3</div>
+          <p>אם נפח המסחר (Volume) של מניה מסוימת עולה פי 5 מהממוצע ביום מסוים, מה זה יכול לאותת לך כסוחר? למה זה חשוב?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOMEWORK -->
+    <div class="homework">
+      <div class="hw-header">
+        <div class="hw-icon">📝</div>
+        <h3>מטלה לשיעור הבא</h3>
+      </div>
+      <ol>
+        <li>היכנס לאתר <strong>finance.yahoo.com</strong> וחפש 3 חברות שאתה מכיר (למשל Apple, Tesla, Microsoft). רשום את שווי השוק (Market Cap) ונפח המסחר (Volume) של כל אחת.</li>
+        <li>עקוב אחרי מדד S&P 500 במשך שבוע — בדוק בכל יום האם עלה או ירד ורשום את הסיבה שדיווחו עליה בחדשות.</li>
+        <li>בחר מניה אחת שמעניינת אותך ורשום <strong>למה</strong> אתה חושב שהיא מעניינת לסחור בה.</li>
+      </ol>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    קורס מסחר מקצועי · שיעור 1 מתוך 6 &nbsp;|&nbsp; כל הזכויות שמורות <span>©</span> 2025
+    &nbsp;|&nbsp; לחץ Ctrl+P להדפסה כ-PDF
+  </div>
+
+</div>
+</body>
+</html>

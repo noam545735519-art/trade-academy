@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- saved from url=(0113)file:///C:/Users/noam5/Downloads/%D7%91%D7%95%D7%A0%D7%95%D7%A1_2_%D7%90%D7%95%D7%A4%D7%A6%D7%99%D7%95%D7%AA.html -->
+<html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>בונוס 2 – מבוא לאופציות</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Heebo',Arial,sans-serif; background:#f0f4f8; color:#1a1a2e; direction:rtl; }
+  .page { max-width:860px; margin:30px auto; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.12); }
+
+  .header { background:linear-gradient(135deg,#4a148c 0%,#6a1b9a 50%,#7b1fa2 100%); color:white; padding:44px 48px 36px; position:relative; overflow:hidden; }
+  .header::before { content:''; position:absolute; top:-60px; left:-60px; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,0.06); }
+  .header::after { content:''; position:absolute; bottom:-80px; right:-40px; width:280px; height:280px; border-radius:50%; background:rgba(0,0,0,0.08); }
+  .course-tag { display:inline-block; background:rgba(255,255,255,0.2); color:white; font-size:11px; font-weight:700; letter-spacing:1.5px; padding:4px 14px; border-radius:20px; margin-bottom:16px; border:1px solid rgba(255,255,255,0.3); }
+  .header h1 { font-size:34px; font-weight:800; line-height:1.2; margin-bottom:10px; position:relative; z-index:1; }
+  .header .subtitle { font-size:15px; color:rgba(255,255,255,0.75); font-weight:300; position:relative; z-index:1; }
+  .header-meta { display:flex; gap:24px; margin-top:24px; position:relative; z-index:1; }
+  .meta-item { font-size:13px; color:rgba(255,255,255,0.85); font-weight:500; }
+
+  .objectives { background:#f3e5f5; border-right:5px solid #8e24aa; margin:36px 48px 0; padding:20px 24px; border-radius:0 10px 10px 0; }
+  .objectives h3 { font-size:12px; font-weight:800; color:#4a148c; margin-bottom:12px; letter-spacing:1.5px; text-transform:uppercase; }
+  .objectives ul { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .objectives ul li { font-size:13.5px; color:#4a148c; display:flex; align-items:flex-start; gap:8px; }
+  .objectives ul li::before { content:'✓'; color:#8e24aa; font-weight:800; flex-shrink:0; }
+
+  .content { padding:36px 48px; }
+  .section { margin-bottom:44px; }
+  .section-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .section-number { background:linear-gradient(135deg,#4a148c,#7b1fa2); color:white; font-size:13px; font-weight:800; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .section-title { font-size:20px; font-weight:700; color:#4a148c; }
+  p { font-size:14.5px; line-height:1.85; color:#333; margin-bottom:12px; }
+  .divider { height:1px; background:linear-gradient(to left,transparent,#e8edf5,transparent); margin:6px 0 30px; }
+
+  .options-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:20px 0; }
+  .option-card { border-radius:16px; padding:24px 22px; text-align:center; }
+  .option-card.call { background:linear-gradient(135deg,#e8f5e9,#f1f8e9); border:2px solid #43a047; }
+  .option-card.put { background:linear-gradient(135deg,#ffebee,#fff3f3); border:2px solid #e53935; }
+  .option-card .o-icon { font-size:40px; margin-bottom:12px; }
+  .option-card h3 { font-size:22px; font-weight:800; margin-bottom:6px; }
+  .option-card.call h3 { color:#1b5e20; }
+  .option-card.put h3 { color:#b71c1c; }
+  .option-card .o-sub { font-size:13px; font-weight:700; margin-bottom:14px; }
+  .option-card.call .o-sub { color:#2e7d32; }
+  .option-card.put .o-sub { color:#c62828; }
+  .option-card p { font-size:13px; color:#444; line-height:1.65; margin:0; text-align:right; }
+
+  .terms-table { width:100%; border-collapse:collapse; font-size:13.5px; margin-top:16px; border-radius:12px; overflow:hidden; }
+  .terms-table thead tr { background:#4a148c; color:white; }
+  .terms-table thead th { padding:12px 16px; text-align:right; font-weight:600; }
+  .terms-table tbody tr:nth-child(even) { background:#f3e5f5; }
+  .terms-table tbody tr:nth-child(odd) { background:#fff; }
+  .terms-table tbody td { padding:11px 16px; border-bottom:1px solid #e1bee7; color:#333; }
+  .terms-table tbody td:first-child { font-weight:700; color:#4a148c; }
+
+  .highlight-box { background:linear-gradient(135deg,#4a148c,#6a1b9a); color:white; border-radius:14px; padding:22px 26px; margin:18px 0; }
+  .highlight-box h4 { font-size:13px; font-weight:700; color:#ce93d8; margin-bottom:10px; }
+  .highlight-box p { color:rgba(255,255,255,0.9); font-size:14px; margin:0; }
+
+  .warning-box { background:#fff3e0; border:1.5px solid #ffb74d; border-radius:12px; padding:18px 24px; margin:14px 0; display:flex; gap:14px; align-items:flex-start; }
+  .warning-box .w-icon { font-size:22px; flex-shrink:0; }
+  .warning-box p { font-size:13.5px; color:#e65100; margin:0; line-height:1.7; }
+
+  .example-box { background:#f3e5f5; border:1.5px solid #ce93d8; border-radius:12px; padding:20px 24px; margin:14px 0; }
+  .example-box .example-label { font-size:11px; font-weight:800; color:#4a148c; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px; }
+  .example-box p { font-size:14px; color:#4a148c; margin:0; line-height:1.75; }
+
+  .strategies-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin:16px 0; }
+  .strategy-card { background:#f3e5f5; border:1.5px solid #ce93d8; border-radius:12px; padding:16px; text-align:center; }
+  .strategy-card h4 { font-size:14px; font-weight:700; color:#4a148c; margin-bottom:6px; }
+  .strategy-card p { font-size:12px; color:#555; margin:0; line-height:1.5; }
+  .strategy-card .s-icon { font-size:22px; margin-bottom:8px; }
+
+  .checklist { list-style:none; margin:12px 0; }
+  .checklist li { display:flex; align-items:flex-start; gap:10px; font-size:14px; color:#333; padding:9px 0; border-bottom:1px solid #e1bee7; }
+  .checklist li:last-child { border-bottom:none; }
+  .check-icon { font-size:16px; flex-shrink:0; margin-top:2px; }
+
+  .quiz-section { background:linear-gradient(135deg,#1a1a2e,#16213e); border-radius:16px; padding:28px 30px; }
+  .quiz-section h3 { font-size:18px; font-weight:700; color:#e2e8f0; margin-bottom:4px; }
+  .quiz-section .quiz-subtitle { font-size:13px; color:#94a3b8; margin-bottom:22px; }
+  .quiz-question { background:rgba(255,255,255,0.07); border-radius:10px; padding:18px 20px; margin-bottom:12px; }
+  .quiz-question .q-number { font-size:11px; font-weight:700; color:#ce93d8; letter-spacing:1px; margin-bottom:8px; }
+  .quiz-question p { font-size:14px; color:#e2e8f0; margin:0; line-height:1.6; }
+  .quiz-answer-space { border-bottom:1.5px dashed rgba(255,255,255,0.18); margin-top:12px; padding-bottom:18px; }
+
+  .homework { background:linear-gradient(135deg,#f3e5f5,#fce4ec); border-top:4px solid #8e24aa; padding:28px 48px; }
+  .homework .hw-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .homework .hw-icon { font-size:28px; }
+  .homework h3 { font-size:17px; font-weight:700; color:#4a148c; }
+  .homework ol { padding-right:20px; }
+  .homework ol li { font-size:14px; color:#6a1b9a; line-height:1.8; margin-bottom:10px; }
+  .homework ol li strong { color:#4a148c; }
+
+  .footer { background:#1a1a2e; color:#94a3b8; text-align:center; padding:18px 48px; font-size:12.5px; }
+  .footer span { color:#ce93d8; }
+
+  @media(max-width:600px){
+    .header,.content,.homework{padding-left:24px;padding-right:24px;}
+    .objectives,.options-grid,.strategies-grid{margin-left:24px;margin-right:24px;grid-template-columns:1fr;}
+    .objectives{margin-left:24px;margin-right:24px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="course-tag">קורס מסחר מקצועי · פרק בונוס 2</div>
+    <h1>📊 מבוא לאופציות</h1>
+    <div class="subtitle">מה זה Call ו-Put, מינוף, פרמיה — ולמה אופציות הן גם הזדמנות וגם סיכון</div>
+    <div class="header-meta">
+      <div class="meta-item">⏱ זמן קריאה: ~35 דקות</div>
+      <div class="meta-item">⚠️ נושא מתקדם</div>
+      <div class="meta-item">🔗 קשור לשיעורים 3, 4</div>
+    </div>
+  </div>
+
+  <div class="objectives">
+    <h3>🎯 מה תלמד בפרק זה</h3>
+    <ul>
+      <li>מה זה אופציה — Call ו-Put</li>
+      <li>מושגי יסוד: Strike, Expiry, Premium</li>
+      <li>כיצד עובד המינוף באופציות</li>
+      <li>3 אסטרטגיות בסיסיות למתחיל</li>
+      <li>ההבדל בין קנייה למכירת אופציה</li>
+      <li>מדוע רוב מתחילים מפסידים באופציות</li>
+    </ul>
+  </div>
+
+  <div class="content">
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div class="section-title">מה זה אופציה?</div>
+      </div>
+      <p>אופציה היא <strong>חוזה</strong> שנותן לך <strong>הזכות</strong> (לא החובה) לקנות או למכור נכס במחיר קבוע מראש, עד תאריך מסוים. בניגוד למניה — קונה האופציה לא חייב לבצע את העסקה. הוא <strong>יכול</strong>.</p>
+      <div class="options-grid">
+        <div class="option-card call">
+          <div class="o-icon">📈</div>
+          <h3>CALL</h3>
+          <div class="o-sub">אופציית קנייה</div>
+          <p>נותנת לך את הזכות <strong>לקנות</strong> את המניה במחיר קבוע. תרוויח כשהמניה <strong>עולה</strong>. קונים כשצופים עלייה.</p>
+        </div>
+        <div class="option-card put">
+          <div class="o-icon">📉</div>
+          <h3>PUT</h3>
+          <div class="o-sub">אופציית מכירה</div>
+          <p>נותנת לך את הזכות <strong>למכור</strong> את המניה במחיר קבוע. תרוויח כשהמניה <strong>יורדת</strong>. קונים כשצופים ירידה.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div class="section-title">מושגי יסוד — המילון של האופציות</div>
+      </div>
+      <table class="terms-table">
+        <thead><tr><th>מונח</th><th>הסבר</th><th>דוגמה</th></tr></thead>
+        <tbody>
+          <tr><td>Strike Price</td><td>מחיר המימוש — המחיר שבו תוכל לקנות/למכור</td><td>Apple Strike $200</td></tr>
+          <tr><td>Expiration Date</td><td>תאריך פקיעת האופציה — מתי היא פוקעת</td><td>31 בינואר 2026</td></tr>
+          <tr><td>Premium</td><td>המחיר שמשלמים על האופציה עצמה</td><td>$5 לאופציה</td></tr>
+          <tr><td>ITM</td><td>In The Money — האופציה כבר "שווה" למימוש</td><td>Call $200, מניה ב-$210</td></tr>
+          <tr><td>OTM</td><td>Out of The Money — האופציה עדיין לא שווה למימוש</td><td>Call $200, מניה ב-$190</td></tr>
+          <tr><td>ATM</td><td>At The Money — מחיר המניה = Strike Price</td><td>Call $200, מניה ב-$200</td></tr>
+          <tr><td>Delta</td><td>כמה זזה האופציה על כל $1 שהמניה זזה</td><td>Delta 0.5 = +$0.50 לכל $1</td></tr>
+          <tr><td>Theta</td><td>שחיקת זמן — האופציה מאבדת ערך כל יום</td><td>-$0.05 ליום</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">המינוף — הכוח והסיכון</div>
+      </div>
+      <p>המינוף הוא הסיבה שאנשים נמשכים לאופציות — וגם הסיבה שרובם מפסידים. אופציה עולה הרבה פחות ממניה, אבל מספקת חשיפה מלאה.</p>
+      <div class="example-box">
+        <div class="example-label">🔍 דוגמה — מינוף אופציות</div>
+        <p><strong>מניה:</strong> Apple עולה מ-$200 ל-$220 (+10%). משקיע שקנה 1 מניה ב-$200 הרוויח $20.<br><br>
+        <strong>אופציה:</strong> Call $200 על Apple עלתה מ-$5 ל-$22 (+340%). משקיע שקנה אופציה ב-$500 הרוויח $1,700.<br><br>
+        <strong>אבל:</strong> אם Apple <strong>לא זזה</strong> עד לפקיעה — הפרמיה נשרפת לחלוטין. -100%.</p>
+      </div>
+      <div class="highlight-box">
+        <h4>⚖️ הנוסחה של האופציה</h4>
+        <p>רווח = (מחיר מניה בפקיעה − Strike Price − Premium) × 100<br>
+        הפסד מקסימלי לקונה = הפרמיה ששילם בלבד. לא יותר.<br>
+        הפסד למוכר אופציה = <strong>בלתי מוגבל</strong> — לכן מכירת אופציות לא מתאימה למתחילים.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">3 אסטרטגיות בסיסיות למתחיל</div>
+      </div>
+      <div class="strategies-grid">
+        <div class="strategy-card">
+          <div class="s-icon">📈</div>
+          <h4>Buy Call</h4>
+          <p>צופה שהמניה תעלה. קונה אופציית Call. מסתכן רק בפרמיה ששילם.</p>
+        </div>
+        <div class="strategy-card">
+          <div class="s-icon">📉</div>
+          <h4>Buy Put</h4>
+          <p>צופה שהמניה תרד. קונה אופציית Put. גם כאן — מסתכן רק בפרמיה.</p>
+        </div>
+        <div class="strategy-card">
+          <div class="s-icon">🛡️</div>
+          <h4>Protective Put</h4>
+          <p>מחזיק מניה וקונה Put כביטוח. אם המניה יורדת — ה-Put מגן על ההפסד.</p>
+        </div>
+      </div>
+      <div class="warning-box" style="margin-top:16px;">
+        <div class="w-icon">⚠️</div>
+        <p><strong>Theta — שחיקת הזמן:</strong> כל יום שעובר, האופציה מאבדת ערך — גם אם המניה לא זזה. ככל שהפקיעה קרובה יותר — השחיקה מהירה יותר. זה אויב מספר אחד של קוני האופציות.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">למה רוב המתחילים מפסידים באופציות</div>
+      </div>
+      <ul class="checklist">
+        <li><span class="check-icon">❌</span><div><strong>קונים אופציות OTM זולות מדי</strong> — הן זולות כי הסיכוי שישתלמו קטן. לא "עסקה טובה".</div></li>
+        <li><span class="check-icon">❌</span><div><strong>לא מבינים Theta</strong> — קנו אופציה נכונה, אבל פקיעה קרובה מדי. השחיקה אכלה את הרווח.</div></li>
+        <li><span class="check-icon">❌</span><div><strong>מינוף מוגזם</strong> — שמים 100% מהכסף באופציות במקום 5–10% בלבד.</div></li>
+        <li><span class="check-icon">❌</span><div><strong>מוכרים אופציות (writing) בלי להבין</strong> — הפסד בלתי מוגבל. רק למנוסים.</div></li>
+        <li><span class="check-icon">❌</span><div><strong>מחזיקים עד לפקיעה</strong> — לפעמים עדיף לממש ולקחת רווח קטן לפני שהשוק מתהפך.</div></li>
+      </ul>
+      <div class="highlight-box">
+        <h4>🎯 הכלל הגדול</h4>
+        <p>לעולם אל תשים יותר מ-<strong>5% מהחשבון</strong> באופציות. הן יכולות להגיע ל-0 תוך יום אחד. זו לא מניה — זו שריפה מהירה אם לא מנוהלת נכון.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div class="section-title">בדיקת הבנה</div>
+      </div>
+      <div class="quiz-section">
+        <h3>🧠 שאלות לחשיבה</h3>
+        <p class="quiz-subtitle">ענה לפני שתמשיך לפרק הבא</p>
+        <div class="quiz-question">
+          <div class="q-number">שאלה 1 — Call or Put?</div>
+          <p>אתה מאמין שמניית Tesla תרד ב-20% בחודש הקרוב. איזו אופציה תקנה ולמה? מה ה-Strike שתבחר ביחס למחיר הנוכחי?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+        <div class="quiz-question">
+          <div class="q-number">שאלה 2 — Theta</div>
+          <p>קנית אופציית Call שפוקעת בעוד 3 ימים. המניה לא זזה. מה יקרה לשווי האופציה שלך? למה?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+        <div class="quiz-question">
+          <div class="q-number">שאלה 3 — ניהול סיכון</div>
+          <p>יש לך חשבון של 50,000₪. לפי מה שלמדת — מה הסכום המקסימלי שתשקיע באופציות? ואיך תחלק אותו?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="homework">
+    <div class="hw-header"><div class="hw-icon">📝</div><h3>מטלה — לימוד אופציות בלי לסכן כסף</h3></div>
+    <ol>
+      <li>היכנס ל-<strong>Thinkorswim Paper Trading</strong> (חשבון ניסיון חינמי של TD Ameritrade). בנה <strong>3 עסקאות אופציות דמה</strong> — Call אחד, Put אחד, ו-Protective Put.</li>
+      <li>עקוב אחרי האופציות שלך <strong>שבוע שלם</strong>. רשום: האם ה-Premium עלה? ירד? מה גרם לשינוי?</li>
+      <li>חפש ב-YouTube: <strong>"Options Trading for Beginners"</strong> של Investopedia. צפה בסרטון הראשון וכתוב 3 דברים שלמדת שלא היו בפרק הזה.</li>
+    </ol>
+  </div>
+
+  <div class="footer">קורס מסחר מקצועי · פרק בונוס 2 — מבוא לאופציות &nbsp;|&nbsp; <span>הבא: בניית תיק מאוזן</span> &nbsp;|&nbsp; Ctrl+P להדפסה כ-PDF</div>
+</div>
+
+
+</body></html>

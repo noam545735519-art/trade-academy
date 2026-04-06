@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 5 – פסיכולוגיה של מסחר</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Heebo', Arial, sans-serif; background: #f0f4f8; color: #1a1a2e; direction: rtl; }
+
+    .page { max-width: 860px; margin: 30px auto; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12); }
+
+    /* HEADER */
+    .header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); color: white; padding: 44px 48px 36px; position: relative; overflow: hidden; }
+    .header::before { content:''; position:absolute; top:-60px; left:-60px; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,0.06); }
+    .header::after { content:''; position:absolute; bottom:-80px; right:-40px; width:280px; height:280px; border-radius:50%; background:rgba(0,0,0,0.08); }
+    .course-tag { display:inline-block; background:rgba(255,255,255,0.2); color:white; font-size:11px; font-weight:700; letter-spacing:1.5px; padding:4px 14px; border-radius:20px; margin-bottom:16px; border:1px solid rgba(255,255,255,0.3); }
+    .header h1 { font-size:34px; font-weight:800; line-height:1.2; margin-bottom:10px; position:relative; z-index:1; }
+    .header .subtitle { font-size:15px; color:rgba(255,255,255,0.75); font-weight:300; position:relative; z-index:1; }
+    .header-meta { display:flex; gap:24px; margin-top:24px; position:relative; z-index:1; }
+    .meta-item { font-size:13px; color:rgba(255,255,255,0.85); font-weight:500; }
+
+    /* RECAP */
+    .recap { background:#e3f2fd; border-right:5px solid #1976d2; margin:36px 48px 0; padding:18px 24px; border-radius:0 10px 10px 0; }
+    .recap h3 { font-size:12px; font-weight:800; color:#0d47a1; margin-bottom:10px; letter-spacing:1.5px; text-transform:uppercase; }
+    .recap-row { display:flex; gap:10px; flex-wrap:wrap; }
+    .recap-chip { background:#bbdefb; color:#0d47a1; font-size:12.5px; font-weight:600; padding:4px 12px; border-radius:20px; }
+
+    /* OBJECTIVES */
+    .objectives { background:#fff8e1; border-right:5px solid #ffc107; margin:16px 48px 0; padding:20px 24px; border-radius:0 10px 10px 0; }
+    .objectives h3 { font-size:12px; font-weight:800; color:#e65100; margin-bottom:12px; letter-spacing:1.5px; text-transform:uppercase; }
+    .objectives ul { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .objectives ul li { font-size:13.5px; color:#5d4037; display:flex; align-items:flex-start; gap:8px; }
+    .objectives ul li::before { content:'✓'; color:#ffc107; font-weight:800; flex-shrink:0; }
+
+    /* CONTENT */
+    .content { padding:36px 48px; }
+    .section { margin-bottom:44px; }
+    .section-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+    .section-number { background:linear-gradient(135deg,#0d47a1,#1976d2); color:white; font-size:13px; font-weight:800; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .section-title { font-size:20px; font-weight:700; color:#0d47a1; }
+    p { font-size:14.5px; line-height:1.85; color:#333; margin-bottom:12px; }
+    .divider { height:1px; background:linear-gradient(to left,transparent,#e8edf5,transparent); margin:6px 0 30px; }
+
+    /* BIG STAT */
+    .stats-row { display:flex; gap:16px; margin:20px 0; }
+    .stat-card { flex:1; background:linear-gradient(135deg,#0d47a1,#0d47a1cc); border-radius:14px; padding:20px; text-align:center; color:white; }
+    .stat-num { font-size:42px; font-weight:800; line-height:1; margin-bottom:6px; }
+    .stat-label { font-size:12.5px; color:rgba(255,255,255,0.8); font-weight:500; line-height:1.4; }
+
+    /* EMOTION CARDS */
+    .emotion-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px; }
+    .emotion-card { border-radius:14px; padding:20px; }
+    .emotion-card.fear { background:#ffebee; border:1.5px solid #ef9a9a; }
+    .emotion-card.greed { background:#fff3e0; border:1.5px solid #ffcc02; }
+    .emotion-card.hope { background:#e8f5e9; border:1.5px solid #a5d6a7; }
+    .emotion-card.ego { background:#f3e5f5; border:1.5px solid #ce93d8; }
+    .emotion-card .e-icon { font-size:26px; margin-bottom:10px; }
+    .emotion-card h4 { font-size:15px; font-weight:700; margin-bottom:6px; }
+    .emotion-card.fear h4 { color:#b71c1c; }
+    .emotion-card.greed h4 { color:#e65100; }
+    .emotion-card.hope h4 { color:#1b5e20; }
+    .emotion-card.ego h4 { color:#4a148c; }
+    .emotion-card p { font-size:13px; line-height:1.7; margin:0; color:#444; }
+    .emotion-card .symptom { font-size:12px; font-weight:700; margin-top:8px; padding:6px 10px; border-radius:8px; }
+    .emotion-card.fear .symptom { background:#ffcdd2; color:#b71c1c; }
+    .emotion-card.greed .symptom { background:#ffe0b2; color:#e65100; }
+    .emotion-card.hope .symptom { background:#c8e6c9; color:#1b5e20; }
+    .emotion-card.ego .symptom { background:#e1bee7; color:#4a148c; }
+
+    /* HIGHLIGHT */
+    .highlight-box { background:linear-gradient(135deg,#0d47a1,#283593); color:white; border-radius:14px; padding:22px 26px; margin:18px 0; }
+    .highlight-box h4 { font-size:13px; font-weight:700; color:#90caf9; margin-bottom:10px; }
+    .highlight-box p { color:rgba(255,255,255,0.9); font-size:14px; margin:0; }
+
+    /* EXAMPLE */
+    .example-box { background:#e3f2fd; border:1.5px solid #90caf9; border-radius:12px; padding:20px 24px; margin:14px 0; }
+    .example-box .example-label { font-size:11px; font-weight:800; color:#0d47a1; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px; }
+    .example-box p { font-size:14px; color:#0d47a1; margin:0; }
+
+    /* WARNING */
+    .warning-box { background:#fff3e0; border:1.5px solid #ffb74d; border-radius:12px; padding:18px 24px; margin:14px 0; display:flex; gap:14px; align-items:flex-start; }
+    .warning-box .w-icon { font-size:22px; flex-shrink:0; }
+    .warning-box p { font-size:13.5px; color:#e65100; margin:0; line-height:1.7; }
+
+    /* MINDSET PILLARS */
+    .pillars { display:flex; gap:12px; margin-top:16px; }
+    .pillar { flex:1; background:#f5f9ff; border:1.5px solid #bbdefb; border-radius:14px; padding:18px 14px; text-align:center; }
+    .pillar .p-icon { font-size:28px; margin-bottom:10px; }
+    .pillar h4 { font-size:13.5px; font-weight:700; color:#0d47a1; margin-bottom:6px; }
+    .pillar p { font-size:12px; color:#555; line-height:1.6; margin:0; }
+
+    /* JOURNAL TEMPLATE */
+    .journal-box { background:#f5f9ff; border:2px solid #1976d2; border-radius:16px; padding:24px 28px; margin:16px 0; }
+    .journal-box h3 { font-size:16px; font-weight:700; color:#0d47a1; margin-bottom:16px; }
+    .journal-row { display:flex; align-items:flex-start; gap:14px; padding:10px 0; border-bottom:1px solid #e3f2fd; }
+    .journal-row:last-child { border-bottom:none; }
+    .journal-row .j-label { font-size:13px; font-weight:700; color:#0d47a1; width:160px; flex-shrink:0; padding-top:2px; }
+    .journal-row .j-field { flex:1; background:white; border:1.5px solid #bbdefb; border-radius:8px; padding:8px 12px; font-size:13px; color:#888; min-height:34px; }
+
+    /* RULES TABLE */
+    .rules-table { width:100%; border-collapse:collapse; font-size:13.5px; margin-top:16px; border-radius:12px; overflow:hidden; }
+    .rules-table thead tr { background:#0d47a1; color:white; }
+    .rules-table thead th { padding:12px 16px; text-align:right; font-weight:600; }
+    .rules-table tbody tr:nth-child(even) { background:#e3f2fd; }
+    .rules-table tbody tr:nth-child(odd) { background:#fff; }
+    .rules-table tbody td { padding:11px 16px; border-bottom:1px solid #e3f2fd; color:#333; }
+    .rules-table tbody td:first-child { font-weight:700; color:#0d47a1; }
+    .good { color:#2e7d32; font-weight:700; }
+    .bad { color:#c62828; font-weight:700; }
+
+    /* CHECKLIST */
+    .checklist { list-style:none; margin:12px 0; }
+    .checklist li { display:flex; align-items:flex-start; gap:10px; font-size:14px; color:#333; padding:9px 0; border-bottom:1px solid #e3f2fd; }
+    .checklist li:last-child { border-bottom:none; }
+    .check-icon { font-size:16px; flex-shrink:0; margin-top:2px; }
+
+    /* ROUTINE */
+    .routine-timeline { margin:16px 0; }
+    .routine-item { display:flex; gap:16px; margin-bottom:12px; }
+    .routine-time { background:#0d47a1; color:white; font-size:12px; font-weight:700; padding:6px 14px; border-radius:20px; flex-shrink:0; height:fit-content; margin-top:2px; }
+    .routine-content h4 { font-size:14px; font-weight:700; color:#0d47a1; margin-bottom:3px; }
+    .routine-content p { font-size:13px; color:#555; margin:0; line-height:1.5; }
+
+    /* QUIZ */
+    .quiz-section { background:linear-gradient(135deg,#1a1a2e,#16213e); border-radius:16px; padding:28px 30px; }
+    .quiz-section h3 { font-size:18px; font-weight:700; color:#e2e8f0; margin-bottom:4px; }
+    .quiz-section .quiz-subtitle { font-size:13px; color:#94a3b8; margin-bottom:22px; }
+    .quiz-question { background:rgba(255,255,255,0.07); border-radius:10px; padding:18px 20px; margin-bottom:12px; }
+    .quiz-question .q-number { font-size:11px; font-weight:700; color:#90caf9; letter-spacing:1px; margin-bottom:8px; }
+    .quiz-question p { font-size:14px; color:#e2e8f0; margin:0; line-height:1.6; }
+    .quiz-answer-space { border-bottom:1.5px dashed rgba(255,255,255,0.18); margin-top:12px; padding-bottom:18px; }
+
+    /* SELF CHECK */
+    .self-check { background:#f5f9ff; border:1.5px solid #90caf9; border-radius:14px; padding:22px 26px; margin:20px 0; }
+    .self-check h3 { font-size:15px; font-weight:700; color:#0d47a1; margin-bottom:14px; }
+    .check-item { display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid #e3f2fd; }
+    .check-item:last-child { border-bottom:none; }
+    .check-box { width:20px; height:20px; border:2px solid #1976d2; border-radius:4px; flex-shrink:0; }
+    .check-item p { font-size:13.5px; color:#333; margin:0; }
+
+    /* HOMEWORK */
+    .homework { background:#fff3e0; border:1.5px solid #ffcc02; border-radius:14px; padding:22px 26px; margin-top:28px; }
+    .homework .hw-header { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+    .homework .hw-icon { font-size:22px; }
+    .homework .hw-header h3 { font-size:16px; font-weight:700; color:#e65100; }
+    .homework ol { padding-right:20px; }
+    .homework ol li { font-size:14px; color:#5d4037; margin-bottom:8px; line-height:1.7; }
+
+    /* FOOTER */
+    .footer { background:#0d47a1; color:rgba(255,255,255,0.6); text-align:center; padding:18px; font-size:12px; }
+    .footer span { color:#90caf9; }
+
+    @media print { body{background:white;} .page{box-shadow:none;margin:0;border-radius:0;} }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="course-tag">קורס מסחר מקצועי · שיעור 5 מתוך 6</div>
+    <h1>פסיכולוגיה של מסחר</h1>
+    <p class="subtitle">הידע הטכני חשוב — אבל המוח שלך הוא הנשק הכי חזק, ואויב הכי גדול</p>
+    <div class="header-meta">
+      <div class="meta-item">⏱ 70 דקות</div>
+      <div class="meta-item">🧠 רמה: קריטי לכולם</div>
+      <div class="meta-item">🪞 כולל רפלקציה אישית</div>
+    </div>
+  </div>
+
+  <!-- RECAP -->
+  <div class="recap">
+    <h3>🔁 חזרה מהשיעור הקודם</h3>
+    <div class="recap-row">
+      <span class="recap-chip">תוכנית עסקה 7 סעיפים</span>
+      <span class="recap-chip">Breakout / Bounce / Pullback</span>
+      <span class="recap-chip">Confluence</span>
+      <span class="recap-chip">Scaling Out</span>
+      <span class="recap-chip">FOMO</span>
+    </div>
+  </div>
+
+  <!-- OBJECTIVES -->
+  <div class="objectives">
+    <h3>🎯 מטרות השיעור</h3>
+    <ul>
+      <li>להבין למה 90% מהסוחרים מפסידים כסף</li>
+      <li>לזהות את 4 הרגשות שהורסים עסקאות</li>
+      <li>לבנות מיינדסט מנצח של סוחר מקצועי</li>
+      <li>ללמוד לנהל יומן מסחר (Trade Journal)</li>
+      <li>לבנות שגרת מסחר יומית מקצועית</li>
+      <li>לדעת מתי לעצור ולנוח</li>
+    </ul>
+  </div>
+
+  <div class="content">
+
+    <!-- SECTION 1 — 90% -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div class="section-title">למה 90% מהסוחרים מפסידים?</div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-num">90%</div>
+          <div class="stat-label">מהסוחרים המתחילים<br>מפסידים כסף</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">80%</div>
+          <div class="stat-label">מהכישלונות נובעים<br>מטעויות פסיכולוגיות</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">10%</div>
+          <div class="stat-label">בלבד מהצלחה<br>תלויה בניתוח טכני</div>
+        </div>
+      </div>
+
+      <p style="margin-top:18px;">הנתון הזה מפתיע כולם: הכישלון במסחר לא קשור לא לדעת ניתוח טכני מספיק. הוא קשור <strong>לא לדעת לשלוט בעצמך</strong>. הידע שלמדנו ב-4 שיעורים הקודמים — הוא מספיק כדי להרוויח. השאלה היא האם תתן לרגשות שלך לגנוב ממך את הכסף.</p>
+
+      <div class="highlight-box">
+        <h4>💡 מה מבדיל בין 10% המרוויחים ל-90% המפסידים?</h4>
+        <p>המרוויחים לא חכמים יותר. הם לא יודעים "סוד". הם פשוט <strong>עקביים</strong>. הם עושים את אותו דבר שוב ושוב, לפי התוכנית, בלי קשר לרגשות. זה הכל.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2 — EMOTIONS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div class="section-title">4 הרגשות שהורסים עסקאות</div>
+      </div>
+
+      <div class="emotion-grid">
+        <div class="emotion-card fear">
+          <div class="e-icon">😨</div>
+          <h4>פחד (Fear)</h4>
+          <p>פחד מהפסד גורם לצאת מוקדם מדי מעסקות מנצחות. פחד מפספוס (FOMO) גורם לכניסה ללא סטאפ.</p>
+          <div class="symptom">🔴 סימפטום: יציאה ב-+1% כשהיעד היה +5%</div>
+        </div>
+        <div class="emotion-card greed">
+          <div class="e-icon">🤑</div>
+          <h4>בצע (Greed)</h4>
+          <p>בצע גורם להחזיק עסקאות מעבר ליעד, להגדיל פוזיציות ללא הצדקה, ולא לצאת כשצריך.</p>
+          <div class="symptom">🟠 סימפטום: "עוד קצת... עוד קצת..." עד שמחזירים הכל</div>
+        </div>
+        <div class="emotion-card hope">
+          <div class="e-icon">🙏</div>
+          <h4>תקווה (Hope)</h4>
+          <p>הסוחר "מקווה" שמניה מפסידה תחזור. הוא מסרב להפסיד, מסרב להוציא Stop, ומפסיד יותר ויותר.</p>
+          <div class="symptom">🟢 סימפטום: "זה רק תיקון זמני, הוא יחזור"</div>
+        </div>
+        <div class="emotion-card ego">
+          <div class="e-icon">😤</div>
+          <h4>אגו (Ego)</h4>
+          <p>הסוחר לא יכול "להיות טועה". הוא לא יסגור עסקה מפסידה כי זה יכאיב לאגו. הוא "בטוח" שצודק.</p>
+          <div class="symptom">🟣 סימפטום: "אני צודק, השוק טועה"</div>
+        </div>
+      </div>
+
+      <div class="example-box" style="margin-top:18px;">
+        <div class="example-label">📌 מחזור ההפסד הרגשי הקלאסי</div>
+        <p>
+          <strong>1.</strong> כניסה על בסיס FOMO (פחד מפספוס) ←
+          <strong>2.</strong> המחיר יורד ←
+          <strong>3.</strong> "מקווה" שיחזור, לא מוציא Stop ←
+          <strong>4.</strong> הפסד גדול ←
+          <strong>5.</strong> Revenge Trade — כניסה כפולה "להחזיר" ←
+          <strong>6.</strong> הפסד כפול ←
+          <strong>7.</strong> יום מחרים שרף 3%+ מהקפיטל
+        </p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3 — MINDSET -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">מיינדסט של סוחר מקצועי</div>
+      </div>
+
+      <p>המיינדסט הנכון אינו "ללא רגשות" — זה בלתי אפשרי. הוא אומר <strong>לזהות את הרגשות ולא לפעול לפיהם</strong>. הרגש הוא מידע — לא פקודה.</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-icon">🎲</div>
+          <h4>הסתברות,<br>לא ודאות</h4>
+          <p>כל עסקה היא הסתברות. אין "ודאי". אפילו הסטאפ הכי טוב נכשל לפעמים.</p>
+        </div>
+        <div class="pillar">
+          <div class="p-icon">📏</div>
+          <h4>תהליך,<br>לא תוצאה</h4>
+          <p>הצלחה = ביצוע התוכנית. לא הרווח. עסקה שנוהלה נכון היא ניצחון, גם אם הפסידה.</p>
+        </div>
+        <div class="pillar">
+          <div class="p-icon">🔄</div>
+          <h4>עקביות,<br>לא גאונות</h4>
+          <p>50 עסקאות נכונות > 1 עסקה גאונית. העקביות היא ה-Edge שלך.</p>
+        </div>
+        <div class="pillar">
+          <div class="p-icon">🌱</div>
+          <h4>למידה,<br>לא שיפוט</h4>
+          <p>כל הפסד הוא שכר לימוד. הסוחר הטוב שואל "מה למדתי?" לא "איזה טמבל אני".</p>
+        </div>
+      </div>
+
+      <table class="rules-table" style="margin-top:20px;">
+        <thead>
+          <tr><th>מחשבה רגשית ❌</th><th>מחשבה מקצועית ✅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="bad">"הפסדתי, אני גרוע"</td><td class="good">"הפסדתי לפי תוכנית — זה בסדר סטטיסטית"</td></tr>
+          <tr><td class="bad">"אני חייב להחזיר עכשיו"</td><td class="good">"יש לי עוד הרבה הזדמנויות — אני שומר על הקפיטל"</td></tr>
+          <tr><td class="bad">"השוק עשה לי קש*"</td><td class="good">"הסטאפ שלי לא עבד הפעם — נבחן למה"</td></tr>
+          <tr><td class="bad">"הפעם אני בטוח, אכפיל"</td><td class="good">"הגודל פוזיציה נקבע לפי הכללים, לא לפי הביטחון"</td></tr>
+          <tr><td class="bad">"FOMO — אני חייב להיכנס"</td><td class="good">"אין סטאפ — אין עסקה. תמיד יהיה סטאפ אחר"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4 — TRADE JOURNAL -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">יומן מסחר (Trade Journal) — הכלי שמשנה הכל</div>
+      </div>
+
+      <p>יומן מסחר הוא <strong>המראה שלך</strong>. הוא מגלה לך דפוסים שאתה לא מודע אליהם — שעות שבהן אתה מפסיד יותר, סקטורים שאתה לא טוב בהם, רגשות שחוזרים. בלי יומן — אין שיפור.</p>
+
+      <div class="journal-box">
+        <h3>📓 תבנית יומן עסקה מקצועי</h3>
+        <div class="journal-row">
+          <div class="j-label">📅 תאריך ושעה</div>
+          <div class="j-field">למשל: 06/04/2026 | 10:32</div>
+        </div>
+        <div class="journal-row">
+          <div class="j-label">📈 שם המניה</div>
+          <div class="j-field">AAPL / TSLA / NVDA...</div>
+        </div>
+        <div class="journal-row">
+          <div class="j-label">💰 כניסה / יציאה</div>
+          <div class="j-field">כניסה: 150 ₪ | יציאה: 157 ₪ | גודל: 100 מניות</div>
+        </div>
+        <div class="journal-row">
+          <div class="j-label">🎯 סטאפ שהשתמשתי</div>
+          <div class="j-field">Pullback ל-MA50 + Hammer + Volume גבוה</div>
+        </div>
+        <div class="journal-row">
+          <div class="j-label">🛑 Stop Loss / יעד</div>
+          <div class="j-field">Stop: 146 ₪ | יעד 1: 157 ₪ | יעד 2: 162 ₪</div>
+        </div>
+        <div class="journal-row">
+          <div class="j-label">💵 רווח / הפסד</div>
+          <div class="j-field">+700 ₪ | R:R בפועל: 1:1.75</div>
+        </div>
+        <div class="journal-row">
+          <div class="j-label">🧠 מצב רגשי</div>
+          <div class="j-field">לחוץ / רגוע / חרד / ממוקד...</div>
+        </div>
+        <div class="journal-row">
+          <div class="j-label">✏️ מה עשיתי טוב</div>
+          <div class="j-field">המתנתי לאישור Volume לפני הכניסה</div>
+        </div>
+        <div class="journal-row">
+          <div class="j-label">📌 מה אשפר הפעם הבאה</div>
+          <div class="j-field">יצאתי מוקדם מדי, מחר אחכה ליעד 2</div>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <div class="w-icon">📊</div>
+        <p><strong>לאחר 50 עסקאות</strong> — עבור על היומן וחפש דפוסים: באיזו שעה אתה מרוויח יותר? באיזה סקטור? מה הR:R הממוצע שלך? מה אחוז הניצחון האמיתי שלך? הנתונים האלו הם הנשק הכי חזק שיש לך.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5 — DAILY ROUTINE -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">שגרת מסחר יומית מקצועית</div>
+      </div>
+
+      <p>סוחר מקצועי לא מתעורר ופותח מיד את חשבון המסחר. יש לו <strong>שגרה קבועה</strong> שמכינה אותו — פיזית ומנטלית — לפני כל יום מסחר.</p>
+
+      <div class="routine-timeline">
+        <div class="routine-item">
+          <div class="routine-time">08:00</div>
+          <div class="routine-content">
+            <h4>🌅 Pre-Market — הכנה</h4>
+            <p>קרא את חדשות הבוקר (Earnings, חדשות מאקרו). בדוק את מדדי הפיוצ'רס (עולים / יורדים?). סמן מניות שנפתחות עם Volume גדול.</p>
+          </div>
+        </div>
+        <div class="routine-item">
+          <div class="routine-time">09:00</div>
+          <div class="routine-content">
+            <h4>📋 הגדרת תוכנית יום</h4>
+            <p>אילו סטאפים אתה מחפש היום? מהו ה-Daily Max Loss? מהם הסקטורים החמים? רשום — אל תעבוד מהראש.</p>
+          </div>
+        </div>
+        <div class="routine-item">
+          <div class="routine-time">09:30</div>
+          <div class="routine-content">
+            <h4>🔔 פתיחת שוק — 15 דקות המתנה</h4>
+            <p>אל תיכנס ב-9:30 בדיוק. ה-15 דקות הראשונות תנודתיות מדי. צפה, זהה, המתן לסטאפ ברור.</p>
+          </div>
+        </div>
+        <div class="routine-item">
+          <div class="routine-time">10:00</div>
+          <div class="routine-content">
+            <h4>📈 מסחר פעיל</h4>
+            <p>כנס רק לעסקאות שמתאימות לתוכנית. כל סטייה מהתוכנית = אסור. אם אין סטאפ — אין עסקה.</p>
+          </div>
+        </div>
+        <div class="routine-item">
+          <div class="routine-time">15:30</div>
+          <div class="routine-content">
+            <h4>✍️ Post-Market — תיעוד וניתוח</h4>
+            <p>מלא את יומן המסחר. נתח כל עסקה. מה עבד? מה לא? מה תשנה מחר? זה השיעור הכי חשוב של היום.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6 — WHEN TO STOP -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div class="section-title">מתי לעצור — כלל הנוכחות</div>
+      </div>
+
+      <p>אחד הכישורים הכי חשובים בסוחר מקצועי: <strong>לדעת מתי לא לסחור</strong>. לא כל יום הוא יום טוב למסחר.</p>
+
+      <div class="self-check">
+        <h3>✅ עצור ואל תסחר אם אחד מהדברים הבאים נכון:</h3>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <p>הגעת ל-Daily Max Loss שקבעת — עצור מיד, לא "עוד עסקה אחת"</p>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <p>הפסדת 3 עסקאות ברצף — המוח שלך כבר לא אובייקטיבי</p>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <p>אתה מרגיש כעס, לחץ, נקמה או "חייב להחזיר" — זה הסימן הכי ברור</p>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <p>השוק תנודתי מאוד ללא סיבה ברורה — יום לא טוב לסוחרים קטנים</p>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <p>אתה עייף, לא ישנת טוב, לא מרוכז — הגוף שלך ישפיע על ההחלטות</p>
+        </div>
+        <div class="check-item">
+          <div class="check-box"></div>
+          <p>אין סטאפ שמתאים לכללים שלך — המתן, אל תמציא סיבות להיכנס</p>
+        </div>
+      </div>
+
+      <div class="highlight-box" style="margin-top:16px;">
+        <h4>💡 הסוחר הכי טוב לא מסחר כל יום</h4>
+        <p>יש ימים שהסוחר המקצועי יושב בצד ולא עושה כלום — וזו החלטה אקטיבית. "אל תעשה כלום" היא גם אסטרטגיה. שימור הקפיטל ביום גרוע = יתרון ביום הבא.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 7 — QUIZ -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">7</div>
+        <div class="section-title">בדיקת הבנה — רפלקציה אישית</div>
+      </div>
+
+      <div class="quiz-section">
+        <h3>🪞 שאלות רפלקציה</h3>
+        <p class="quiz-subtitle">השאלות האלו אין להן תשובה "נכונה" — הן מכוונות אותך להכיר את עצמך כסוחר</p>
+
+        <div class="quiz-question">
+          <div class="q-number">שאלה 1</div>
+          <p>חשוב על פעם שקיבלת החלטה פיננסית (לא חייב מסחר) מתוך רגש — פחד, בצע, או FOMO. מה קרה? מה היית עושה אחרת היום לאחר השיעור הזה?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+
+        <div class="quiz-question">
+          <div class="q-number">שאלה 2</div>
+          <p>מה הרגש הכי חזק שאתה מרגיש כשאתה מפסיד כסף? (כעס, בושה, פחד, כלום?) — ואיך הרגש הזה יכול להשפיע על ההחלטה הבאה שלך?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+
+        <div class="quiz-question">
+          <div class="q-number">שאלה 3</div>
+          <p>סוחר עם ניסיון של שנה, אחוז ניצחון של 55%, R:R של 1:2 — מפסיד 5 עסקאות ברצף. הוא "יודע" שמגיע לו ניצחון עכשיו (Gambler's Fallacy). מה אתה תגיד לו?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOMEWORK -->
+    <div class="homework">
+      <div class="hw-header">
+        <div class="hw-icon">📝</div>
+        <h3>מטלה לשיעור הבא — השיעור האחרון!</h3>
+      </div>
+      <ol>
+        <li>פתח קובץ Excel או Google Sheets ובנה <strong>יומן מסחר אישי</strong> עם כל השדות שלמדנו. זה הכלי שילווה אותך לכל החיים.</li>
+        <li>כתוב לעצמך <strong>"מניפסט הסוחר"</strong> — 5–7 כללים שנגזרים מהשיעורים, שאתה מתחייב לעמוד בהם בכל עסקה. הדפס ותלה ליד המחשב.</li>
+        <li>בנה את שגרת הבוקר שלך לפני המסחר — Pre-Market routine — ורשום אותה בצורה של צ'קליסט. בוא עם זה לשיעור 6.</li>
+      </ol>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    קורס מסחר מקצועי · שיעור 5 מתוך 6 — פסיכולוגיה של מסחר &nbsp;|&nbsp; <span>השיעור הבא: לייב ותרגול — הסיום!</span> &nbsp;|&nbsp; Ctrl+P להדפסה כ-PDF
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<!-- saved from url=(0129)file:///C:/Users/noam5/Downloads/%D7%A9%D7%99%D7%A2%D7%95%D7%A8_7_%D7%A1%D7%95%D7%A8%D7%A7_%D7%9E%D7%A0%D7%99%D7%95%D7%AA_v2.html -->
+<html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שיעור 7 – סורק מניות</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Heebo', Arial, sans-serif; background: #f0f4f8; color: #1a1a2e; direction: rtl; }
+  .page { max-width: 860px; margin: 30px auto; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12); }
+
+  .header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); color: white; padding: 44px 48px 36px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-60px; left:-60px; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,0.06); }
+  .header::after { content:''; position:absolute; bottom:-80px; right:-40px; width:280px; height:280px; border-radius:50%; background:rgba(0,0,0,0.08); }
+  .course-tag { display:inline-block; background:rgba(255,255,255,0.2); color:white; font-size:11px; font-weight:700; letter-spacing:1.5px; padding:4px 14px; border-radius:20px; margin-bottom:16px; border:1px solid rgba(255,255,255,0.3); }
+  .header h1 { font-size:34px; font-weight:800; line-height:1.2; margin-bottom:10px; position:relative; z-index:1; }
+  .header .subtitle { font-size:15px; color:rgba(255,255,255,0.75); font-weight:300; position:relative; z-index:1; }
+  .header-meta { display:flex; gap:24px; margin-top:24px; position:relative; z-index:1; }
+  .meta-item { font-size:13px; color:rgba(255,255,255,0.85); font-weight:500; }
+
+  .recap { background:#e3f2fd; border-right:5px solid #1976d2; margin:36px 48px 0; padding:18px 24px; border-radius:0 10px 10px 0; }
+  .recap h3 { font-size:12px; font-weight:800; color:#0d47a1; margin-bottom:10px; letter-spacing:1.5px; text-transform:uppercase; }
+  .recap-row { display:flex; gap:10px; flex-wrap:wrap; }
+  .recap-chip { background:#bbdefb; color:#0d47a1; font-size:12.5px; font-weight:600; padding:4px 12px; border-radius:20px; }
+
+  .objectives { background:#fff8e1; border-right:5px solid #ffc107; margin:16px 48px 0; padding:20px 24px; border-radius:0 10px 10px 0; }
+  .objectives h3 { font-size:12px; font-weight:800; color:#e65100; margin-bottom:12px; letter-spacing:1.5px; text-transform:uppercase; }
+  .objectives ul { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .objectives ul li { font-size:13.5px; color:#5d4037; display:flex; align-items:flex-start; gap:8px; }
+  .objectives ul li::before { content:'✓'; color:#ffc107; font-weight:800; flex-shrink:0; }
+
+  .content { padding:36px 48px; }
+  .section { margin-bottom:44px; }
+  .section-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .section-number { background:linear-gradient(135deg,#0d47a1,#1976d2); color:white; font-size:13px; font-weight:800; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .section-title { font-size:20px; font-weight:700; color:#0d47a1; }
+  p { font-size:14.5px; line-height:1.85; color:#333; margin-bottom:12px; }
+  .divider { height:1px; background:linear-gradient(to left,transparent,#e8edf5,transparent); margin:6px 0 30px; }
+
+  /* TOOLS GRID */
+  .tools-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0; }
+  .tool-card { background:#f5f9ff; border:1.5px solid #bbdefb; border-radius:14px; padding:18px 20px; }
+  .tool-name { font-size:15px; font-weight:800; color:#0d47a1; margin-bottom:2px; }
+  .tool-url { font-size:11.5px; color:#90caf9; margin-bottom:10px; }
+  .tool-desc { font-size:13px; line-height:1.65; color:#444; margin-bottom:10px; }
+  .tool-badges { display:flex; flex-wrap:wrap; gap:6px; }
+  .badge { font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; }
+  .badge-free { background:#e8f5e9; color:#2e7d32; }
+  .badge-paid { background:#fff3e0; color:#e65100; }
+  .badge-top { background:#0d47a1; color:#fff; }
+  .badge-il { background:#e3f2fd; color:#0d47a1; }
+
+  /* FILTER TABLE */
+  .filter-table { width:100%; border-collapse:collapse; font-size:13.5px; margin-top:16px; border-radius:12px; overflow:hidden; }
+  .filter-table thead tr { background:#0d47a1; color:white; }
+  .filter-table thead th { padding:12px 16px; text-align:right; font-weight:600; }
+  .filter-table tbody tr:nth-child(even) { background:#e3f2fd; }
+  .filter-table tbody tr:nth-child(odd) { background:#fff; }
+  .filter-table tbody td { padding:10px 16px; border-bottom:1px solid #e3f2fd; color:#333; font-size:13px; }
+  .filter-table tbody td:first-child { font-weight:700; color:#0d47a1; }
+  .filter-val { color:#2e7d32; font-weight:700; }
+
+  /* PRESETS */
+  .preset { background:#f5f9ff; border:1.5px solid #bbdefb; border-radius:14px; margin-bottom:14px; overflow:hidden; }
+  .preset-header { background:#0d47a1; color:white; padding:13px 20px; display:flex; justify-content:space-between; align-items:center; }
+  .preset-header h3 { font-size:15px; font-weight:700; }
+  .preset-tag { font-size:11px; font-weight:700; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:20px; }
+  .preset-body { padding:18px 20px; }
+  .preset-filters { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+  .filter-chip { font-size:12px; font-weight:600; background:#e3f2fd; border:1px solid #bbdefb; padding:4px 12px; border-radius:20px; color:#0d47a1; }
+  .filter-chip span { color:#2e7d32; }
+  .preset-note { font-size:13px; color:#555; line-height:1.65; }
+
+  /* STEPS */
+  .steps { margin:16px 0; }
+  .step-item { display:flex; gap:16px; margin-bottom:16px; align-items:flex-start; }
+  .step-num { background:#0d47a1; color:white; font-size:13px; font-weight:800; width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+  .step-content h4 { font-size:14.5px; font-weight:700; color:#0d47a1; margin-bottom:4px; }
+  .step-content p { font-size:13.5px; color:#555; margin:0; line-height:1.65; }
+
+  .highlight-box { background:linear-gradient(135deg,#0d47a1,#283593); color:white; border-radius:14px; padding:22px 26px; margin:18px 0; }
+  .highlight-box h4 { font-size:13px; font-weight:700; color:#90caf9; margin-bottom:10px; }
+  .highlight-box p { color:rgba(255,255,255,0.9); font-size:14px; margin:0; }
+
+  .warning-box { background:#fff3e0; border:1.5px solid #ffb74d; border-radius:12px; padding:18px 24px; margin:14px 0; display:flex; gap:14px; align-items:flex-start; }
+  .warning-box .w-icon { font-size:22px; flex-shrink:0; }
+  .warning-box p { font-size:13.5px; color:#e65100; margin:0; line-height:1.7; }
+
+  .checklist { list-style:none; margin:12px 0; }
+  .checklist li { display:flex; align-items:flex-start; gap:10px; font-size:14px; color:#333; padding:9px 0; border-bottom:1px solid #e3f2fd; }
+  .checklist li:last-child { border-bottom:none; }
+  .check-icon { font-size:16px; flex-shrink:0; margin-top:2px; }
+
+  .self-check { background:#f5f9ff; border:1.5px solid #90caf9; border-radius:14px; padding:22px 26px; margin:20px 0; }
+  .self-check h3 { font-size:15px; font-weight:700; color:#0d47a1; margin-bottom:14px; }
+  .check-item { display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid #e3f2fd; }
+  .check-item:last-child { border-bottom:none; }
+  .check-box { width:20px; height:20px; border:2px solid #1976d2; border-radius:4px; flex-shrink:0; }
+  .check-item p { font-size:14px; color:#1a1a2e; margin:0; }
+
+  .quiz-section { background:linear-gradient(135deg,#1a1a2e,#16213e); border-radius:16px; padding:28px 30px; }
+  .quiz-section h3 { font-size:18px; font-weight:700; color:#e2e8f0; margin-bottom:4px; }
+  .quiz-section .quiz-subtitle { font-size:13px; color:#94a3b8; margin-bottom:22px; }
+  .quiz-question { background:rgba(255,255,255,0.07); border-radius:10px; padding:18px 20px; margin-bottom:12px; }
+  .quiz-question .q-number { font-size:11px; font-weight:700; color:#90caf9; letter-spacing:1px; margin-bottom:8px; }
+  .quiz-question p { font-size:14px; color:#e2e8f0; margin:0; line-height:1.6; }
+  .quiz-answer-space { border-bottom:1.5px dashed rgba(255,255,255,0.18); margin-top:12px; padding-bottom:18px; }
+
+  .homework { background:linear-gradient(135deg,#e8f5e9,#f1f8e9); border-top:4px solid #43a047; padding:28px 48px; }
+  .homework .hw-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .homework .hw-icon { font-size:28px; }
+  .homework h3 { font-size:17px; font-weight:700; color:#1b5e20; }
+  .homework ol { padding-right:20px; }
+  .homework ol li { font-size:14px; color:#33691e; line-height:1.8; margin-bottom:10px; }
+  .homework ol li strong { color:#1b5e20; }
+
+  .footer { background:#1a1a2e; color:#94a3b8; text-align:center; padding:18px 48px; font-size:12.5px; }
+  .footer span { color:#90caf9; }
+
+  @media (max-width:600px) {
+    .header, .content, .homework { padding-left:24px; padding-right:24px; }
+    .recap, .objectives { margin-left:24px; margin-right:24px; }
+    .tools-grid { grid-template-columns:1fr; }
+    .objectives ul { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="course-tag">קורס מסחר מקצועי · שיעור 7 מתוך 7</div>
+    <h1>🔍 סורק מניות</h1>
+    <div class="subtitle">איך מוצאים את המניה הנכונה מתוך אלפי אפשרויות — בכמה דקות בלבד</div>
+    <div class="header-meta">
+      <div class="meta-item">⏱ זמן קריאה: ~30 דקות</div>
+      <div class="meta-item">🛠 כלי מעשי</div>
+      <div class="meta-item">🔗 קשור לשיעורים 2 ו-6</div>
+    </div>
+  </div>
+
+  <div class="recap">
+    <h3>📌 חזרה מהירה — שיעור 6</h3>
+    <div class="recap-row">
+      <span class="recap-chip">פונדמנטלי vs. טכני</span>
+      <span class="recap-chip">P/E · ROE · Debt/Equity</span>
+      <span class="recap-chip">3 דוחות כספיים</span>
+      <span class="recap-chip">Cash is King</span>
+      <span class="recap-chip">5 שלבי ניתוח</span>
+    </div>
+  </div>
+
+  <div class="objectives">
+    <h3>🎯 מה תלמד בשיעור זה</h3>
+    <ul>
+      <li>מה זה סורק מניות ולמה הוא הכרחי</li>
+      <li>הכלים הטובים לישראל ולחו"ל</li>
+      <li>הפילטרים החשובים ביותר</li>
+      <li>3 פרופילי סורק מוכנים לשימוש</li>
+      <li>שלב אחר שלב עם Finviz</li>
+      <li>תהליך עבודה מלא מסריקה לעסקה</li>
+    </ul>
+  </div>
+
+  <div class="content">
+
+    <!-- SECTION 1 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div class="section-title">מה זה סורק מניות ולמה צריך אותו?</div>
+      </div>
+
+      <p>יש יותר מ-50,000 מניות בעולם. בלי סורק — אתה מחפש מחט בערימת שחת. עם סורק טוב — אתה מסנן אלפי מניות ב-5 דקות ונשאר עם 10–20 מועמדות בלבד.</p>
+
+      <p>סורק מניות (Stock Screener) מאפשר לך להגדיר תנאים ופילטרים ולקבל רשימה של מניות שעונות עליהם בלחיצת כפתור. זה החוסך הגדול ביותר של זמן בעולם המסחר.</p>
+
+      <div class="highlight-box">
+        <h4>🎯 מה אפשר לסנן?</h4>
+        <p>פילטרים פונדמנטליים (P/E, ROE, חוב, דיבידנד) · פילטרים טכניים (RSI, ממוצעים נעים, נפח) · שוק / ענף / גודל חברה</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div class="section-title">הכלים הטובים ביותר</div>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-name">Finviz</div>
+          <div class="tool-url">finviz.com</div>
+          <div class="tool-desc">הסורק הכי פופולרי בעולם למניות אמריקאיות. ממשק ויזואלי, מהיר, עם עשרות פילטרים. מצוין למתחיל.</div>
+          <div class="tool-badges">
+            <span class="badge badge-free">חינם</span>
+            <span class="badge badge-top">⭐ מומלץ</span>
+          </div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-name">TradingView</div>
+          <div class="tool-url">tradingview.com</div>
+          <div class="tool-desc">גרפים + סורק + כלי ניתוח. תומך במניות ישראליות ואמריקאיות. אחד הכלים הטובים ביותר.</div>
+          <div class="tool-badges">
+            <span class="badge badge-free">חינם בסיסי</span>
+            <span class="badge badge-il">ישראל</span>
+            <span class="badge badge-top">⭐ מומלץ</span>
+          </div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-name">Simply Wall St</div>
+          <div class="tool-url">simplywall.st</div>
+          <div class="tool-desc">סורק ויזואלי עם ניתוח פונדמנטלי מעמיק. מציג "snowflake" — תמונה גרפית של בריאות החברה.</div>
+          <div class="tool-badges">
+            <span class="badge badge-free">ניסיון חינם</span>
+            <span class="badge badge-paid">$10/חודש</span>
+          </div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-name">הבורסה לני"ע</div>
+          <div class="tool-url">tase.co.il</div>
+          <div class="tool-desc">האתר הרשמי של הבורסה הישראלית. נתונים מלאים על ת"א-35, ת"א-125 ואגרות חוב.</div>
+          <div class="tool-badges">
+            <span class="badge badge-free">חינם</span>
+            <span class="badge badge-il">ישראל בלבד</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">הפילטרים החשובים ביותר</div>
+      </div>
+
+      <table class="filter-table">
+        <thead>
+          <tr><th>פילטר</th><th>מה הוא מודד</th><th>ערך מומלץ למתחיל</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>P/E Ratio</td><td>מכפיל רווח</td><td class="filter-val">5 עד 25</td></tr>
+          <tr><td>Market Cap</td><td>שווי שוק — גודל החברה</td><td class="filter-val">מעל $1B</td></tr>
+          <tr><td>Volume</td><td>נפח מסחר יומי — נזילות</td><td class="filter-val">מעל 500,000/יום</td></tr>
+          <tr><td>EPS Growth</td><td>צמיחת רווח למניה</td><td class="filter-val">מעל 10% בשנה</td></tr>
+          <tr><td>ROE</td><td>תשואה על ההון</td><td class="filter-val">מעל 15%</td></tr>
+          <tr><td>Debt/Equity</td><td>יחס חוב להון</td><td class="filter-val">מתחת ל-1</td></tr>
+          <tr><td>Dividend Yield</td><td>תשואת דיבידנד שנתית</td><td class="filter-val">2% עד 6%</td></tr>
+          <tr><td>RSI</td><td>עוצמת מגמה</td><td class="filter-val">40–60 = נקודת כניסה טובה</td></tr>
+          <tr><td>Price vs MA200</td><td>מחיר מעל ממוצע נע 200</td><td class="filter-val">מעל = מגמה עולה</td></tr>
+        </tbody>
+      </table>
+
+      <div class="warning-box" style="margin-top:16px;">
+        <div class="w-icon">⚠️</div>
+        <p><strong>יותר מדי פילטרים = 0 תוצאות.</strong> התחל עם 3–4 פילטרים מרכזיים בלבד. ככל שתיסגר יותר, יישארו פחות מניות — ולפעמים לא ישארו בכלל.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">3 פרופילי סורק מוכנים לשימוש</div>
+      </div>
+
+      <div class="preset">
+        <div class="preset-header">
+          <h3>🟢 משקיע ערך — "קנה זול, חכה"</h3>
+          <span class="preset-tag">VALUE</span>
+        </div>
+        <div class="preset-body">
+          <div class="preset-filters">
+            <div class="filter-chip">P/E: <span>5–15</span></div>
+            <div class="filter-chip">P/B: <span>מתחת ל-1.5</span></div>
+            <div class="filter-chip">ROE: <span>מעל 12%</span></div>
+            <div class="filter-chip">Debt/Equity: <span>מתחת ל-0.5</span></div>
+            <div class="filter-chip">Dividend: <span>מעל 2%</span></div>
+          </div>
+          <p class="preset-note">מתאים למי שמחפש חברות חזקות שהשוק הוריד זמנית. אסטרטגיה לאורך זמן בסגנון וורן באפט.</p>
+        </div>
+      </div>
+
+      <div class="preset">
+        <div class="preset-header">
+          <h3>🔵 מניות צמיחה — "רכב על הגל"</h3>
+          <span class="preset-tag">GROWTH</span>
+        </div>
+        <div class="preset-body">
+          <div class="preset-filters">
+            <div class="filter-chip">Revenue Growth: <span>מעל 20%/שנה</span></div>
+            <div class="filter-chip">EPS Growth: <span>מעל 15%</span></div>
+            <div class="filter-chip">Price vs MA50: <span>מעל</span></div>
+            <div class="filter-chip">Volume: <span>מעל 1M/יום</span></div>
+          </div>
+          <p class="preset-note">מניות שגדלות מהר. P/E יכול להיות גבוה — המניה מתמחרת צמיחה עתידית. מסוכן יותר, פוטנציאל גבוה יותר.</p>
+        </div>
+      </div>
+
+      <div class="preset">
+        <div class="preset-header">
+          <h3>🟡 הכנסה פסיבית — "שב וקבל דיבידנד"</h3>
+          <span class="preset-tag">INCOME</span>
+        </div>
+        <div class="preset-body">
+          <div class="preset-filters">
+            <div class="filter-chip">Dividend Yield: <span>3%–7%</span></div>
+            <div class="filter-chip">Payout Ratio: <span>מתחת ל-70%</span></div>
+            <div class="filter-chip">Dividend Growth: <span>5+ שנים רצוף</span></div>
+            <div class="filter-chip">Market Cap: <span>Large Cap</span></div>
+          </div>
+          <p class="preset-note">חפש "Dividend Aristocrats" — חברות שהגדילו דיבידנד 25+ שנה ברצף. אידיאלי להכנסה שוטפת יציבה.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">שלב אחר שלב עם Finviz</div>
+      </div>
+
+      <div class="steps">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>נכנסים ל-finviz.com ← לוחצים "Screener"</h4>
+            <p>הטאב בחלק העליון של האתר. ייפתח ממשק עם עשרות פילטרים מסודרים לפי קטגוריות.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>בוחרים 3–4 פילטרים</h4>
+            <p>כל פילטר הוא תפריט נפתח. לחץ על "P/E" ← בחר "Under 15". לחץ "Market Cap" ← בחר "Large". כל בחירה מצמצמת את הרשימה.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>מסתכלים על התוצאות ומיינים</h4>
+            <p>Finviz מציג טבלה עם כל המניות שעומדות בתנאים. לחץ על כותרת עמודה כדי למיין לפי כל קריטריון.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>לוחצים על כל מניה לניתוח מלא</h4>
+            <p>לחיצה על שם מניה תפתח גרף, נתונים פונדמנטליים, חדשות אחרונות ורמות תמיכה/התנגדות — הכל במסך אחד.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>שמירת הסריקה לשימוש עתידי</h4>
+            <p>ב-Finviz אפשר לשמור את ה-URL עם הפילטרים. ב-TradingView אפשר לשמור "Screener Presets" בחשבון.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div class="section-title">תהליך עבודה מלא — מסריקה לעסקה</div>
+      </div>
+
+      <ul class="checklist">
+        <li><span class="check-icon">🔎</span><div><strong>סריקה ראשונית:</strong> Finviz / TradingView ← 3–4 פילטרים ← 20–50 מועמדות</div></li>
+        <li><span class="check-icon">👁</span><div><strong>סינון ויזואלי מהיר:</strong> עבור על הגרפים — מחק כל מה שנראה חלש טכנית</div></li>
+        <li><span class="check-icon">📊</span><div><strong>בדיקה פונדמנטלית:</strong> 10 המועמדות הטובות — בדוק דוחות, צמיחה, חוב</div></li>
+        <li><span class="check-icon">📈</span><div><strong>ניתוח טכני עמוק:</strong> 3–5 מועמדות סופיות — מתי לכנוס? איפה הסטופ?</div></li>
+        <li><span class="check-icon">✅</span><div><strong>כניסה:</strong> 1–2 מניות מנוהלות נכון שוות יותר מ-20 מניות אקראיות</div></li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 7 — QUIZ -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">7</div>
+        <div class="section-title">בדיקת הבנה</div>
+      </div>
+
+      <div class="quiz-section">
+        <h3>🧠 שאלות לחשיבה</h3>
+        <p class="quiz-subtitle">ענה על כל שאלה לפני שעוברים לשיעור הסיום</p>
+
+        <div class="quiz-question">
+          <div class="q-number">שאלה 1 — כלים</div>
+          <p>מהו ההבדל בין Finviz ל-TradingView? באיזה מצב תעדיף כל אחד מהם?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+
+        <div class="quiz-question">
+          <div class="q-number">שאלה 2 — פרופיל</div>
+          <p>אתה משקיע בן 30 עם אופק השקעה של 20 שנה. איזה פרופיל סורק (ערך / צמיחה / הכנסה) מתאים לך יותר ולמה?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+
+        <div class="quiz-question">
+          <div class="q-number">שאלה 3 — יישום</div>
+          <p>הרץ סריקה אמיתית ב-Finviz עם 3 פילטרים שבחרת. כמה מניות יצאו? בחר אחת ורשום מה מצא חן בעיניך בה.</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+      </div>
+
+      <div class="self-check" style="margin-top:20px;">
+        <h3>✅ שגרת סורק שבועית — לבצע פעם בשבוע</h3>
+        <div class="check-item"><div class="check-box"></div><p>הרצתי סורק על שוק ישראלי — TradingView / TASE</p></div>
+        <div class="check-item"><div class="check-box"></div><p>הרצתי סורק על שוק אמריקאי — Finviz</p></div>
+        <div class="check-item"><div class="check-box"></div><p>עברתי ויזואלית על כל תוצאה — מחקתי מניות חלשות</p></div>
+        <div class="check-item"><div class="check-box"></div><p>הוספתי מועמדות טובות ל-Watchlist שלי</p></div>
+        <div class="check-item"><div class="check-box"></div><p>ביצעתי ניתוח מעמיק על 2–3 המועמדות הטובות</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="homework">
+    <div class="hw-header">
+      <div class="hw-icon">📝</div>
+      <h3>מטלה אחרונה — לפני שיעור הסיום!</h3>
+    </div>
+    <ol>
+      <li>פתח את Finviz ובנה <strong>שני סורקים שונים</strong> — אחד לערך ואחד לצמיחה. שמור את ה-URL של כל אחד.</li>
+      <li>מכל סורק — בחר <strong>מניה אחת מועדפת</strong>. כתוב 3 סיבות לכל מניה — פונדמנטלית אחת, טכנית אחת, ואחת נוספת שאתה בוחר.</li>
+      <li>בוא לשיעור הסיום עם <strong>רשימת 4 מניות</strong> (2 מכל סורק) — נדון בהן כדוגמה חיה.</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    קורס מסחר מקצועי · שיעור 7 מתוך 7 — סורק מניות &nbsp;|&nbsp; <span>הבא: שיעור הסיום!</span> &nbsp;|&nbsp; Ctrl+P להדפסה כ-PDF
+  </div>
+
+</div>
+
+
+</body></html>

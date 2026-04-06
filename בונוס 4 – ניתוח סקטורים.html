@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!-- saved from url=(0144)file:///C:/Users/noam5/Downloads/%D7%91%D7%95%D7%A0%D7%95%D7%A1_4_%D7%A0%D7%99%D7%AA%D7%95%D7%97_%D7%A1%D7%A7%D7%98%D7%95%D7%A8%D7%99%D7%9D.html -->
+<html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>בונוס 4 – ניתוח סקטורים</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Heebo',Arial,sans-serif; background:#f0f4f8; color:#1a1a2e; direction:rtl; }
+  .page { max-width:860px; margin:30px auto; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.12); }
+
+  .header { background:linear-gradient(135deg,#00695c 0%,#00796b 50%,#00897b 100%); color:white; padding:44px 48px 36px; position:relative; overflow:hidden; }
+  .header::before { content:''; position:absolute; top:-60px; left:-60px; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,0.06); }
+  .header::after { content:''; position:absolute; bottom:-80px; right:-40px; width:280px; height:280px; border-radius:50%; background:rgba(0,0,0,0.08); }
+  .course-tag { display:inline-block; background:rgba(255,255,255,0.2); color:white; font-size:11px; font-weight:700; letter-spacing:1.5px; padding:4px 14px; border-radius:20px; margin-bottom:16px; border:1px solid rgba(255,255,255,0.3); }
+  .header h1 { font-size:34px; font-weight:800; line-height:1.2; margin-bottom:10px; position:relative; z-index:1; }
+  .header .subtitle { font-size:15px; color:rgba(255,255,255,0.75); font-weight:300; position:relative; z-index:1; }
+  .header-meta { display:flex; gap:24px; margin-top:24px; position:relative; z-index:1; }
+  .meta-item { font-size:13px; color:rgba(255,255,255,0.85); font-weight:500; }
+
+  .objectives { background:#e0f2f1; border-right:5px solid #00897b; margin:36px 48px 0; padding:20px 24px; border-radius:0 10px 10px 0; }
+  .objectives h3 { font-size:12px; font-weight:800; color:#00695c; margin-bottom:12px; letter-spacing:1.5px; text-transform:uppercase; }
+  .objectives ul { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .objectives ul li { font-size:13.5px; color:#00695c; display:flex; align-items:flex-start; gap:8px; }
+  .objectives ul li::before { content:'✓'; color:#00897b; font-weight:800; flex-shrink:0; }
+
+  .content { padding:36px 48px; }
+  .section { margin-bottom:44px; }
+  .section-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .section-number { background:linear-gradient(135deg,#00695c,#00897b); color:white; font-size:13px; font-weight:800; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .section-title { font-size:20px; font-weight:700; color:#00695c; }
+  p { font-size:14.5px; line-height:1.85; color:#333; margin-bottom:12px; }
+  .divider { height:1px; background:linear-gradient(to left,transparent,#e8edf5,transparent); margin:6px 0 30px; }
+
+  .sectors-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin:16px 0; }
+  .sector-card { background:#f5f5f5; border:1.5px solid #e0e0e0; border-radius:12px; padding:16px 14px; text-align:center; }
+  .sector-card .s-icon { font-size:26px; margin-bottom:8px; }
+  .sector-card h4 { font-size:13.5px; font-weight:700; color:#1a1a2e; margin-bottom:4px; }
+  .sector-card p { font-size:11.5px; color:#666; margin:0; line-height:1.5; }
+  .sector-card .etf-tag { font-size:11px; font-weight:700; background:#e0f2f1; color:#00695c; padding:3px 8px; border-radius:10px; margin-top:8px; display:inline-block; }
+
+  .cycle-table { width:100%; border-collapse:collapse; font-size:13px; margin-top:16px; border-radius:12px; overflow:hidden; }
+  .cycle-table thead tr { background:#00695c; color:white; }
+  .cycle-table thead th { padding:12px 16px; text-align:right; font-weight:600; }
+  .cycle-table tbody tr:nth-child(even) { background:#e0f2f1; }
+  .cycle-table tbody tr:nth-child(odd) { background:#fff; }
+  .cycle-table tbody td { padding:10px 16px; border-bottom:1px solid #b2dfdb; color:#333; font-size:13px; vertical-align:top; }
+  .cycle-table tbody td:first-child { font-weight:700; color:#00695c; }
+  .good-sector { color:#1b5e20; font-weight:700; }
+  .bad-sector { color:#b71c1c; font-weight:700; }
+
+  .highlight-box { background:linear-gradient(135deg,#00695c,#00796b); color:white; border-radius:14px; padding:22px 26px; margin:18px 0; }
+  .highlight-box h4 { font-size:13px; font-weight:700; color:#80cbc4; margin-bottom:10px; }
+  .highlight-box p { color:rgba(255,255,255,0.9); font-size:14px; margin:0; }
+
+  .warning-box { background:#fff3e0; border:1.5px solid #ffb74d; border-radius:12px; padding:18px 24px; margin:14px 0; display:flex; gap:14px; align-items:flex-start; }
+  .warning-box .w-icon { font-size:22px; flex-shrink:0; }
+  .warning-box p { font-size:13.5px; color:#e65100; margin:0; line-height:1.7; }
+
+  .example-box { background:#e0f2f1; border:1.5px solid #80cbc4; border-radius:12px; padding:20px 24px; margin:14px 0; }
+  .example-box .example-label { font-size:11px; font-weight:800; color:#00695c; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px; }
+  .example-box p { font-size:14px; color:#00695c; margin:0; line-height:1.75; }
+
+  .rotation-visual { display:flex; gap:0; margin:20px 0; border-radius:12px; overflow:hidden; }
+  .rv-phase { flex:1; padding:16px 12px; text-align:center; color:white; }
+  .rv-phase h4 { font-size:13px; font-weight:800; margin-bottom:6px; }
+  .rv-phase p { font-size:11px; margin:0; opacity:0.85; line-height:1.5; }
+  .rv-phase.expansion { background:#1565c0; }
+  .rv-phase.peak { background:#f4511e; }
+  .rv-phase.contraction { background:#b71c1c; }
+  .rv-phase.recovery { background:#1b5e20; }
+
+  .checklist { list-style:none; margin:12px 0; }
+  .checklist li { display:flex; align-items:flex-start; gap:10px; font-size:14px; color:#333; padding:9px 0; border-bottom:1px solid #e0f2f1; }
+  .checklist li:last-child { border-bottom:none; }
+  .check-icon { font-size:16px; flex-shrink:0; margin-top:2px; }
+
+  .self-check { background:#e0f2f1; border:1.5px solid #80cbc4; border-radius:14px; padding:22px 26px; margin:20px 0; }
+  .self-check h3 { font-size:15px; font-weight:700; color:#00695c; margin-bottom:14px; }
+  .check-item { display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid #b2dfdb; }
+  .check-item:last-child { border-bottom:none; }
+  .check-box { width:20px; height:20px; border:2px solid #00897b; border-radius:4px; flex-shrink:0; }
+  .check-item p { font-size:14px; color:#1a1a2e; margin:0; }
+
+  .quiz-section { background:linear-gradient(135deg,#1a1a2e,#16213e); border-radius:16px; padding:28px 30px; }
+  .quiz-section h3 { font-size:18px; font-weight:700; color:#e2e8f0; margin-bottom:4px; }
+  .quiz-section .quiz-subtitle { font-size:13px; color:#94a3b8; margin-bottom:22px; }
+  .quiz-question { background:rgba(255,255,255,0.07); border-radius:10px; padding:18px 20px; margin-bottom:12px; }
+  .quiz-question .q-number { font-size:11px; font-weight:700; color:#80cbc4; letter-spacing:1px; margin-bottom:8px; }
+  .quiz-question p { font-size:14px; color:#e2e8f0; margin:0; line-height:1.6; }
+  .quiz-answer-space { border-bottom:1.5px dashed rgba(255,255,255,0.18); margin-top:12px; padding-bottom:18px; }
+
+  .homework { background:linear-gradient(135deg,#e0f2f1,#e8f5e9); border-top:4px solid #00897b; padding:28px 48px; }
+  .homework .hw-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .homework .hw-icon { font-size:28px; }
+  .homework h3 { font-size:17px; font-weight:700; color:#00695c; }
+  .homework ol { padding-right:20px; }
+  .homework ol li { font-size:14px; color:#00695c; line-height:1.8; margin-bottom:10px; }
+  .homework ol li strong { color:#004d40; }
+
+  .footer { background:#1a1a2e; color:#94a3b8; text-align:center; padding:18px 48px; font-size:12.5px; }
+  .footer span { color:#80cbc4; }
+
+  @media(max-width:600px){
+    .header,.content,.homework{padding-left:24px;padding-right:24px;}
+    .objectives{margin-left:24px;margin-right:24px;}
+    .sectors-grid,.objectives ul{grid-template-columns:1fr;}
+    .rotation-visual{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="course-tag">קורס מסחר מקצועי · פרק בונוס 4</div>
+    <h1>🏭 ניתוח סקטורים</h1>
+    <div class="subtitle">טכנולוגיה, אנרגיה, פיננסים, בריאות — כל סקטור מתנהג אחרת. דע לזהות מי חם עכשיו</div>
+    <div class="header-meta">
+      <div class="meta-item">⏱ זמן קריאה: ~30 דקות</div>
+      <div class="meta-item">🔄 מחזור כלכלי</div>
+      <div class="meta-item">🔗 קשור לשיעורים 6, 7</div>
+    </div>
+  </div>
+
+  <div class="objectives">
+    <h3>🎯 מה תלמד בפרק זה</h3>
+    <ul>
+      <li>11 הסקטורים המרכזיים בשוק</li>
+      <li>מחזור כלכלי — 4 שלבים</li>
+      <li>איזה סקטור חזק בכל שלב</li>
+      <li>Sector Rotation — איך מקצוענים מנוהלים</li>
+      <li>ETF סקטוריאלי — איך מסחרים ענף שלם</li>
+      <li>איך לזהות מה חם עכשיו</li>
+    </ul>
+  </div>
+
+  <div class="content">
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div class="section-title">11 הסקטורים — המפה של השוק</div>
+      </div>
+      <p>שוק המניות האמריקאי מחולק ל-11 סקטורים (לפי GICS). כל סקטור מקבץ חברות דומות. הבנה של הסקטורים נותנת לך יכולת לבחור "ענף" שלם — לא רק מניה בודדת.</p>
+      <div class="sectors-grid">
+        <div class="sector-card"><div class="s-icon">💻</div><h4>טכנולוגיה</h4><p>Apple, Microsoft, Nvidia, Meta</p><div class="etf-tag">XLK</div></div>
+        <div class="sector-card"><div class="s-icon">🏦</div><h4>פיננסים</h4><p>JPMorgan, Goldman, Visa, Amex</p><div class="etf-tag">XLF</div></div>
+        <div class="sector-card"><div class="s-icon">🏥</div><h4>בריאות</h4><p>Johnson &amp; Johnson, Pfizer, UnitedHealth</p><div class="etf-tag">XLV</div></div>
+        <div class="sector-card"><div class="s-icon">⚡</div><h4>אנרגיה</h4><p>ExxonMobil, Chevron, Shell</p><div class="etf-tag">XLE</div></div>
+        <div class="sector-card"><div class="s-icon">🛒</div><h4>צריכה בסיסית</h4><p>P&amp;G, Coca-Cola, Walmart</p><div class="etf-tag">XLP</div></div>
+        <div class="sector-card"><div class="s-icon">🎮</div><h4>צריכה מחזורית</h4><p>Amazon, Tesla, Nike, Disney</p><div class="etf-tag">XLY</div></div>
+        <div class="sector-card"><div class="s-icon">🏗️</div><h4>תעשייה</h4><p>Boeing, Caterpillar, UPS, Raytheon</p><div class="etf-tag">XLI</div></div>
+        <div class="sector-card"><div class="s-icon">🏠</div><h4>נדל"ן REIT</h4><p>American Tower, Prologis</p><div class="etf-tag">XLRE</div></div>
+        <div class="sector-card"><div class="s-icon">🔋</div><h4>אנרגיה חלופית</h4><p>NextEra, Duke Energy, Southern</p><div class="etf-tag">XLU</div></div>
+        <div class="sector-card"><div class="s-icon">⚗️</div><h4>חומרים</h4><p>Linde, Freeport-McMoRan, Dow</p><div class="etf-tag">XLB</div></div>
+        <div class="sector-card"><div class="s-icon">📡</div><h4>תקשורת</h4><p>Alphabet, Netflix, AT&amp;T, T-Mobile</p><div class="etf-tag">XLC</div></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div class="section-title">המחזור הכלכלי — 4 שלבים</div>
+      </div>
+      <p>הכלכלה עוברת מחזורים חוזרים. כל שלב מעדיף סקטורים אחרים. מי שמזהה את השלב — יודע אן לשים את הכסף.</p>
+      <div class="rotation-visual">
+        <div class="rv-phase expansion">
+          <h4>🚀 התרחבות</h4>
+          <p>צמיחה, תעסוקה עולה, צרכנים מוציאים כסף</p>
+        </div>
+        <div class="rv-phase peak">
+          <h4>🔝 שיא</h4>
+          <p>ריבית עולה, אינפלציה גבוהה, האטה בצמיחה</p>
+        </div>
+        <div class="rv-phase contraction">
+          <h4>📉 האטה</h4>
+          <p>מיתון, אבטלה עולה, צרכנים חוסכים</p>
+        </div>
+        <div class="rv-phase recovery">
+          <h4>🌱 התאוששות</h4>
+          <p>ריבית יורדת, כסף זורם לשוק שוב</p>
+        </div>
+      </div>
+
+      <table class="cycle-table" style="margin-top:20px;">
+        <thead><tr><th>שלב</th><th>סקטורים חזקים</th><th>סקטורים חלשים</th><th>סביבת ריבית</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>🚀 התרחבות</td>
+            <td class="good-sector">טכנולוגיה, צריכה מחזורית, תעשייה</td>
+            <td class="bad-sector">אנרגיה חלופית (Utilities)</td>
+            <td>ריבית נמוכה, עולה</td>
+          </tr>
+          <tr>
+            <td>🔝 שיא</td>
+            <td class="good-sector">אנרגיה, חומרים, פיננסים</td>
+            <td class="bad-sector">טכנולוגיה, נדל"ן</td>
+            <td>ריבית גבוהה</td>
+          </tr>
+          <tr>
+            <td>📉 האטה/מיתון</td>
+            <td class="good-sector">צריכה בסיסית, בריאות, אנרגיה חלופית</td>
+            <td class="bad-sector">טכנולוגיה, צריכה מחזורית</td>
+            <td>ריבית גבוהה, מתחילה לרדת</td>
+          </tr>
+          <tr>
+            <td>🌱 התאוששות</td>
+            <td class="good-sector">נדל"ן, טכנולוגיה, פיננסים</td>
+            <td class="bad-sector">צריכה בסיסית, אנרגיה חלופית</td>
+            <td>ריבית נמוכה ויורדת</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">Sector Rotation — איך זה עובד בפועל</div>
+      </div>
+      <p>Sector Rotation הוא האסטרטגיה שבה מוסדיים (קרנות, בנקים) מזיזים כסף ממגזר למגזר לפי שלב המחזור. כשאתה מזהה לאיפה הכסף זורם — אתה יכול להצטרף.</p>
+      <div class="example-box">
+        <div class="example-label">🔍 דוגמה אמיתית — 2022</div>
+        <p>ב-2022 הפד העלה ריבית אגרסיבית. <strong>טכנולוגיה ירדה 35%.</strong> אנרגיה (XLE) <strong>עלתה 65%.</strong> מי שזיהה את הסביבה — עבר מטק לאנרגיה בתחילת השנה ורשם רווחים יפים בשנה שהשוק ירד.</p>
+      </div>
+      <div class="highlight-box">
+        <h4>🔍 איך מזהים סיבוב סקטורים?</h4>
+        <p><strong>1.</strong> בדוק את מדיניות הריבית — עולה? יורדת?<br>
+        <strong>2.</strong> עקוב אחרי ETF סקטוריאלים — XLK, XLE, XLV. מי עולה יותר מה-S&amp;P 500?<br>
+        <strong>3.</strong> Stockcharts.com → "Sector Summary" — מציג ביצועי כל סקטור ב-1/3/6 חודשים.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">ETF סקטוריאלי — קנה ענף שלם בלחיצה</div>
+      </div>
+      <p>במקום לנסות לבחור את המניה הטובה ביותר בטכנולוגיה — קנה XLK וקיבלת חשיפה לכל 70+ חברות הטכנולוגיה בבת אחת. הסיכון מפוזר, הניהול פשוט.</p>
+      <ul class="checklist">
+        <li><span class="check-icon">✅</span><div><strong>XLK — טכנולוגיה:</strong> Apple, Microsoft, Nvidia, Broadcom. החזק ביותר בעשור האחרון.</div></li>
+        <li><span class="check-icon">✅</span><div><strong>XLF — פיננסים:</strong> JPMorgan, Berkshire, Visa. מרוויח כשריבית עולה.</div></li>
+        <li><span class="check-icon">✅</span><div><strong>XLV — בריאות:</strong> דפנסיבי. עולה גם במיתון. אידיאלי לשמרנים.</div></li>
+        <li><span class="check-icon">✅</span><div><strong>XLE — אנרגיה:</strong> מתאם גבוה למחיר הנפט. מסוכן אבל עם מינוף למאקרו.</div></li>
+        <li><span class="check-icon">✅</span><div><strong>XLP — צריכה בסיסית:</strong> Coca-Cola, P&amp;G. "מקלט בסערה" — יציב במיתון.</div></li>
+      </ul>
+      <div class="warning-box">
+        <div class="w-icon">⚠️</div>
+        <p><strong>ETF סקטוריאלי ≠ פיזור מלא.</strong> XLK מרוכז מאוד — 40%+ בשתי חברות (Apple + Microsoft). לפיזור אמיתי — צרף ETF מכמה סקטורים שונים.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">איך מזהים מה חם עכשיו — כלים</div>
+      </div>
+      <ul class="checklist">
+        <li><span class="check-icon">📊</span><div><strong>Finviz → Groups → Sectors:</strong> טבלה של כל 11 הסקטורים עם ביצועים שבועיים/חודשיים. מי ירוק? מי אדום?</div></li>
+        <li><span class="check-icon">📈</span><div><strong>StockCharts → Sector Summary:</strong> השוואה ויזואלית של ביצועי כל סקטור מול S&amp;P 500.</div></li>
+        <li><span class="check-icon">🔄</span><div><strong>ETF.com → Sector ETFs:</strong> רשימת כל ה-ETF הסקטוריאליים עם ביצועים, גודל ועלות.</div></li>
+        <li><span class="check-icon">💡</span><div><strong>TradingView → Heatmap:</strong> מפת חום של כל המניות לפי סקטור — ביצועי יום בצבעים. ירוק = עולה, אדום = יורד.</div></li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div class="section-title">בדיקת הבנה</div>
+      </div>
+      <div class="quiz-section">
+        <h3>🧠 שאלות לחשיבה</h3>
+        <p class="quiz-subtitle">ענה לפי מה שלמדת על המחזור הכלכלי</p>
+        <div class="quiz-question">
+          <div class="q-number">שאלה 1 — מחזור</div>
+          <p>הפד הוריד ריבית פעמיים בחצי שנה האחרונה. האבטלה יורדת. הצמיחה חוזרת. באיזה שלב מחזור אנחנו? ואילו סקטורים מעניינים אותך?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+        <div class="quiz-question">
+          <div class="q-number">שאלה 2 — בחירת ETF</div>
+          <p>אתה מאמין שתחום הבריאות יהיה חזק בשנה הקרובה. במקום לבחור מניה אחת — איזה ETF תשתמש? ולמה זה יותר בטוח ממניה בודדת?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+        <div class="quiz-question">
+          <div class="q-number">שאלה 3 — יישום</div>
+          <p>כנס ל-Finviz ← Groups ← Sectors. מה הסקטור הכי חזק בחודש האחרון? מה הסקטור הכי חלש? מה לדעתך מסביר את ההבדל?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+      </div>
+      <div class="self-check" style="margin-top:20px;">
+        <h3>✅ ניתוח סקטורים — שגרה שבועית</h3>
+        <div class="check-item"><div class="check-box"></div><p>בדקתי ב-Finviz Groups — מה הסקטור הכי חזק השבוע?</p></div>
+        <div class="check-item"><div class="check-box"></div><p>זיהיתי באיזה שלב מחזור כלכלי אנחנו נמצאים</p></div>
+        <div class="check-item"><div class="check-box"></div><p>בדקתי האם הסקטור החזק מתאים לשלב המחזור</p></div>
+        <div class="check-item"><div class="check-box"></div><p>שקלתי האם להוסיף ETF סקטוריאלי לתיק שלי</p></div>
+        <div class="check-item"><div class="check-box"></div><p>עדכנתי את רשימת המעקב שלי לפי הניתוח הסקטוריאלי</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="homework">
+    <div class="hw-header"><div class="hw-icon">📝</div><h3>מטלה — ניתוח סקטוריאלי שבועי</h3></div>
+    <ol>
+      <li>כנס ל-<strong>Finviz ← Groups ← Sectors</strong>. בחר את <strong>3 הסקטורים החזקים</strong> ב-3 החודשים האחרונים. כתוב: מה גרם להם להיות חזקים? זה קשור למחזור הכלכלי?</li>
+      <li>בחר <strong>ETF סקטוריאלי אחד</strong> שמעניין אותך. כנס ל-ETF.com ← חפש את ה-ETF ← בדוק: מה החזקות הגדולות ביותר? מה ה-Expense Ratio? מה הביצועים ב-5 שנים?</li>
+      <li>בנה <strong>Watchlist סקטוריאלי</strong> ב-TradingView: הוסף את XLK, XLF, XLV, XLE, XLP. עקוב אחריהם שבועיים — מי מוביל? מה השתנה?</li>
+    </ol>
+  </div>
+
+  <div class="footer">קורס מסחר מקצועי · פרק בונוס 4 — ניתוח סקטורים &nbsp;|&nbsp; <span>סיום פרקי הבונוס!</span> &nbsp;|&nbsp; Ctrl+P להדפסה כ-PDF</div>
+</div>
+
+
+</body></html>
