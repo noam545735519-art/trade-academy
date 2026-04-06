@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)file:///C:/Users/noam5/Downloads/index_2.html -->
+<html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>קורס שוק ההון המקצועי | למד לסחור נכון</title>
+<link href="./קורס שוק ההון המקצועי _ למד לסחור נכון_files/css2" rel="stylesheet">
+<style>
+:root {
+  --gold: #f0b429;
+  --gold-light: #ffd97d;
+  --dark: #0a0e1a;
+  --dark2: #111827;
+  --dark3: #1f2937;
+  --text: #f9fafb;
+  --muted: #9ca3af;
+  --blue: #1d4ed8;
+  --blue-light: #3b82f6;
+  --green: #16a34a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Heebo', sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; right: 0; left: 0;
+  z-index: 100;
+  background: rgba(10,14,26,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(240,180,41,0.15);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  background: var(--gold);
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: 800;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 40px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 50%, rgba(29,78,216,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 30%, rgba(240,180,41,0.08) 0%, transparent 50%);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(240,180,41,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240,180,41,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(240,180,41,0.12);
+  border: 1px solid rgba(240,180,41,0.3);
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.hero h1 .gold { color: var(--gold); }
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 480px;
+  font-weight: 400;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.hero-stat { }
+.hero-stat .num { font-size: 28px; font-weight: 900; color: var(--gold); line-height: 1; }
+.hero-stat .label { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--dark);
+  font-size: 16px;
+  font-weight: 800;
+  padding: 16px 36px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(240,180,41,0.3); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 36px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+/* HERO CARD */
+.hero-card {
+  background: var(--dark2);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 150px; height: 150px;
+  background: radial-gradient(circle, rgba(240,180,41,0.1), transparent 70%);
+}
+
+.card-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.card-title { font-size: 22px; font-weight: 800; margin-bottom: 20px; line-height: 1.3; }
+
+.course-list { list-style: none; margin-bottom: 24px; }
+.course-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 14px;
+  color: #d1d5db;
+}
+.course-list li:last-child { border-bottom: none; }
+.course-list li .li-icon {
+  width: 28px; height: 28px;
+  background: rgba(240,180,41,0.1);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.course-list li .li-num {
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 20px;
+}
+
+.card-price {
+  background: rgba(240,180,41,0.08);
+  border: 1px solid rgba(240,180,41,0.2);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: center;
+}
+
+.price-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.price-num { font-size: 36px; font-weight: 900; color: var(--gold); line-height: 1; }
+.price-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+/* SECTION */
+section { padding: 90px 40px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+.section-sub {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 52px;
+}
+
+/* CURRICULUM */
+#curriculum { background: var(--dark2); }
+
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.lesson-card {
+  background: var(--dark3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 20px 22px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.lesson-card:hover {
+  border-color: rgba(240,180,41,0.3);
+  background: rgba(240,180,41,0.03);
+  transform: translateY(-2px);
+}
+
+.lesson-num {
+  font-size: 11px;
+  font-weight: 800;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 3px 9px;
+  border-radius: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+
+.lesson-num.bonus {
+  background: rgba(240,180,41,0.15);
+  color: var(--gold);
+  border: 1px solid rgba(240,180,41,0.3);
+}
+
+.lesson-info h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.lesson-info p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* WHY */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.why-card {
+  background: var(--dark2);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: all 0.2s;
+}
+
+.why-card:hover {
+  border-color: rgba(240,180,41,0.25);
+  transform: translateY(-3px);
+}
+
+.why-icon { font-size: 32px; margin-bottom: 16px; }
+.why-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+.why-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+/* TESTIMONIALS */
+#testimonials { background: var(--dark2); }
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.testimonial-card {
+  background: var(--dark3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.stars { color: var(--gold); font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
+.testimonial-text { font-size: 14px; color: #d1d5db; line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.author-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+  flex-shrink: 0;
+}
+.author-name { font-size: 14px; font-weight: 700; }
+.author-role { font-size: 12px; color: var(--muted); }
+
+/* CTA SECTION */
+.cta-section {
+  background: linear-gradient(135deg, #0f1f5c 0%, #1a1a2e 50%, #0f2f1a 100%);
+  border-top: 1px solid rgba(240,180,41,0.15);
+  border-bottom: 1px solid rgba(240,180,41,0.15);
+  text-align: center;
+}
+
+.cta-section .section-title { margin-bottom: 20px; }
+.cta-section .section-sub { margin: 0 auto 36px; }
+
+.cta-features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.cta-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+.cta-feature .cf-icon { color: var(--green); font-size: 16px; }
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 40px;
+  text-align: center;
+}
+
+.footer-logo { font-size: 20px; font-weight: 900; color: var(--gold); margin-bottom: 12px; }
+.footer-text { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.footer-disclaimer { font-size: 11px; color: #4b5563; margin-top: 16px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-inner { animation: fadeUp 0.8s ease both; }
+.hero-card { animation: float 6s ease-in-out infinite; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 90px 20px 50px; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-card { display: none; }
+  .hero-stats { gap: 20px; }
+  section { padding: 60px 20px; }
+  .curriculum-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .cta-features { flex-direction: column; gap: 12px; align-items: center; }
+  footer { padding: 30px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">📈 TradeAcademy IL</div>
+  <ul class="nav-links">
+    <li><a href="file:///C:/Users/noam5/Downloads/index_2.html#curriculum">תכנית הלימודים</a></li>
+    <li><a href="file:///C:/Users/noam5/Downloads/index_2.html#why">למה הקורס?</a></li>
+    <li><a href="file:///C:/Users/noam5/Downloads/index_2.html#testimonials">ביקורות</a></li>
+    <li><a href="file:///C:/Users/noam5/Downloads/students.html">אזור תלמידים</a></li>
+  </ul>
+  <a href="file:///C:/Users/noam5/Downloads/students.html" class="nav-cta">הצטרף עכשיו →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">🔥 12 פרקים · מתחיל עד מתקדם</div>
+      <h1>למד לסחור<br>בשוק ההון<br><span class="gold">בצורה נכונה</span></h1>
+      <p class="hero-sub">הקורס המקצועי והמקיף ביותר בעברית — מניתוח טכני ועד פסיכולוגיית מסחר. לא עוד ניחושים. רק שיטה.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">12</div><div class="label">פרקים מקיפים</div></div>
+        <div class="hero-stat"><div class="num">7+</div><div class="label">שעות תוכן</div></div>
+        <div class="hero-stat"><div class="num">100%</div><div class="label">בעברית</div></div>
+      </div>
+      <div class="hero-btns">
+        <a href="file:///C:/Users/noam5/Downloads/students.html" class="btn-primary">🚀 התחל ללמוד עכשיו</a>
+        <a href="file:///C:/Users/noam5/Downloads/index_2.html#curriculum" class="btn-secondary">ראה את הקורס</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="card-tag">📚 תכנית הלימודים</div>
+      <div class="card-title">מה תלמד בקורס?</div>
+      <ul class="course-list">
+        <li><span class="li-num">01</span><span class="li-icon">📊</span> מבוא לשוק ההון</li>
+        <li><span class="li-num">02</span><span class="li-icon">📈</span> ניתוח טכני</li>
+        <li><span class="li-num">03</span><span class="li-icon">🛡️</span> ניהול סיכונים</li>
+        <li><span class="li-num">04</span><span class="li-icon">🎯</span> אסטרטגיית כניסה ויציאה</li>
+        <li><span class="li-num">05</span><span class="li-icon">🧠</span> פסיכולוגיה של מסחר</li>
+        <li><span class="li-num">06</span><span class="li-icon">🔎</span> ניתוח פונדמנטלי</li>
+        <li><span class="li-num">07</span><span class="li-icon">🔍</span> סורק מניות</li>
+        <li><span class="li-num">+4</span><span class="li-icon">🎁</span> פרקי בונוס בלעדיים</li>
+      </ul>
+      <div class="card-price">
+        <div class="price-label">מחיר השקה מיוחד</div>
+        <div class="price-num">₪497</div>
+        <div class="price-sub">גישה מלאה · ללא הגבלת זמן</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section id="curriculum">
+  <div class="section-inner">
+    <div class="section-label">תכנית הלימודים</div>
+    <h2 class="section-title">12 פרקים שישנו<br>את הדרך שלך לסחור</h2>
+    <p class="section-sub">כל פרק בנוי עם תיאוריה, דוגמאות אמיתיות, מטלות יישומיות ובדיקת הבנה.</p>
+
+    <div class="curriculum-grid">
+      <div class="lesson-card">
+        <span class="lesson-num">01</span>
+        <div class="lesson-info"><h4>📊 מבוא לשוק ההון</h4><p>מניות, אג"ח, מדדים, ברוקרים — הבסיס שכל משקיע חייב לדעת</p></div>
+      </div>
+      <div class="lesson-card">
+        <span class="lesson-num">02</span>
+        <div class="lesson-info"><h4>📈 ניתוח טכני</h4><p>גרפים, תמיכה/התנגדות, RSI, MACD, ממוצעים נעים</p></div>
+      </div>
+      <div class="lesson-card">
+        <span class="lesson-num">03</span>
+        <div class="lesson-info"><h4>🛡️ ניהול סיכונים</h4><p>סטופ לוס, גודל פוזיציה, יחס סיכוי/סיכון — שמור על ההון שלך</p></div>
+      </div>
+      <div class="lesson-card">
+        <span class="lesson-num">04</span>
+        <div class="lesson-info"><h4>🎯 אסטרטגיית כניסה ויציאה</h4><p>מתי נכנסים, מתי יוצאים, וכיצד מנהלים עסקה פתוחה</p></div>
+      </div>
+      <div class="lesson-card">
+        <span class="lesson-num">05</span>
+        <div class="lesson-info"><h4>🧠 פסיכולוגיה של מסחר</h4><p>פחד, חמדנות, FOMO, Revenge Trading — הלחמות שמנצחות אותך</p></div>
+      </div>
+      <div class="lesson-card">
+        <span class="lesson-num">06</span>
+        <div class="lesson-info"><h4>📑 ניתוח פונדמנטלי</h4><p>דוחות כספיים, P/E, ROE, 5 שלבי ניתוח חברה מאפס</p></div>
+      </div>
+      <div class="lesson-card">
+        <span class="lesson-num">07</span>
+        <div class="lesson-info"><h4>🔍 סורק מניות</h4><p>Finviz, TradingView, פרופילים מוכנים — 50,000 מניות ל-10 מועמדות</p></div>
+      </div>
+      <div class="lesson-card">
+        <span class="lesson-num">✓</span>
+        <div class="lesson-info"><h4>🏆 שיעור סיום + מבחן</h4><p>סיכום הקורס, 10 כללי זהב, מבחן אמריקאי אינטראקטיבי</p></div>
+      </div>
+      <div class="lesson-card">
+        <span class="lesson-num bonus">B1</span>
+        <div class="lesson-info"><h4>📰 קריאת חדשות כלכליות</h4><p>אירועים מניעי שוק, Earnings Season, לוח אירועים כלכלי</p></div>
+      </div>
+      <div class="lesson-card">
+        <span class="lesson-num bonus">B2</span>
+        <div class="lesson-info"><h4>📊 מבוא לאופציות</h4><p>Call, Put, Theta, מינוף — ולמה רוב המתחילים מפסידים</p></div>
+      </div>
+      <div class="lesson-card">
+        <span class="lesson-num bonus">B3</span>
+        <div class="lesson-info"><h4>💼 בניית תיק מאוזן</h4><p>פיזור, פרופיל משקיע, Rebalancing — השקעה לאורך זמן</p></div>
+      </div>
+      <div class="lesson-card">
+        <span class="lesson-num bonus">B4</span>
+        <div class="lesson-info"><h4>🏭 ניתוח סקטורים</h4><p>11 סקטורים, מחזור כלכלי, Sector Rotation — כסף שיודע לנוע</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="section-inner">
+    <div class="section-label">למה הקורס הזה?</div>
+    <h2 class="section-title">לא עוד טיפים.<br>שיטה שעובדת.</h2>
+    <p class="section-sub">הקורס נבנה מהניסיון האמיתי של הסוחרים — לא מהספרות.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">📐</div>
+        <h3>מבנה מדויק</h3>
+        <p>כל פרק בנוי עם חומר תיאורטי, דוגמאות מהשוק האמיתי, מטלה יישומית ושאלות בוחן — לא שיעור שמסתיים בהרגשה של "נו, אז מה עכשיו?"</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🧠</div>
+        <h3>פסיכולוגיה — הנושא שחסר</h3>
+        <p>90% מהקורסים מלמדים ניתוח. רק 10% מלמדים ניהול ראש. הקורס שלנו מקדיש פרק שלם לפסיכולוגיית מסחר — כי שם מרוויחים ומפסידים.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🇮🇱</div>
+        <h3>100% בעברית ורלוונטי לישראל</h3>
+        <p>השוק הישראלי, מיסוי ישראלי, ברוקרים ישראלים — לא עוד תרגומים מאנגלית שלא מסתדרים עם המציאות שלנו.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>גישה מיידית וללא הגבלה</h3>
+        <p>מרגע הרכישה — כל 12 הפרקים זמינים. לא מחכים לשיעור הבא. לא שוכחים. לומדים בקצב שלך.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📊</div>
+        <h3>פונדמנטלי + טכני = שניהם</h3>
+        <p>הקורס הוא אחד היחידים שמלמד גם ניתוח טכני וגם פונדמנטלי — כי הסוחר הטוב יודע לשלב את שניהם.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎁</div>
+        <h3>4 פרקי בונוס בלעדיים</h3>
+        <p>אופציות, בניית תיק, ניתוח סקטורים וקריאת חדשות כלכליות — תוכן שלא תמצא בקורסים אחרים באותה רמה.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-label">מה אומרים התלמידים</div>
+    <h2 class="section-title">תוצאות אמיתיות,<br>לא הבטחות</h2>
+    <p class="section-sub">תלמידים שסיימו את הקורס ויישמו את השיטות.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"סוף סוף הבנתי למה הפסדתי כל הזמן — זה לא הניתוח, זה הראש. פרק הפסיכולוגיה שינה לי את כל הגישה."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">י</div>
+          <div><div class="author-name">יוסי כהן</div><div class="author-role">סוחר מתחיל, תל אביב</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"הקורס הכי מסודר שמצאתי בעברית. כל פרק בנוי מצוין — תיאוריה, דוגמה, מטלה. לא מבלבל, פשוט הגיוני."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ד</div>
+          <div><div class="author-name">דנה לוי</div><div class="author-role">משקיעה, ירושלים</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"פרק הסורק לבד שווה את כל המחיר. חסכתי שעות חיפוש — עכשיו יש לי Watchlist של 5 מניות מוכנות בכל שבוע."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">מ</div>
+          <div><div class="author-name">מיכאל אברהם</div><div class="author-role">סוחר, חיפה</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="enroll" class="cta-section">
+  <div class="section-inner">
+    <div class="section-label">הצטרף עכשיו</div>
+    <h2 class="section-title">מוכן להתחיל<br>לסחור נכון?</h2>
+    <p class="section-sub">גישה מלאה לכל 12 הפרקים, פרקי הבונוס ושיעור הסיום עם המבחן האינטראקטיבי.</p>
+    <div class="cta-features">
+      <div class="cta-feature"><span class="cf-icon">✓</span> 12 פרקים מקיפים</div>
+      <div class="cta-feature"><span class="cf-icon">✓</span> גישה ללא הגבלת זמן</div>
+      <div class="cta-feature"><span class="cf-icon">✓</span> 4 פרקי בונוס בלעדיים</div>
+      <div class="cta-feature"><span class="cf-icon">✓</span> מבחן הבנה אינטראקטיבי</div>
+      <div class="cta-feature"><span class="cf-icon">✓</span> 100% בעברית</div>
+    </div>
+    <a href="file:///C:/Users/noam5/Downloads/students.html" class="btn-primary" style="font-size:18px; padding:20px 48px;">
+      🚀 כניסה לאזור התלמידים
+    </a>
+    <p style="font-size:13px; color:var(--muted); margin-top:16px;">לרכישה — צור קשר ישירות</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">📈 TradeAcademy IL</div>
+  <p class="footer-text">קורס שוק ההון המקצועי בעברית</p>
+  <p class="footer-disclaimer">
+    האתר מיועד למטרות חינוכיות בלבד. אין לראות בתכנים המוצגים כייעוץ השקעות, שיווק השקעות או תחליף לייעוץ מקצועי. השקעות בשוק ההון כרוכות בסיכון להפסד הון. ביצועי עבר אינם מעידים על ביצועים עתידיים.
+  </p>
+</footer>
+
+
+
+</body></html>
