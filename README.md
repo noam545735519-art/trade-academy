@@ -90,7 +90,7 @@ nav{background:var(--dark2);border-bottom:1px solid rgba(240,180,41,0.15);paddin
 </style>
 </head>
 <body>
-
+<div style="background:#1a1a2e;padding:12px 24px;position:sticky;top:0;z-index:999;"><a href="students.html" style="color:#f0b429;text-decoration:none;font-family:Heebo,sans-serif;font-size:14px;font-weight:600;">← חזרה לאזור התלמידים</a></div>
 <nav>
   <a href="file:///C:/Users/noam5/Downloads/index.html" class="nav-logo">📈 TradeAcademy IL</a>
   <a href="file:///C:/Users/noam5/Downloads/index.html" class="nav-back">← חזרה לדף הבית</a>
