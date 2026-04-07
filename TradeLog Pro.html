@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)file:///C:/Users/noam5/Downloads/tradelog-pro-v2.html -->
+<html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>TradeLog Pro</title>
+<script src="./TradeLog Pro_files/chart.umd.js.הורדה"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Heebo:wght@300;400;500;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080c14;--bg2:#0e1420;--bg3:#151d2e;--bg4:#1c2640;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --text:#dde3f0;--muted:#5a6580;--muted2:#8a96b0;
+  --green:#00d4a0;--green2:rgba(0,212,160,0.12);
+  --red:#ff4060;--red2:rgba(255,64,96,0.12);
+  --gold:#f0b429;--gold2:rgba(240,180,41,0.1);
+  --blue:#4a9eff;--blue2:rgba(74,158,255,0.12);
+  --purple:#a78bfa;--purple2:rgba(167,139,250,0.12);
+  --orange:#ff8c42;
+  --font:'Heebo',sans-serif;--mono:'IBM Plex Mono',monospace;
+  --r:10px;--r2:16px;
+}
+html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;overflow-x:hidden}
+
+/* ── ALERT BANNER ── */
+.alert-banner{display:none;background:var(--red2);border:1px solid var(--red);border-radius:10px;padding:12px 18px;margin:16px 20px 0;display:flex;align-items:center;gap:12px;animation:pulse 2s infinite}
+.alert-banner.hidden{display:none!important}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.alert-icon{width:28px;height:28px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.alert-text{flex:1;font-size:13px;color:var(--red)}
+.alert-text strong{display:block;font-size:14px;margin-bottom:2px}
+
+/* ── TOPBAR ── */
+.topbar{position:sticky;top:0;z-index:100;background:rgba(8,12,20,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:52px}
+.logo{font-family:var(--mono);font-size:15px;color:var(--gold);letter-spacing:1px;flex-shrink:0}
+.logo span{color:var(--muted2)}
+.nav{display:flex;gap:2px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nb{background:none;border:none;color:var(--muted);padding:6px 10px;border-radius:8px;cursor:pointer;font-family:var(--font);font-size:12px;transition:all .15s;white-space:nowrap;flex-shrink:0}
+.nb:hover{background:var(--bg3);color:var(--text)}
+.nb.active{background:var(--bg3);color:var(--gold)}
+
+/* ── LAYOUT ── */
+.content{padding:16px;max-width:1100px;margin:0 auto}
+.page{display:none}.page.active{display:block}
+.page-title{font-size:18px;font-weight:700;margin-bottom:4px}
+.page-sub{font-size:12px;color:var(--muted);margin-bottom:18px}
+
+/* ── KPI GRID ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+@media(max-width:600px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px;position:relative;overflow:hidden;cursor:default}
+.kpi.green{border-color:rgba(0,212,160,0.25)}
+.kpi.red{border-color:rgba(255,64,96,0.25)}
+.kpi.gold{border-color:rgba(240,180,41,0.25)}
+.kpi-label{font-size:10px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.kpi-val{font-family:var(--mono);font-size:22px;font-weight:500}
+.kpi-val.g{color:var(--green)}.kpi-val.r{color:var(--red)}.kpi-val.gl{color:var(--gold)}.kpi-val.b{color:var(--blue)}
+.kpi-sub{font-size:10px;color:var(--muted);margin-top:3px}
+
+/* ── PROGRESS BAR ── */
+.prog-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:16px;margin-bottom:16px}
+.prog-title{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.prog-item{margin-bottom:14px}
+.prog-item:last-child{margin-bottom:0}
+.prog-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.prog-label{font-size:12px;color:var(--text);font-weight:500}
+.prog-pct{font-family:var(--mono);font-size:12px}
+.prog-track{height:6px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;border-radius:3px;transition:width .6s ease}
+.prog-fill.green{background:var(--green)}
+.prog-fill.gold{background:var(--gold)}
+.prog-fill.red{background:var(--red)}
+
+/* ── CHARTS ── */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+@media(max-width:700px){.chart-grid{grid-template-columns:1fr}}
+.chart-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:16px}
+.chart-title{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.chart-wrap{position:relative;height:170px}
+.chart-wrap.tall{height:220px}
+
+/* ── TABLE ── */
+.tbox{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;margin-bottom:16px}
+.tbox-head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border)}
+.tbox-title{font-size:13px;font-weight:500}
+.t-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:var(--bg3);color:var(--muted);padding:8px 12px;text-align:right;font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;border-bottom:1px solid var(--border)}
+td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--text);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,255,255,0.02)}
+.badge{display:inline-block;padding:2px 8px;border-radius:5px;font-size:10px;font-weight:500;font-family:var(--mono)}
+.badge.buy{background:var(--green2);color:var(--green)}.badge.sell{background:var(--red2);color:var(--red)}
+.pl-p{color:var(--green);font-family:var(--mono);font-weight:500}
+.pl-n{color:var(--red);font-family:var(--mono);font-weight:500}
+.empty-state{padding:40px;text-align:center;color:var(--muted);font-size:13px}
+
+/* ── FORM ── */
+.fbox{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:20px;margin-bottom:14px}
+.fbox-title{font-size:14px;font-weight:500;margin-bottom:16px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:500px){.fgrid{grid-template-columns:1fr}}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+.fg input,.fg select,.fg textarea{background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:9px 12px;color:var(--text);font-size:13px;font-family:var(--font);direction:rtl;transition:border .15s;width:100%}
+.fg input:focus,.fg select:focus{outline:none;border-color:var(--gold)}
+.fg select option{background:var(--bg3)}
+.mood-grid{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.mood-btn{background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:7px 13px;cursor:pointer;font-size:12px;color:var(--muted);transition:all .15s;font-family:var(--font)}
+.mood-btn:hover,.mood-btn.sel{border-color:var(--gold);color:var(--gold);background:var(--gold2)}
+.sub-btn{background:var(--gold);color:#080c14;border:none;border-radius:10px;padding:11px 26px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font);margin-top:14px}
+.sub-btn:hover{filter:brightness(1.1)}
+
+/* ── CALC & CARDS ── */
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.calc-grid{grid-template-columns:1fr}}
+.cbox{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:18px}
+.cbox-title{font-size:11px;font-weight:500;margin-bottom:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.crow{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border)}
+.crow:last-child{border-bottom:none}
+.crow-label{color:var(--muted);font-size:12px}
+.crow-val{font-family:var(--mono);font-size:13px;font-weight:500}
+.rhighlight{background:var(--gold2);border:1px solid rgba(240,180,41,0.25);border-radius:10px;padding:14px;margin-top:12px;display:flex;justify-content:space-between;align-items:center}
+.rlabel{color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.4px}
+.rval{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--gold)}
+.mini-kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.mini-kpi{background:var(--bg3);border-radius:8px;padding:10px 12px}
+.mini-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.mini-val{font-family:var(--mono);font-size:15px;font-weight:500}
+
+/* ── CALENDAR ── */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:10px}
+.cal-header{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px}
+.cal-day-name{text-align:center;font-size:10px;color:var(--muted);text-transform:uppercase;padding:4px 0}
+.cal-day{aspect-ratio:1;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;cursor:default;position:relative;background:var(--bg3);border:1px solid var(--border);transition:all .15s}
+.cal-day.empty{background:transparent;border-color:transparent}
+.cal-day.has-trade{cursor:pointer}
+.cal-day.profit{background:rgba(0,212,160,0.15);border-color:rgba(0,212,160,0.3)}
+.cal-day.loss{background:rgba(255,64,96,0.15);border-color:rgba(255,64,96,0.3)}
+.cal-day.today{border-color:var(--gold)!important}
+.cal-day-num{font-size:11px;font-weight:500;color:var(--text)}
+.cal-day.profit .cal-day-num{color:var(--green)}
+.cal-day.loss .cal-day-num{color:var(--red)}
+.cal-pl{font-size:9px;font-family:var(--mono);margin-top:1px}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-month{font-size:14px;font-weight:500}
+.cal-arrow{background:var(--bg3);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:5px 12px;cursor:pointer;font-family:var(--font);font-size:13px}
+.cal-arrow:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── BENCHMARK ── */
+.bench-info{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.bench-card{background:var(--bg3);border-radius:10px;padding:12px;text-align:center}
+.bench-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.bench-val{font-family:var(--mono);font-size:18px;font-weight:500}
+
+/* ── TAX ── */
+.tax-result{background:var(--blue2);border:1px solid rgba(74,158,255,0.25);border-radius:10px;padding:16px;margin-top:12px}
+.tax-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(74,158,255,0.15);font-size:13px}
+.tax-row:last-child{border-bottom:none;font-weight:700;font-size:15px}
+.tax-label{color:var(--muted2)}
+.tax-val{font-family:var(--mono)}
+
+/* ── GOALS ── */
+.goals-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+@media(max-width:600px){.goals-grid{grid-template-columns:1fr}}
+.goal-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px}
+.goal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.goal-name{font-size:13px;font-weight:500}
+.goal-badge{font-size:10px;font-family:var(--mono);padding:3px 8px;border-radius:5px;background:var(--bg3)}
+
+/* ── SETTINGS INPUT ── */
+.settings-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)}
+.settings-row:last-child{border-bottom:none}
+.settings-label{font-size:13px;color:var(--text)}
+.settings-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.settings-input{background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:7px 12px;color:var(--text);font-size:13px;font-family:var(--mono);width:140px;text-align:center;direction:ltr}
+.settings-input:focus{outline:none;border-color:var(--gold)}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--green);color:#080c14;padding:10px 22px;border-radius:10px;font-weight:700;font-size:13px;z-index:999;opacity:0;pointer-events:none;transition:opacity .3s;white-space:nowrap}
+.toast.show{opacity:1}
+.toast.warn{background:var(--red)}
+
+/* ── SECTION SEP ── */
+.sep{height:1px;background:var(--border);margin:16px 0}
+.section-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.add-btn{background:var(--gold);color:#080c14;border:none;border-radius:8px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:var(--font)}
+.add-btn:hover{filter:brightness(1.1)}
+.del-btn{background:var(--red2);color:var(--red);border:1px solid rgba(255,64,96,.3);border-radius:6px;padding:3px 8px;font-size:10px;cursor:pointer;font-family:var(--font)}
+
+/* ── PDF MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:none;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);padding:24px;width:90%;max-width:480px}
+.modal-title{font-size:16px;font-weight:600;margin-bottom:16px}
+.modal-close{float:left;background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer;line-height:1}
+.pdf-preview{background:white;border-radius:8px;padding:20px;font-family:Arial,sans-serif;color:#111;font-size:11px;line-height:1.4;direction:rtl;max-height:360px;overflow-y:auto}
+.pdf-preview h1{font-size:18px;color:#0d3460;margin-bottom:4px}
+.pdf-preview h3{font-size:12px;color:#555;border-bottom:1px solid #ddd;padding-bottom:6px;margin:12px 0 8px}
+.pdf-preview .pdf-kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.pdf-preview .pdf-kpi{background:#f5f7fa;border-radius:6px;padding:8px;text-align:center}
+.pdf-preview .pdf-kpi-label{font-size:9px;color:#888;margin-bottom:3px}
+.pdf-preview .pdf-kpi-val{font-size:15px;font-weight:700}
+.pdf-preview table{width:100%;border-collapse:collapse;font-size:10px;margin-top:8px}
+.pdf-preview th{background:#0d3460;color:white;padding:5px 8px;text-align:right}
+.pdf-preview td{padding:4px 8px;border-bottom:1px solid #eee}
+.pdf-preview tr:nth-child(even) td{background:#f9f9f9}
+.modal-actions{display:flex;gap:10px;margin-top:16px;justify-content:flex-end}
+.btn-primary{background:var(--gold);color:#080c14;border:none;border-radius:8px;padding:9px 20px;font-weight:700;cursor:pointer;font-family:var(--font);font-size:13px}
+.btn-secondary{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:8px;padding:9px 20px;cursor:pointer;font-family:var(--font);font-size:13px}
+</style>
+</head>
+<body>
+
+<!-- ALERT BANNER -->
+<div class="alert-banner hidden" id="alert-banner">
+  <div class="alert-icon">!</div>
+  <div class="alert-text">
+    <strong id="alert-title">אזהרה: חריגה מ-Drawdown מקסימלי</strong>
+    <span id="alert-msg"></span>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="logo">Trade<span>Log</span> Pro</div>
+  <div class="nav">
+    <button class="nb active" onclick="go(&#39;dashboard&#39;)">דשבורד</button>
+    <button class="nb" onclick="go(&#39;journal&#39;)">יומן</button>
+    <button class="nb" onclick="go(&#39;new&#39;)">+ עסקה</button>
+    <button class="nb" onclick="go(&#39;goals&#39;)">יעדים</button>
+    <button class="nb" onclick="go(&#39;calendar&#39;)">לוח שנה</button>
+    <button class="nb" onclick="go(&#39;benchmark&#39;)">השוואת מדד</button>
+    <button class="nb" onclick="go(&#39;tax&#39;)">מחשבון מס</button>
+    <button class="nb" onclick="go(&#39;risk&#39;)">סיכון</button>
+    <button class="nb" onclick="go(&#39;settings&#39;)">הגדרות</button>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- ── DASHBOARD ── -->
+  <div class="page active" id="page-dashboard">
+    <div class="kpi-grid" id="kpi-grid">
+    <div class="kpi green"><div class="kpi-label">סה"כ P&amp;L</div><div class="kpi-val g">+18,235 ₪</div><div class="kpi-sub">8 עסקאות</div></div>
+    <div class="kpi green"><div class="kpi-label">אחוז הצלחה</div><div class="kpi-val g">75.0%</div><div class="kpi-sub">6 רווחיות</div></div>
+    <div class="kpi gold"><div class="kpi-label">Profit Factor</div><div class="kpi-val gl">2.41</div><div class="kpi-sub">יחס רווח/הפסד</div></div>
+    <div class="kpi"><div class="kpi-label">ממוצע P&amp;L</div><div class="kpi-val b">2279 ₪</div><div class="kpi-sub">לעסקה</div></div>
+  </div>
+    <div id="prog-section">
+    <div class="prog-box">
+      <div class="prog-title">מעקב יעדים</div>
+      <div class="prog-item">
+        <div class="prog-header"><span class="prog-label">יעד יומי — +0 / 500 ₪</span><span class="prog-pct" style="color:var(--red)">0%</span></div>
+        <div class="prog-track"><div class="prog-fill red" style="width:0%"></div></div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-header"><span class="prog-label">יעד שבועי — +0 / 2,000 ₪</span><span class="prog-pct" style="color:var(--red)">0%</span></div>
+        <div class="prog-track"><div class="prog-fill red" style="width:0%"></div></div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-header"><span class="prog-label">יעד שנתי — +0 / 100,000 ₪</span><span class="prog-pct" style="color:var(--red)">0%</span></div>
+        <div class="prog-track"><div class="prog-fill red" style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+    <div class="chart-grid">
+      <div class="chart-box"><div class="chart-title">Equity Curve</div><div class="chart-wrap"><canvas id="c-equity" width="495" height="170" style="display: block; box-sizing: border-box; height: 170px; width: 495px;"></canvas></div></div>
+      <div class="chart-box"><div class="chart-title">P&amp;L לפי עסקה</div><div class="chart-wrap"><canvas id="c-pl" width="495" height="170" style="display: block; box-sizing: border-box; height: 170px; width: 495px;"></canvas></div></div>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-box"><div class="chart-title">הצלחה לפי מצב רגשי</div><div class="chart-wrap"><canvas id="c-mood" width="495" height="170" style="display: block; box-sizing: border-box; height: 170px; width: 495px;"></canvas></div></div>
+      <div class="chart-box"><div class="chart-title">Drawdown %</div><div class="chart-wrap"><canvas id="c-dd" width="495" height="170" style="display: block; box-sizing: border-box; height: 170px; width: 495px;"></canvas></div></div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;margin-top:4px">
+      <button class="add-btn" onclick="openPDF()" style="background:var(--blue);padding:8px 18px;border-radius:10px;font-size:12px">ייצוא PDF</button>
+    </div>
+  </div>
+
+  <!-- ── JOURNAL ── -->
+  <div class="page" id="page-journal">
+    <div class="tbox">
+      <div class="tbox-head">
+        <div class="tbox-title">כל העסקאות</div>
+        <button class="add-btn" onclick="go(&#39;new&#39;)">+ עסקה חדשה</button>
+      </div>
+      <div class="t-wrap">
+        <table>
+          <thead><tr><th>#</th><th>תאריך</th><th>נייר</th><th>פעולה</th><th>כמות</th><th>כניסה</th><th>יציאה</th><th>P&amp;L ₪</th><th>תשואה</th><th>מצב רגשי</th><th>הערות</th><th></th></tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NEW TRADE ── -->
+  <div class="page" id="page-new">
+    <div class="fbox">
+      <div class="fbox-title">הזנת עסקה חדשה</div>
+      <div class="fgrid">
+        <div class="fg"><label>תאריך</label><input type="date" id="f-date"></div>
+        <div class="fg"><label>נייר / נכס</label><input type="text" id="f-ticker" placeholder="AAPL, TEVA..."></div>
+        <div class="fg"><label>פעולה</label><select id="f-action"><option value="קנייה">קנייה (לונג)</option><option value="שורט">שורט</option></select></div>
+        <div class="fg"><label>כמות</label><input type="number" id="f-qty" placeholder="100"></div>
+        <div class="fg"><label>מחיר כניסה ₪</label><input type="number" id="f-entry" placeholder="150.00" step="0.01"></div>
+        <div class="fg"><label>מחיר יציאה ₪</label><input type="number" id="f-exit" placeholder="165.00" step="0.01"></div>
+        <div class="fg"><label>עמלה ₪</label><input type="number" id="f-fee" placeholder="40" value="40"></div>
+        <div class="fg"><label>סקטור</label><select id="f-sector"><option>טכנולוגיה</option><option>פארמה</option><option>אנרגיה</option><option>פיננסים</option><option>סחורות</option><option>מדד</option><option>קריפטו</option><option>אחר</option></select></div>
+      </div>
+      <div class="fg" style="margin-top:12px"><label>מצב רגשי</label>
+        <div class="mood-grid">
+          <div class="mood-btn sel" onclick="pickMood(this,&#39;אמונה גבוהה&#39;)">אמונה גבוהה</div>
+          <div class="mood-btn" onclick="pickMood(this,&#39;ניטרלי&#39;)">ניטרלי</div>
+          <div class="mood-btn" onclick="pickMood(this,&#39;FOMO&#39;)">FOMO</div>
+          <div class="mood-btn" onclick="pickMood(this,&#39;אי ודאות&#39;)">אי ודאות</div>
+          <div class="mood-btn" onclick="pickMood(this,&#39;לחץ&#39;)">לחץ</div>
+        </div>
+      </div>
+      <div class="fg" style="margin-top:12px"><label>הערות</label><input type="text" id="f-notes" placeholder="פריצת התנגדות, תמיכה, דוחות..."></div>
+      <button class="sub-btn" onclick="addTrade()">שמור עסקה</button>
+    </div>
+  </div>
+
+  <!-- ── GOALS ── -->
+  <div class="page" id="page-goals">
+    <div class="page-title">יעדים ומעקב</div>
+    <div class="page-sub">הגדר יעדים יומיים ושבועיים — הפרוגרס מתעדכן אוטומטית</div>
+    <div id="goals-content"></div>
+  </div>
+
+  <!-- ── CALENDAR ── -->
+  <div class="page" id="page-calendar">
+    <div class="page-title">לוח שנה ויזואלי</div>
+    <div class="page-sub">ירוק = יום רווחי | אדום = יום הפסדי</div>
+    <div class="fbox" style="padding:16px">
+      <div class="cal-nav">
+        <button class="cal-arrow" onclick="calPrev()">›</button>
+        <div class="cal-month" id="cal-month-title"></div>
+        <button class="cal-arrow" onclick="calNext()">‹</button>
+      </div>
+      <div class="cal-header">
+        <div class="cal-day-name">א'</div><div class="cal-day-name">ב'</div><div class="cal-day-name">ג'</div>
+        <div class="cal-day-name">ד'</div><div class="cal-day-name">ה'</div><div class="cal-day-name">ו'</div><div class="cal-day-name">ש'</div>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+    </div>
+    <div class="chart-box" style="margin-top:10px">
+      <div class="chart-title">P&amp;L יומי — החודש</div>
+      <div class="chart-wrap"><canvas id="c-daily"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ── BENCHMARK ── -->
+  <div class="page" id="page-benchmark">
+    <div class="page-title">השוואה מול מדד</div>
+    <div class="page-sub">ביצועים שלך מול ת"א 125 ו-S&amp;P 500</div>
+    <div class="bench-info" id="bench-info"></div>
+    <div class="chart-box">
+      <div class="chart-title">השוואת תשואות — אחוז % מצטבר</div>
+      <div class="chart-wrap tall"><canvas id="c-bench"></canvas></div>
+    </div>
+    <div class="sep"></div>
+    <div class="fbox" style="padding:14px">
+      <div class="section-label">עדכן ביצועי מדד (ידני)</div>
+      <div class="fgrid" style="margin-top:10px">
+        <div class="fg"><label>ת"א 125 תשואה שנתית %</label><input type="number" id="ta125-ret" value="12" step="0.1" oninput="renderBench()"></div>
+        <div class="fg"><label>S&amp;P 500 תשואה שנתית %</label><input type="number" id="sp500-ret" value="24" step="0.1" oninput="renderBench()"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAX ── -->
+  <div class="page" id="page-tax">
+    <div class="page-title">מחשבון מס על רווחי הון</div>
+    <div class="page-sub">מבוסס על שיעור מס ריאלי 25% (ישראל)</div>
+    <div class="calc-grid">
+      <div class="cbox">
+        <div class="cbox-title">הגדרות חישוב</div>
+        <div class="fg" style="margin-bottom:12px"><label>הכנסה שנתית כוללת ₪ (ממשכורת)</label><input type="number" id="tax-income" value="180000" oninput="calcTax()"></div>
+        <div class="fg" style="margin-bottom:12px"><label>שיעור מס רווחי הון %</label><input type="number" id="tax-rate" value="25" oninput="calcTax()"></div>
+        <div class="fg" style="margin-bottom:12px"><label>הפסדים להקזה ₪</label><input type="number" id="tax-losses" value="0" oninput="calcTax()"></div>
+        <div class="fg" style="margin-bottom:12px"><label>עמלות מוכרות ₪</label><input type="number" id="tax-fees" value="" placeholder="חישוב אוטומטי" oninput="calcTax()"></div>
+        <div id="tax-result"></div>
+      </div>
+      <div class="cbox">
+        <div class="cbox-title">פירוט עסקאות רווחיות</div>
+        <div id="tax-trades-list" style="max-height:360px;overflow-y:auto"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RISK ── -->
+  <div class="page" id="page-risk">
+    <div class="calc-grid">
+      <div class="cbox">
+        <div class="cbox-title">מחשבון Position Size</div>
+        <div class="fg" style="margin-bottom:10px"><label>הון מסחר ₪</label><input type="number" id="r-cap" value="500000" oninput="calcPos()"></div>
+        <div class="fg" style="margin-bottom:10px"><label>סיכון לעסקה %</label><input type="number" id="r-risk" value="2" step="0.5" oninput="calcPos()"></div>
+        <div class="fg" style="margin-bottom:10px"><label>מחיר נכס ₪</label><input type="number" id="r-price" value="100" oninput="calcPos()"></div>
+        <div class="fg" style="margin-bottom:10px"><label>Stop Loss ₪</label><input type="number" id="r-stop" value="94" oninput="calcPos()"></div>
+        <div class="rhighlight">
+          <div><div class="rlabel">קנה</div><div style="font-size:10px;color:var(--muted);margin-top:2px" id="r-pv2"></div></div>
+          <div class="rval" id="r-pv">---</div>
+        </div>
+        <div class="mini-kpis" id="r-mini"></div>
+      </div>
+      <div class="cbox">
+        <div class="cbox-title">סימולטור R:R</div>
+        <div class="fg" style="margin-bottom:10px"><label>יחס R:R</label><input type="number" id="rr-ratio" value="2" step="0.5" oninput="calcRR()"></div>
+        <div class="fg" style="margin-bottom:10px"><label>הפסד ממוצע ₪</label><input type="number" id="rr-loss" value="500" oninput="calcRR()"></div>
+        <div class="fg" style="margin-bottom:10px"><label>מספר עסקאות</label><input type="number" id="rr-n" value="20" oninput="calcRR()"></div>
+        <div id="rr-out"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SETTINGS ── -->
+  <div class="page" id="page-settings">
+    <div class="page-title">הגדרות</div>
+    <div class="fbox">
+      <div class="fbox-title">יעדים והגבלות</div>
+      <div class="settings-row">
+        <div><div class="settings-label">הון מסחר ₪</div><div class="settings-sub">הבסיס לחישובי % תשואה</div></div>
+        <input class="settings-input" type="number" id="s-capital" value="500000" oninput="saveSettings()">
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">Drawdown מקסימלי %</div><div class="settings-sub">התראה אוטומטית בחריגה</div></div>
+        <input class="settings-input" type="number" id="s-maxdd" value="10" step="0.5" oninput="saveSettings()">
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">יעד רווח שנתי ₪</div><div class="settings-sub">מוצג בדשבורד כפרוגרס בר</div></div>
+        <input class="settings-input" type="number" id="s-annual" value="100000" oninput="saveSettings()">
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">יעד רווח שבועי ₪</div><div class="settings-sub">מעקב שבועי בדשבורד</div></div>
+        <input class="settings-input" type="number" id="s-weekly" value="2000" oninput="saveSettings()">
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">יעד רווח יומי ₪</div><div class="settings-sub">מעקב יומי בדשבורד</div></div>
+        <input class="settings-input" type="number" id="s-daily" value="500" oninput="saveSettings()">
+      </div>
+    </div>
+    <div class="fbox" style="border-color:rgba(255,64,96,.2)">
+      <div class="fbox-title" style="color:var(--red)">אזור מסוכן</div>
+      <div class="settings-row">
+        <div><div class="settings-label">מחיקת כל הנתונים</div><div class="settings-sub">פעולה בלתי הפיכה</div></div>
+        <button onclick="clearAll()" style="background:var(--red2);color:var(--red);border:1px solid rgba(255,64,96,.3);border-radius:8px;padding:7px 14px;cursor:pointer;font-family:var(--font);font-size:12px">מחק הכל</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PDF MODAL -->
+<div class="modal-overlay" id="pdf-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closePDF()">✕</button>
+    <div class="modal-title">ייצוא דוח מסחר</div>
+    <div class="pdf-preview" id="pdf-preview"></div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closePDF()">סגור</button>
+      <button class="btn-primary" onclick="printPDF()">הדפסה / שמירה כ-PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── STATE ──
+const SK = 'tradelog_v2';
+const SS = 'tradelog_settings_v2';
+let charts = {};
+let calYear = new Date().getFullYear();
+let calMonth = new Date().getMonth();
+let selectedMood = 'אמונה גבוהה';
+
+let settings = JSON.parse(localStorage.getItem(SS)||'null') || {
+  capital: 500000, maxDD: 10, annual: 100000, weekly: 2000, daily: 500
+};
+
+let trades = JSON.parse(localStorage.getItem(SK)||'null') || [
+  {date:'2025-01-05',ticker:'TEVA',action:'קנייה',qty:500,entry:14.20,exit:16.80,fee:45,sector:'פארמה',mood:'אמונה גבוהה',notes:'פריצת התנגדות'},
+  {date:'2025-01-12',ticker:'NICE',action:'קנייה',qty:100,entry:320,exit:298,fee:80,sector:'טכנולוגיה',mood:'אמונה גבוהה',notes:'אכזבה בדוחות'},
+  {date:'2025-01-20',ticker:'OIL',action:'שורט',qty:200,entry:75.5,exit:71,fee:55,sector:'אנרגיה',mood:'ניטרלי',notes:'נסיגה מהתנגדות'},
+  {date:'2025-02-03',ticker:'AMZN',action:'קנייה',qty:50,entry:185,exit:198.5,fee:60,sector:'טכנולוגיה',mood:'אמונה גבוהה',notes:'תמיכה ב-200MA'},
+  {date:'2025-02-18',ticker:'GOLD',action:'קנייה',qty:300,entry:1920,exit:1975,fee:90,sector:'סחורות',mood:'אמונה גבוהה',notes:'פריצת שיא'},
+  {date:'2025-03-02',ticker:'TSLA',action:'קנייה',qty:40,entry:210,exit:195,fee:50,sector:'טכנולוגיה',mood:'FOMO',notes:'Stop hit'},
+  {date:'2025-03-15',ticker:'TA125',action:'קנייה',qty:10,entry:2050,exit:2130,fee:40,sector:'מדד',mood:'אמונה גבוהה',notes:'ניהול עוקב'},
+  {date:'2025-04-01',ticker:'NVDA',action:'קנייה',qty:30,entry:875,exit:920,fee:70,sector:'טכנולוגיה',mood:'אמונה גבוהה',notes:'AI momentum'},
+];
+
+// ── HELPERS ──
+function save(){ localStorage.setItem(SK,JSON.stringify(trades)); }
+function saveSettings(){ 
+  settings = {
+    capital: +document.getElementById('s-capital').value||500000,
+    maxDD: +document.getElementById('s-maxdd').value||10,
+    annual: +document.getElementById('s-annual').value||100000,
+    weekly: +document.getElementById('s-weekly').value||2000,
+    daily: +document.getElementById('s-daily').value||500,
+  };
+  localStorage.setItem(SS,JSON.stringify(settings));
+  checkDrawdownAlert();
+}
+function pl(t){ return (t.action==='קנייה'?1:-1)*(t.exit-t.entry)*t.qty - t.fee; }
+function pct(t){ return pl(t)/(t.entry*t.qty)*100; }
+function fmt(n){ return (n>=0?'+':'')+Math.round(n).toLocaleString('he-IL'); }
+function fmtF(n,d=2){ return (n>=0?'+':'')+n.toFixed(d); }
+function toast(msg,warn=false){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className='toast'+(warn?' warn':'');
+  t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500);
+}
+function destroyChart(id){ if(charts[id]){charts[id].destroy();delete charts[id];} }
+
+// ── NAV ──
+const pages = ['dashboard','journal','new','goals','calendar','benchmark','tax','risk','settings'];
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nb')[pages.indexOf(id)]?.classList.add('active');
+  if(id==='dashboard') renderDash();
+  if(id==='journal') renderTable();
+  if(id==='goals') renderGoals();
+  if(id==='calendar') renderCalendar();
+  if(id==='benchmark') renderBench();
+  if(id==='tax') calcTax();
+  if(id==='risk'){calcPos();calcRR();}
+  if(id==='settings') loadSettings();
+  if(id==='new') document.getElementById('f-date').value=new Date().toISOString().split('T')[0];
+}
+
+// ── DRAWDOWN ALERT ──
+function checkDrawdownAlert(){
+  const total = trades.reduce((s,t)=>s+pl(t),0);
+  const cumData = trades.reduce((acc,t,i)=>{acc.push((acc[i-1]||0)+pl(t));return acc;},[]);
+  const peak = cumData.reduce((acc,v,i)=>{acc.push(Math.max(v,i?acc[i-1]:v));return acc;},[]);
+  const lastDD = cumData.length ? Math.abs((cumData[cumData.length-1]-peak[peak.length-1])/(settings.capital+Math.max(0,peak[peak.length-1]))*100) : 0;
+  const banner = document.getElementById('alert-banner');
+  if(lastDD > settings.maxDD){
+    document.getElementById('alert-title').textContent = `אזהרה: חרגת מה-Drawdown המקסימלי!`;
+    document.getElementById('alert-msg').textContent = `Drawdown נוכחי: ${lastDD.toFixed(1)}% | מקסימום מוגדר: ${settings.maxDD}% — שקול להפסיק מסחר היום`;
+    banner.classList.remove('hidden');
+  } else {
+    banner.classList.add('hidden');
+  }
+}
+
+// ── MOOD ──
+function pickMood(el,m){
+  document.querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel'); selectedMood=m;
+}
+
+// ── ADD TRADE ──
+function addTrade(){
+  const t={
+    date:document.getElementById('f-date').value,
+    ticker:document.getElementById('f-ticker').value.toUpperCase().trim(),
+    action:document.getElementById('f-action').value,
+    qty:+document.getElementById('f-qty').value,
+    entry:+document.getElementById('f-entry').value,
+    exit:+document.getElementById('f-exit').value,
+    fee:+document.getElementById('f-fee').value||0,
+    sector:document.getElementById('f-sector').value,
+    mood:selectedMood,
+    notes:document.getElementById('f-notes').value,
+  };
+  if(!t.ticker||!t.qty||!t.entry||!t.exit){toast('נא למלא: נייר, כמות, כניסה, יציאה',true);return;}
+  trades.push(t); save();
+  toast('עסקה נשמרה! '+fmt(pl(t))+' ₪');
+  ['f-ticker','f-qty','f-entry','f-exit','f-notes'].forEach(id=>document.getElementById(id).value='');
+  checkDrawdownAlert();
+  go('dashboard');
+}
+
+function deleteTrade(i){
+  if(!confirm('למחוק עסקה זו?')) return;
+  trades.splice(i,1); save(); renderTable(); checkDrawdownAlert();
+}
+
+function clearAll(){
+  if(!confirm('למחוק את כל הנתונים? פעולה זו בלתי הפיכה!')) return;
+  trades=[]; save(); toast('כל הנתונים נמחקו',true); go('dashboard');
+}
+
+// ── DASHBOARD ──
+function renderDash(){
+  const total=trades.reduce((s,t)=>s+pl(t),0);
+  const wins=trades.filter(t=>pl(t)>0).length;
+  const wr=trades.length?wins/trades.length*100:0;
+  const winAmt=wins?trades.filter(t=>pl(t)>0).reduce((s,t)=>s+pl(t),0)/wins:0;
+  const losses=trades.filter(t=>pl(t)<0);
+  const lossAmt=losses.length?Math.abs(losses.reduce((s,t)=>s+pl(t),0)/losses.length):0;
+  const pf=lossAmt>0?winAmt/lossAmt:0;
+
+  document.getElementById('kpi-grid').innerHTML=`
+    <div class="kpi ${total>=0?'green':'red'}"><div class="kpi-label">סה"כ P&L</div><div class="kpi-val ${total>=0?'g':'r'}">${fmt(total)} ₪</div><div class="kpi-sub">${trades.length} עסקאות</div></div>
+    <div class="kpi ${wr>=50?'green':'red'}"><div class="kpi-label">אחוז הצלחה</div><div class="kpi-val ${wr>=50?'g':'r'}">${wr.toFixed(1)}%</div><div class="kpi-sub">${wins} רווחיות</div></div>
+    <div class="kpi gold"><div class="kpi-label">Profit Factor</div><div class="kpi-val gl">${pf.toFixed(2)}</div><div class="kpi-sub">יחס רווח/הפסד</div></div>
+    <div class="kpi"><div class="kpi-label">ממוצע P&L</div><div class="kpi-val b">${trades.length?Math.round(total/trades.length):0} ₪</div><div class="kpi-sub">לעסקה</div></div>
+  `;
+
+  // Progress bars
+  const now=new Date();
+  const todayStr=now.toISOString().split('T')[0];
+  const weekStart=new Date(now); weekStart.setDate(now.getDate()-now.getDay());
+  const todayPL=trades.filter(t=>t.date===todayStr).reduce((s,t)=>s+pl(t),0);
+  const weekPL=trades.filter(t=>new Date(t.date)>=weekStart).reduce((s,t)=>s+pl(t),0);
+  const annualPL=trades.filter(t=>new Date(t.date).getFullYear()===now.getFullYear()).reduce((s,t)=>s+pl(t),0);
+  const dp=Math.min(100,Math.max(0,todayPL/settings.daily*100));
+  const wp=Math.min(100,Math.max(0,weekPL/settings.weekly*100));
+  const ap=Math.min(100,Math.max(0,annualPL/settings.annual*100));
+  const pc=v=>v>=80?'green':v>=40?'gold':'red';
+
+  document.getElementById('prog-section').innerHTML=`
+    <div class="prog-box">
+      <div class="prog-title">מעקב יעדים</div>
+      <div class="prog-item">
+        <div class="prog-header"><span class="prog-label">יעד יומי — ${fmt(todayPL)} / ${settings.daily.toLocaleString()} ₪</span><span class="prog-pct" style="color:var(--${pc(dp)})">${dp.toFixed(0)}%</span></div>
+        <div class="prog-track"><div class="prog-fill ${pc(dp)}" style="width:${dp}%"></div></div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-header"><span class="prog-label">יעד שבועי — ${fmt(weekPL)} / ${settings.weekly.toLocaleString()} ₪</span><span class="prog-pct" style="color:var(--${pc(wp)})">${wp.toFixed(0)}%</span></div>
+        <div class="prog-track"><div class="prog-fill ${pc(wp)}" style="width:${wp}%"></div></div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-header"><span class="prog-label">יעד שנתי — ${fmt(annualPL)} / ${settings.annual.toLocaleString()} ₪</span><span class="prog-pct" style="color:var(--${pc(ap)})">${ap.toFixed(0)}%</span></div>
+        <div class="prog-track"><div class="prog-fill ${pc(ap)}" style="width:${ap}%"></div></div>
+      </div>
+    </div>
+  `;
+
+  // Charts
+  const labels=trades.map(t=>t.ticker);
+  const plData=trades.map(t=>+pl(t).toFixed(2));
+  const cumData=trades.reduce((acc,t,i)=>{acc.push(+(((acc[i-1]||0)+pl(t)).toFixed(2)));return acc;},[]);
+  const peak=cumData.reduce((acc,v,i)=>{acc.push(Math.max(v,i?acc[i-1]:v));return acc;},[]);
+  const ddData=cumData.map((v,i)=>+((v-peak[i])/(settings.capital+Math.max(0,peak[i]))*100).toFixed(2));
+  const moodMap={};
+  trades.forEach(t=>{if(!moodMap[t.mood])moodMap[t.mood]={w:0,l:0};pl(t)>0?moodMap[t.mood].w++:moodMap[t.mood].l++;});
+  const moodL=Object.keys(moodMap);
+  const moodWR=moodL.map(m=>+(moodMap[m].w/(moodMap[m].w+moodMap[m].l)*100).toFixed(1));
+
+  const co={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},animation:{duration:400}};
+  const gridC='rgba(255,255,255,0.05)',tickC='#5a6580';
+
+  destroyChart('eq');
+  charts['eq']=new Chart(document.getElementById('c-equity'),{type:'line',data:{labels,datasets:[{data:cumData,borderColor:'#00d4a0',backgroundColor:'rgba(0,212,160,0.07)',fill:true,tension:0.35,pointRadius:4,pointBackgroundColor:'#00d4a0',pointBorderColor:'#080c14',pointBorderWidth:2}]},options:{...co,scales:{x:{ticks:{color:tickC,font:{size:10}},grid:{color:gridC}},y:{ticks:{color:tickC,font:{size:10},callback:v=>v.toLocaleString()+'₪'},grid:{color:gridC}}}}});
+
+  destroyChart('pl');
+  charts['pl']=new Chart(document.getElementById('c-pl'),{type:'bar',data:{labels,datasets:[{data:plData,backgroundColor:plData.map(v=>v>=0?'rgba(0,212,160,0.75)':'rgba(255,64,96,0.75)'),borderRadius:5,borderSkipped:false}]},options:{...co,scales:{x:{ticks:{color:tickC,font:{size:10}},grid:{display:false}},y:{ticks:{color:tickC,font:{size:10}},grid:{color:gridC}}}}});
+
+  destroyChart('mood');
+  charts['mood']=new Chart(document.getElementById('c-mood'),{type:'bar',data:{labels:moodL,datasets:[{data:moodWR,backgroundColor:'rgba(167,139,250,0.75)',borderRadius:5}]},options:{...co,scales:{x:{ticks:{color:tickC,font:{size:10}},grid:{display:false}},y:{ticks:{color:tickC,font:{size:10},callback:v=>v+'%'},max:100,grid:{color:gridC}}}}});
+
+  destroyChart('dd');
+  charts['dd']=new Chart(document.getElementById('c-dd'),{type:'line',data:{labels,datasets:[{data:ddData,borderColor:'#ff4060',backgroundColor:'rgba(255,64,96,0.07)',fill:true,tension:0.35,pointRadius:4,pointBackgroundColor:'#ff4060',pointBorderColor:'#080c14',pointBorderWidth:2}]},options:{...co,scales:{x:{ticks:{color:tickC,font:{size:10}},grid:{color:gridC}},y:{ticks:{color:tickC,font:{size:10},callback:v=>v+'%'},grid:{color:gridC}}}}});
+
+  checkDrawdownAlert();
+}
+
+// ── TABLE ──
+function renderTable(){
+  const tbody=document.getElementById('tbody');
+  if(!trades.length){tbody.innerHTML=`<tr><td colspan="12" class="empty-state">אין עסקאות עדיין</td></tr>`;return;}
+  tbody.innerHTML=[...trades].reverse().map((t,ri)=>{
+    const i=trades.length-1-ri;
+    const p=pl(t),pc2=pct(t);
+    return`<tr>
+      <td style="color:var(--muted);font-family:var(--mono)">${i+1}</td>
+      <td style="color:var(--muted)">${t.date}</td>
+      <td style="font-weight:500;font-family:var(--mono)">${t.ticker}</td>
+      <td><span class="badge ${t.action==='קנייה'?'buy':'sell'}">${t.action}</span></td>
+      <td style="font-family:var(--mono)">${t.qty.toLocaleString()}</td>
+      <td style="font-family:var(--mono)">${t.entry.toLocaleString()}</td>
+      <td style="font-family:var(--mono)">${t.exit.toLocaleString()}</td>
+      <td class="${p>=0?'pl-p':'pl-n'}">${fmt(p)} ₪</td>
+      <td class="${pc2>=0?'pl-p':'pl-n'}">${fmtF(pc2)}%</td>
+      <td style="color:var(--muted2);font-size:11px">${t.mood}</td>
+      <td style="color:var(--muted);font-size:11px;max-width:120px;overflow:hidden;text-overflow:ellipsis">${t.notes||''}</td>
+      <td><button class="del-btn" onclick="deleteTrade(${i})">מחק</button></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── GOALS ──
+function renderGoals(){
+  const total=trades.reduce((s,t)=>s+pl(t),0);
+  const now=new Date();
+  const todayStr=now.toISOString().split('T')[0];
+  const weekStart=new Date(now); weekStart.setDate(now.getDate()-now.getDay());
+  const monthStart=new Date(now.getFullYear(),now.getMonth(),1);
+  const todayPL=trades.filter(t=>t.date===todayStr).reduce((s,t)=>s+pl(t),0);
+  const weekPL=trades.filter(t=>new Date(t.date)>=weekStart).reduce((s,t)=>s+pl(t),0);
+  const monthPL=trades.filter(t=>new Date(t.date)>=monthStart).reduce((s,t)=>s+pl(t),0);
+  const annualPL=trades.filter(t=>new Date(t.date).getFullYear()===now.getFullYear()).reduce((s,t)=>s+pl(t),0);
+
+  const goals=[
+    {name:'יעד יומי',current:todayPL,target:settings.daily,period:'היום'},
+    {name:'יעד שבועי',current:weekPL,target:settings.weekly,period:'השבוע'},
+    {name:'יעד חודשי',current:monthPL,target:settings.annual/12,period:'החודש'},
+    {name:'יעד שנתי',current:annualPL,target:settings.annual,period:'השנה'},
+  ];
+
+  document.getElementById('goals-content').innerHTML=`
+    <div class="goals-grid">
+      ${goals.map(g=>{
+        const p=Math.min(100,Math.max(0,g.current/g.target*100));
+        const color=p>=80?'green':p>=40?'gold':'red';
+        const status=g.current>=g.target?'הושג!':g.current>0?'בדרך':'טרם התחיל';
+        return`<div class="goal-card">
+          <div class="goal-header">
+            <div class="goal-name">${g.name}</div>
+            <div class="goal-badge" style="color:var(--${color})">${status}</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:22px;color:var(--${color});margin-bottom:8px">${fmt(g.current)} ₪</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">יעד: ${g.target.toLocaleString()} ₪ | ${g.period}</div>
+          <div class="prog-track" style="height:8px">
+            <div class="prog-fill ${color}" style="width:${p}%"></div>
+          </div>
+          <div style="text-align:left;font-size:11px;color:var(--${color});margin-top:5px;font-family:var(--mono)">${p.toFixed(0)}%</div>
+        </div>`;
+      }).join('')}
+    </div>
+    <div class="fbox" style="margin-top:4px">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px">לשנות יעדים — עבור להגדרות</div>
+      <button class="add-btn" onclick="go('settings')" style="font-size:12px;padding:8px 16px;border-radius:8px">עדכן יעדים</button>
+    </div>
+  `;
+}
+
+// ── CALENDAR ──
+function renderCalendar(){
+  const monthNames=['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+  document.getElementById('cal-month-title').textContent=monthNames[calMonth]+' '+calYear;
+
+  const byDate={};
+  trades.forEach(t=>{
+    if(!byDate[t.date]) byDate[t.date]=0;
+    byDate[t.date]+=pl(t);
+  });
+
+  const firstDay=new Date(calYear,calMonth,1).getDay();
+  const daysInMonth=new Date(calYear,calMonth+1,0).getDate();
+  const todayStr=new Date().toISOString().split('T')[0];
+
+  let html='';
+  for(let i=0;i<firstDay;i++) html+=`<div class="cal-day empty"></div>`;
+  for(let d=1;d<=daysInMonth;d++){
+    const dateStr=`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dayPL=byDate[dateStr];
+    const isToday=dateStr===todayStr;
+    let cls='cal-day'+(isToday?' today':'');
+    let plHtml='';
+    if(dayPL!==undefined){
+      cls+=' has-trade '+(dayPL>=0?'profit':'loss');
+      plHtml=`<div class="cal-pl" style="color:${dayPL>=0?'var(--green)':'var(--red)'}">${dayPL>=0?'+':''}${Math.round(Math.abs(dayPL)/1000>1?Math.abs(dayPL)/1000+'k':Math.abs(dayPL))}</div>`;
+    }
+    html+=`<div class="${cls}"><div class="cal-day-num">${d}</div>${plHtml}</div>`;
+  }
+  document.getElementById('cal-grid').innerHTML=html;
+
+  // Daily chart for this month
+  const days=[],dayPLs=[];
+  for(let d=1;d<=daysInMonth;d++){
+    const ds=`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    if(byDate[ds]!==undefined){ days.push(d); dayPLs.push(+byDate[ds].toFixed(2)); }
+  }
+  destroyChart('daily');
+  if(days.length){
+    charts['daily']=new Chart(document.getElementById('c-daily'),{type:'bar',data:{labels:days,datasets:[{data:dayPLs,backgroundColor:dayPLs.map(v=>v>=0?'rgba(0,212,160,0.75)':'rgba(255,64,96,0.75)'),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#5a6580',font:{size:10}},grid:{display:false}},y:{ticks:{color:'#5a6580',font:{size:10}},grid:{color:'rgba(255,255,255,0.05)'}}}}});
+  }
+}
+function calPrev(){calMonth--;if(calMonth<0){calMonth=11;calYear--;}renderCalendar();}
+function calNext(){calMonth++;if(calMonth>11){calMonth=0;calYear++;}renderCalendar();}
+
+// ── BENCHMARK ──
+function renderBench(){
+  const total=trades.reduce((s,t)=>s+pl(t),0);
+  const myRet=total/settings.capital*100;
+  const ta125=+document.getElementById('ta125-ret').value||12;
+  const sp500=+document.getElementById('sp500-ret').value||24;
+  const alpha=myRet-ta125;
+
+  document.getElementById('bench-info').innerHTML=`
+    <div class="bench-card"><div class="bench-label">תיק שלי</div><div class="bench-val" style="color:${myRet>=0?'var(--green)':'var(--red)'}">${fmtF(myRet,1)}%</div></div>
+    <div class="bench-card"><div class="bench-label">ת"א 125</div><div class="bench-val" style="color:var(--blue)">${fmtF(ta125,1)}%</div></div>
+    <div class="bench-card"><div class="bench-label">Alpha מול ת"א 125</div><div class="bench-val" style="color:${alpha>=0?'var(--green)':'var(--red)'}">${fmtF(alpha,1)}%</div></div>
+  `;
+
+  const n=trades.length||8;
+  const myData=trades.reduce((acc,t,i)=>{acc.push(+(((acc[i-1]||0)+pl(t)/settings.capital*100).toFixed(2)));return acc;},[]);
+  const taData=myData.map((_,i)=>+((ta125/n*(i+1)).toFixed(2)));
+  const spData=myData.map((_,i)=>+((sp500/n*(i+1)).toFixed(2)));
+
+  destroyChart('bench');
+  charts['bench']=new Chart(document.getElementById('c-bench'),{type:'line',
+    data:{labels:trades.map(t=>t.ticker)||[],datasets:[
+      {label:'התיק שלי',data:myData,borderColor:'#00d4a0',tension:0.3,pointRadius:4,pointBackgroundColor:'#00d4a0',pointBorderColor:'#080c14',pointBorderWidth:2},
+      {label:'ת"א 125',data:taData,borderColor:'#4a9eff',tension:0.1,borderDash:[6,3],pointRadius:0},
+      {label:'S&P 500',data:spData,borderColor:'#f0b429',tension:0.1,borderDash:[4,4],pointRadius:0},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#8a96b0',font:{size:11}}}},scales:{x:{ticks:{color:'#5a6580',font:{size:10}},grid:{color:'rgba(255,255,255,0.05)'}},y:{ticks:{color:'#5a6580',font:{size:10},callback:v=>v+'%'},grid:{color:'rgba(255,255,255,0.05)'}}}}
+  });
+}
+
+// ── TAX ──
+function calcTax(){
+  const rate=(+document.getElementById('tax-rate').value||25)/100;
+  const losses2=+document.getElementById('tax-losses').value||0;
+  const feesOverride=document.getElementById('tax-fees').value;
+  const totalFees=feesOverride?+feesOverride:trades.reduce((s,t)=>s+t.fee,0);
+  const profitTrades=trades.filter(t=>pl(t)>0);
+  const grossProfit=profitTrades.reduce((s,t)=>s+pl(t),0);
+  const taxableProfit=Math.max(0,grossProfit-losses2-totalFees);
+  const taxDue=taxableProfit*rate;
+  const netAfterTax=grossProfit-taxDue;
+
+  document.getElementById('tax-result').innerHTML=`
+    <div class="tax-result">
+      <div class="tax-row"><span class="tax-label">רווח גולמי</span><span class="tax-val" style="color:var(--green)">${grossProfit.toLocaleString(undefined,{maximumFractionDigits:0})} ₪</span></div>
+      <div class="tax-row"><span class="tax-label">הפסדים לקיזוז</span><span class="tax-val" style="color:var(--red)">-${losses2.toLocaleString()} ₪</span></div>
+      <div class="tax-row"><span class="tax-label">עמלות מוכרות</span><span class="tax-val" style="color:var(--muted2)">-${Math.round(totalFees).toLocaleString()} ₪</span></div>
+      <div class="tax-row"><span class="tax-label">רווח חייב במס</span><span class="tax-val">${Math.round(taxableProfit).toLocaleString()} ₪</span></div>
+      <div class="tax-row"><span class="tax-label">מס לתשלום (${(rate*100).toFixed(0)}%)</span><span class="tax-val" style="color:var(--red)">-${Math.round(taxDue).toLocaleString()} ₪</span></div>
+      <div class="tax-row"><span class="tax-label">נטו אחרי מס</span><span class="tax-val" style="color:var(--green);font-size:18px">${Math.round(netAfterTax).toLocaleString()} ₪</span></div>
+    </div>
+  `;
+
+  document.getElementById('tax-trades-list').innerHTML=`
+    <table style="font-size:11px;width:100%;border-collapse:collapse">
+      <thead><tr style="background:var(--bg3)"><th style="padding:7px;text-align:right;color:var(--muted)">נייר</th><th style="padding:7px;text-align:right;color:var(--muted)">תאריך</th><th style="padding:7px;text-align:right;color:var(--muted)">P&L</th><th style="padding:7px;text-align:right;color:var(--muted)">מס צפוי</th></tr></thead>
+      <tbody>${profitTrades.map(t=>`
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:7px;font-family:var(--mono)">${t.ticker}</td>
+          <td style="padding:7px;color:var(--muted)">${t.date}</td>
+          <td style="padding:7px;color:var(--green);font-family:var(--mono)">+${Math.round(pl(t)).toLocaleString()}</td>
+          <td style="padding:7px;color:var(--red);font-family:var(--mono)">-${Math.round(pl(t)*rate).toLocaleString()}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  `;
+}
+
+// ── POSITION CALC ──
+function calcPos(){
+  const cap=+document.getElementById('r-cap').value||0;
+  const risk=+document.getElementById('r-risk').value||0;
+  const price=+document.getElementById('r-price').value||0;
+  const stop=+document.getElementById('r-stop').value||0;
+  if(!price||!stop||price<=stop){document.getElementById('r-pv').textContent='---';return;}
+  const maxRisk=cap*risk/100;
+  const dist=price-stop;
+  const units=Math.floor(maxRisk/dist);
+  const posVal=units*price;
+  document.getElementById('r-pv').textContent=units.toLocaleString()+' יח׳';
+  document.getElementById('r-pv2').textContent='שווי: '+posVal.toLocaleString()+' ₪';
+  document.getElementById('r-mini').innerHTML=`
+    <div class="mini-kpi"><div class="mini-label">סיכון מקסימלי</div><div class="mini-val" style="color:var(--red)">${Math.round(maxRisk).toLocaleString()} ₪</div></div>
+    <div class="mini-kpi"><div class="mini-label">מרחק Stop</div><div class="mini-val" style="color:var(--gold)">${dist.toFixed(2)} ₪</div></div>
+    <div class="mini-kpi"><div class="mini-label">שווי פוזיציה</div><div class="mini-val" style="color:var(--blue)">${posVal.toLocaleString()} ₪</div></div>
+    <div class="mini-kpi"><div class="mini-label">% מהתיק</div><div class="mini-val">${(posVal/cap*100).toFixed(1)}%</div></div>
+  `;
+}
+
+function calcRR(){
+  const rr=+document.getElementById('rr-ratio').value||0;
+  const loss=+document.getElementById('rr-loss').value||0;
+  const n=+document.getElementById('rr-n').value||0;
+  const minWR=1/(1+rr);
+  const minWins=Math.ceil(n*minWR);
+  const profit=minWins*(rr*loss)-(n-minWins)*loss;
+  document.getElementById('rr-out').innerHTML=`
+    <div class="crow"><span class="crow-label">% הצלחה מינימלי</span><span class="crow-val" style="color:var(--gold)">${(minWR*100).toFixed(1)}%</span></div>
+    <div class="crow"><span class="crow-label">עסקאות רווחיות נדרשות</span><span class="crow-val">${minWins} / ${n}</span></div>
+    <div class="crow"><span class="crow-label">רווח ממוצע לעסקה</span><span class="crow-val" style="color:var(--green)">+${(rr*loss).toLocaleString()} ₪</span></div>
+    <div class="crow"><span class="crow-label">הפסד ממוצע לעסקה</span><span class="crow-val" style="color:var(--red)">-${loss.toLocaleString()} ₪</span></div>
+    <div class="rhighlight"><span class="rlabel">תרחיש רווח צפוי</span><span class="rval">${profit>=0?'+':''}${Math.round(profit).toLocaleString()} ₪</span></div>
+  `;
+}
+
+// ── SETTINGS ──
+function loadSettings(){
+  document.getElementById('s-capital').value=settings.capital;
+  document.getElementById('s-maxdd').value=settings.maxDD;
+  document.getElementById('s-annual').value=settings.annual;
+  document.getElementById('s-weekly').value=settings.weekly;
+  document.getElementById('s-daily').value=settings.daily;
+}
+
+// ── PDF ──
+function openPDF(){
+  const total=trades.reduce((s,t)=>s+pl(t),0);
+  const wins=trades.filter(t=>pl(t)>0).length;
+  const wr=trades.length?wins/trades.length*100:0;
+  const fees=trades.reduce((s,t)=>s+t.fee,0);
+  const now=new Date().toLocaleDateString('he-IL');
+  document.getElementById('pdf-preview').innerHTML=`
+    <h1>TradeLog Pro — דוח מסחר</h1>
+    <p style="color:#888;font-size:10px">הופק בתאריך: ${now}</p>
+    <h3>סיכום ביצועים</h3>
+    <div class="pdf-kpi-row">
+      <div class="pdf-kpi"><div class="pdf-kpi-label">סה"כ P&L</div><div class="pdf-kpi-val" style="color:${total>=0?'#00a87a':'#cc3344'}">${fmt(total)} ₪</div></div>
+      <div class="pdf-kpi"><div class="pdf-kpi-label">אחוז הצלחה</div><div class="pdf-kpi-val">${wr.toFixed(1)}%</div></div>
+      <div class="pdf-kpi"><div class="pdf-kpi-label">סה"כ עסקאות</div><div class="pdf-kpi-val">${trades.length}</div></div>
+    </div>
+    <div class="pdf-kpi-row">
+      <div class="pdf-kpi"><div class="pdf-kpi-label">עסקאות רווחיות</div><div class="pdf-kpi-val" style="color:#00a87a">${wins}</div></div>
+      <div class="pdf-kpi"><div class="pdf-kpi-label">עסקאות הפסדיות</div><div class="pdf-kpi-val" style="color:#cc3344">${trades.length-wins}</div></div>
+      <div class="pdf-kpi"><div class="pdf-kpi-label">סה"כ עמלות</div><div class="pdf-kpi-val">${Math.round(fees).toLocaleString()} ₪</div></div>
+    </div>
+    <h3>פירוט עסקאות</h3>
+    <table>
+      <thead><tr><th>תאריך</th><th>נייר</th><th>פעולה</th><th>כמות</th><th>כניסה</th><th>יציאה</th><th>P&L</th><th>תשואה</th></tr></thead>
+      <tbody>${trades.map(t=>{const p=pl(t),pc2=pct(t);return`<tr><td>${t.date}</td><td>${t.ticker}</td><td>${t.action}</td><td>${t.qty}</td><td>${t.entry}</td><td>${t.exit}</td><td style="color:${p>=0?'#007a5a':'#cc3344'};font-weight:700">${fmt(p)} ₪</td><td style="color:${pc2>=0?'#007a5a':'#cc3344'}">${fmtF(pc2)}%</td></tr>`;}).join('')}
+      </tbody>
+    </table>
+    <p style="margin-top:16px;font-size:10px;color:#aaa;text-align:center">הופק על ידי TradeLog Pro — לשימוש אישי בלבד</p>
+  `;
+  document.getElementById('pdf-modal').classList.add('open');
+}
+function closePDF(){ document.getElementById('pdf-modal').classList.remove('open'); }
+function printPDF(){
+  const content=document.getElementById('pdf-preview').innerHTML;
+  const w=window.open('','_blank');
+  w.document.write(`<!DOCTYPE html><html dir="rtl"><head><meta charset="UTF-8"><style>body{font-family:Arial,sans-serif;direction:rtl;padding:20px;color:#111;font-size:11px}h1{color:#0d3460;margin-bottom:4px}h3{color:#333;border-bottom:1px solid #ddd;padding-bottom:6px;margin:14px 0 8px}.pdf-kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}.pdf-kpi{background:#f5f7fa;border-radius:6px;padding:8px;text-align:center}.pdf-kpi-label{font-size:9px;color:#888;margin-bottom:3px}.pdf-kpi-val{font-size:15px;font-weight:700}table{width:100%;border-collapse:collapse;font-size:10px}th{background:#0d3460;color:white;padding:5px 8px;text-align:right}td{padding:4px 8px;border-bottom:1px solid #eee}tr:nth-child(even) td{background:#f9f9f9}@media print{body{margin:0}}</style></head><body>${content}</body></html>`);
+  w.document.close();
+  setTimeout(()=>w.print(),400);
+}
+
+// ── INIT ──
+document.getElementById('f-date').value=new Date().toISOString().split('T')[0];
+renderDash();
+checkDrawdownAlert();
+</script>
+
+
+</body></html>
