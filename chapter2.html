@@ -1,11 +1,11 @@
 <!DOCTYPE html>
+
 <!-- saved from url=(0069)file:///C:/Users/noam5/Downloads/chapter-02-technical-analysis_1.html -->
-<html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>פרק 2: ניתוח טכני - יסודות | Trade Academy</title>
-    <link href="./פרק 2_ ניתוח טכני - יסודות _ Trade Academy_files/css2" rel="stylesheet">
-    <style>
+<html dir="rtl" lang="he"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>פרק 2: ניתוח טכני - יסודות | Trade Academy</title>
+<link href="./פרק 2_ ניתוח טכני - יסודות _ Trade Academy_files/css2" rel="stylesheet"/>
+<style>
         /* משתמש באותם צבעים כמו האתר שלך עם אקסנט כחול */
         :root {
             --gold: #f0b429;
@@ -528,269 +528,236 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Trade Academy</div>
-        <a href="file:///C:/Users/noam5/Downloads/chapter-02-technical-analysis_1.html#" class="back-btn">← חזרה לקורס</a>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Chapter Header -->
-        <div class="chapter-header">
-            <div class="chapter-number">02</div>
-            <h1 class="chapter-title">ניתוח טכני - יסודות</h1>
-            <p class="chapter-subtitle">למד לקרוא גרפים, להבין מגמות ולהשתמש באינדיקטורים הבסיסיים</p>
-        </div>
-
-        <!-- Video Section -->
-        <section class="video-section">
-            <div class="video-badge">📈 ניתוח טכני</div>
-            <h2 class="video-title">הכרת הגרפים והאינדיקטורים הבסיסיים</h2>
-            
-            <div class="video-meta">
-                <div class="video-meta-item">
-                    <span class="video-meta-icon">⏱️</span>
-                    <span>משך: 28:45 דקות</span>
-                </div>
-                <div class="video-meta-item">
-                    <span class="video-meta-icon">🎯</span>
-                    <span>רמה: מתחיל</span>
-                </div>
-                <div class="video-meta-item">
-                    <span class="video-meta-icon">📊</span>
-                    <span>ניתוח גרפי</span>
-                </div>
-            </div>
-
-            <!-- Video Placeholder -->
-            <div class="video-placeholder">
-                <div class="play-icon">▶</div>
-                <h3>למד לקרוא גרפים כמו פרו!</h3>
-                <p>הכרת הכלים הבסיסיים של ניתוח טכני - נרות יפניים, מגמות ואינדיקטורים</p>
-            </div>
-
-            <!-- Chapter Actions -->
-            <div class="chapter-actions">
-                <button class="action-btn" onclick="markComplete()">
+<!-- Navigation -->
+<nav>
+<div class="logo">Trade Academy</div>
+<a class="back-btn" href="students.html">← חזרה לקורס</a>
+</nav>
+<!-- Main Content -->
+<div class="container">
+<!-- Chapter Header -->
+<div class="chapter-header">
+<div class="chapter-number">02</div>
+<h1 class="chapter-title">ניתוח טכני - יסודות</h1>
+<p class="chapter-subtitle">למד לקרוא גרפים, להבין מגמות ולהשתמש באינדיקטורים הבסיסיים</p>
+</div>
+<!-- Video Section -->
+<section class="video-section">
+<div class="video-badge">📈 ניתוח טכני</div>
+<h2 class="video-title">הכרת הגרפים והאינדיקטורים הבסיסיים</h2>
+<div class="video-meta">
+<div class="video-meta-item">
+<span class="video-meta-icon">⏱️</span>
+<span>משך: 28:45 דקות</span>
+</div>
+<div class="video-meta-item">
+<span class="video-meta-icon">🎯</span>
+<span>רמה: מתחיל</span>
+</div>
+<div class="video-meta-item">
+<span class="video-meta-icon">📊</span>
+<span>ניתוח גרפי</span>
+</div>
+</div>
+<!-- Video Placeholder -->
+<div class="video-placeholder">
+<div class="play-icon">▶</div>
+<h3>למד לקרוא גרפים כמו פרו!</h3>
+<p>הכרת הכלים הבסיסיים של ניתוח טכני - נרות יפניים, מגמות ואינדיקטורים</p>
+</div>
+<!-- Chapter Actions -->
+<div class="chapter-actions">
+<button class="action-btn" onclick="markComplete()">
                     ✅ סיימתי לצפות
                 </button>
-                <button class="action-btn secondary" onclick="downloadMaterial()">
+<button class="action-btn secondary" onclick="downloadMaterial()">
                     📊 מדריך אינדיקטורים
                 </button>
-                <button class="action-btn secondary" onclick="askQuestion()">
+<button class="action-btn secondary" onclick="askQuestion()">
                     ❓ שאל על ניתוח טכני
                 </button>
-            </div>
-
-            <!-- Success Message -->
-            <div id="success-message" class="success-message">
+</div>
+<!-- Success Message -->
+<div class="success-message" id="success-message">
                 🎉 מעולה! עכשיו אתה יכול לקרוא גרפים כמו מקצועי!
             </div>
-        </section>
-
-        <!-- Indicators Section -->
-        <section class="indicators-section">
-            <h2>📊 אינדיקטורים חיוניים למתחילים</h2>
-            
-            <div class="indicators-grid">
-                <!-- Moving Averages -->
-                <div class="indicator-card">
-                    <div class="indicator-header">
-                        <div class="indicator-title">ממוצעים נעים (MA)</div>
-                        <div class="indicator-type">בסיסי</div>
-                    </div>
-                    
-                    <div class="indicator-description">
+</section>
+<!-- Indicators Section -->
+<section class="indicators-section">
+<h2>📊 אינדיקטורים חיוניים למתחילים</h2>
+<div class="indicators-grid">
+<!-- Moving Averages -->
+<div class="indicator-card">
+<div class="indicator-header">
+<div class="indicator-title">ממוצעים נעים (MA)</div>
+<div class="indicator-type">בסיסי</div>
+</div>
+<div class="indicator-description">
                         זיהוי כיוון המגמה הכללית. MA 20, 50, 200 הם הפופולאריים ביותר. כשהמחיר מעל הממוצע - מגמה עולה.
                     </div>
-                    
-                    <div class="indicator-usage">
-                        <h4>איך להשתמש:</h4>
-                        <div class="usage-tips">
-                            • מעל MA = מגמה עולה<br>
-                            • מתחת ל-MA = מגמה יורדת<br>
+<div class="indicator-usage">
+<h4>איך להשתמש:</h4>
+<div class="usage-tips">
+                            • מעל MA = מגמה עולה<br/>
+                            • מתחת ל-MA = מגמה יורדת<br/>
                             • חצייה של MA = אות חלש לשינוי
                         </div>
-                    </div>
-                </div>
-
-                <!-- RSI -->
-                <div class="indicator-card">
-                    <div class="indicator-header">
-                        <div class="indicator-title">RSI</div>
-                        <div class="indicator-type">מומנטום</div>
-                    </div>
-                    
-                    <div class="indicator-description">
+</div>
+</div>
+<!-- RSI -->
+<div class="indicator-card">
+<div class="indicator-header">
+<div class="indicator-title">RSI</div>
+<div class="indicator-type">מומנטום</div>
+</div>
+<div class="indicator-description">
                         מדד כוח יחסי - מודד האם המניה קנויה יתר או מכורה יתר. טווח 0-100, רמות חשובות: 30 ו-70.
                     </div>
-                    
-                    <div class="indicator-usage">
-                        <h4>איך להשתמש:</h4>
-                        <div class="usage-tips">
-                            • מעל 70 = קנויה יתר (מכירה)<br>
-                            • מתחת 30 = מכורה יתר (קנייה)<br>
+<div class="indicator-usage">
+<h4>איך להשתמש:</h4>
+<div class="usage-tips">
+                            • מעל 70 = קנויה יתר (מכירה)<br/>
+                            • מתחת 30 = מכורה יתר (קנייה)<br/>
                             • דיברגנס = אות חזק לשינוי
                         </div>
-                    </div>
-                </div>
-
-                <!-- MACD -->
-                <div class="indicator-card">
-                    <div class="indicator-header">
-                        <div class="indicator-title">MACD</div>
-                        <div class="indicator-type">מתקדם</div>
-                    </div>
-                    
-                    <div class="indicator-description">
+</div>
+</div>
+<!-- MACD -->
+<div class="indicator-card">
+<div class="indicator-header">
+<div class="indicator-title">MACD</div>
+<div class="indicator-type">מתקדם</div>
+</div>
+<div class="indicator-description">
                         מדד התכנסות והתבדרות ממוצעים נעים. מורכב משני קווים והיסטוגרמה. מצוין לזיהוי שינויי מגמה.
                     </div>
-                    
-                    <div class="indicator-usage">
-                        <h4>איך להשתמש:</h4>
-                        <div class="usage-tips">
-                            • MACD מעל Signal = עלייה<br>
-                            • MACD מתחת Signal = ירידה<br>
+<div class="indicator-usage">
+<h4>איך להשתמש:</h4>
+<div class="usage-tips">
+                            • MACD מעל Signal = עלייה<br/>
+                            • MACD מתחת Signal = ירידה<br/>
                             • היסטוגרמה = כוח המגמה
                         </div>
-                    </div>
-                </div>
-
-                <!-- Volume -->
-                <div class="indicator-card">
-                    <div class="indicator-header">
-                        <div class="indicator-title">נפח מסחר (Volume)</div>
-                        <div class="indicator-type">אימות</div>
-                    </div>
-                    
-                    <div class="indicator-description">
+</div>
+</div>
+<!-- Volume -->
+<div class="indicator-card">
+<div class="indicator-header">
+<div class="indicator-title">נפח מסחר (Volume)</div>
+<div class="indicator-type">אימות</div>
+</div>
+<div class="indicator-description">
                         כמות המניות שנסחרה. נפח גבוה מחזק את המגמה, נפח נמוך מעיד על חוסר עניין או התהפכות.
                     </div>
-                    
-                    <div class="indicator-usage">
-                        <h4>איך להשתמש:</h4>
-                        <div class="usage-tips">
-                            • עלייה + נפח גבוה = מגמה חזקה<br>
-                            • עלייה + נפח נמוך = מגמה חלשה<br>
+<div class="indicator-usage">
+<h4>איך להשתמש:</h4>
+<div class="usage-tips">
+                            • עלייה + נפח גבוה = מגמה חזקה<br/>
+                            • עלייה + נפח נמוך = מגמה חלשה<br/>
                             • פריצה + נפח = אימות פריצה
                         </div>
-                    </div>
-                </div>
-
-                <!-- Bollinger Bands -->
-                <div class="indicator-card">
-                    <div class="indicator-header">
-                        <div class="indicator-title">רצועות בולינגר</div>
-                        <div class="indicator-type">תנודתיות</div>
-                    </div>
-                    
-                    <div class="indicator-description">
+</div>
+</div>
+<!-- Bollinger Bands -->
+<div class="indicator-card">
+<div class="indicator-header">
+<div class="indicator-title">רצועות בולינגר</div>
+<div class="indicator-type">תנודתיות</div>
+</div>
+<div class="indicator-description">
                         שלוש רצועות המציגות תנודתיות. הרצועה התחתונה והעליונה מציגות רמות תמיכה והתנגדות דינאמיות.
                     </div>
-                    
-                    <div class="indicator-usage">
-                        <h4>איך להשתמש:</h4>
-                        <div class="usage-tips">
-                            • מחיר ברצועה עליונה = קנוי יתר<br>
-                            • מחיר ברצועה תחתונה = מכור יתר<br>
+<div class="indicator-usage">
+<h4>איך להשתמש:</h4>
+<div class="usage-tips">
+                            • מחיר ברצועה עליונה = קנוי יתר<br/>
+                            • מחיר ברצועה תחתונה = מכור יתר<br/>
                             • רצועות צרות = פריצה קרובה
                         </div>
-                    </div>
-                </div>
-
-                <!-- Support & Resistance -->
-                <div class="indicator-card">
-                    <div class="indicator-header">
-                        <div class="indicator-title">תמיכות והתנגדויות</div>
-                        <div class="indicator-type">מבנה</div>
-                    </div>
-                    
-                    <div class="indicator-description">
+</div>
+</div>
+<!-- Support & Resistance -->
+<div class="indicator-card">
+<div class="indicator-header">
+<div class="indicator-title">תמיכות והתנגדויות</div>
+<div class="indicator-type">מבנה</div>
+</div>
+<div class="indicator-description">
                         רמות מחירים שהמניה התקשה לעבור בעבר. תמיכה = רמת קנייה, התנגדות = רמת מכירה.
                     </div>
-                    
-                    <div class="indicator-usage">
-                        <h4>איך להשתמש:</h4>
-                        <div class="usage-tips">
-                            • קנייה ליד תמיכה<br>
-                            • מכירה ליד התנגדות<br>
+<div class="indicator-usage">
+<h4>איך להשתמש:</h4>
+<div class="usage-tips">
+                            • קנייה ליד תמיכה<br/>
+                            • מכירה ליד התנגדות<br/>
                             • פריצת רמה = יעד חדש
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Course Content -->
-        <section class="content-section">
-            <h2>📊 מה תלמד בפרק זה</h2>
-            
-            <div class="content-grid">
-                <div class="content-card">
-                    <h3>📈 יסודות הגרפים</h3>
-                    <ul>
-                        <li><span class="check-icon">✓</span>סוגי גרפים - קו, בר, נרות יפניים</li>
-                        <li><span class="check-icon">✓</span>טיימפריימים שונים</li>
-                        <li><span class="check-icon">✓</span>קריאת נרות יפניים</li>
-                        <li><span class="check-icon">✓</span>דפוסי נרות בסיסיים</li>
-                    </ul>
-                </div>
-
-                <div class="content-card">
-                    <h3>📊 מגמות ותבניות</h3>
-                    <ul>
-                        <li><span class="check-icon">✓</span>זיהוי מגמות עולות ויורדות</li>
-                        <li><span class="check-icon">✓</span>קווי מגמה וערוצי מחיר</li>
-                        <li><span class="check-icon">✓</span>תבניות המשך ותבניות התהפכות</li>
-                        <li><span class="check-icon">✓</span>משולשים, דגלים ופנטים</li>
-                    </ul>
-                </div>
-
-                <div class="content-card">
-                    <h3>⚡ אינדיקטורים בסיסיים</h3>
-                    <ul>
-                        <li><span class="check-icon">✓</span>ממוצעים נעים והשימושים</li>
-                        <li><span class="check-icon">✓</span>RSI וזיהוי קנייה/מכירה יתר</li>
-                        <li><span class="check-icon">✓</span>MACD ואותות מגמה</li>
-                        <li><span class="check-icon">✓</span>נפח מסחר ואימות</li>
-                    </ul>
-                </div>
-
-                <div class="content-card">
-                    <h3>🎯 שילוב והחלטות</h3>
-                    <ul>
-                        <li><span class="check-icon">✓</span>שילוב מספר אינדיקטורים</li>
-                        <li><span class="check-icon">✓</span>זיהוי נקודות כניסה ויציאה</li>
-                        <li><span class="check-icon">✓</span>אימות אותות עם נפח</li>
-                        <li><span class="check-icon">✓</span>טעויות נפוצות במתחילים</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Progress Section -->
-        <div class="progress-section">
-            <div class="progress-title">📈 ההתקדמות שלך בקורס</div>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
-            </div>
-            <div class="progress-text">פרק 2 מתוך 12 פרקים (17% הושלם)</div>
-        </div>
-
-        <!-- Navigation -->
-        <nav class="navigation">
-            <a href="file:///C:/Users/noam5/Downloads/chapter-02-technical-analysis_1.html#" class="nav-btn">
+</div>
+</div>
+</div>
+</section>
+<!-- Course Content -->
+<section class="content-section">
+<h2>📊 מה תלמד בפרק זה</h2>
+<div class="content-grid">
+<div class="content-card">
+<h3>📈 יסודות הגרפים</h3>
+<ul>
+<li><span class="check-icon">✓</span>סוגי גרפים - קו, בר, נרות יפניים</li>
+<li><span class="check-icon">✓</span>טיימפריימים שונים</li>
+<li><span class="check-icon">✓</span>קריאת נרות יפניים</li>
+<li><span class="check-icon">✓</span>דפוסי נרות בסיסיים</li>
+</ul>
+</div>
+<div class="content-card">
+<h3>📊 מגמות ותבניות</h3>
+<ul>
+<li><span class="check-icon">✓</span>זיהוי מגמות עולות ויורדות</li>
+<li><span class="check-icon">✓</span>קווי מגמה וערוצי מחיר</li>
+<li><span class="check-icon">✓</span>תבניות המשך ותבניות התהפכות</li>
+<li><span class="check-icon">✓</span>משולשים, דגלים ופנטים</li>
+</ul>
+</div>
+<div class="content-card">
+<h3>⚡ אינדיקטורים בסיסיים</h3>
+<ul>
+<li><span class="check-icon">✓</span>ממוצעים נעים והשימושים</li>
+<li><span class="check-icon">✓</span>RSI וזיהוי קנייה/מכירה יתר</li>
+<li><span class="check-icon">✓</span>MACD ואותות מגמה</li>
+<li><span class="check-icon">✓</span>נפח מסחר ואימות</li>
+</ul>
+</div>
+<div class="content-card">
+<h3>🎯 שילוב והחלטות</h3>
+<ul>
+<li><span class="check-icon">✓</span>שילוב מספר אינדיקטורים</li>
+<li><span class="check-icon">✓</span>זיהוי נקודות כניסה ויציאה</li>
+<li><span class="check-icon">✓</span>אימות אותות עם נפח</li>
+<li><span class="check-icon">✓</span>טעויות נפוצות במתחילים</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Progress Section -->
+<div class="progress-section">
+<div class="progress-title">📈 ההתקדמות שלך בקורס</div>
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+<div class="progress-text">פרק 2 מתוך 12 פרקים (17% הושלם)</div>
+</div>
+<!-- Navigation -->
+<nav class="navigation">
+<a class="nav-btn" href="chapter1.html">
                 ← פרק 1: מבוא לשוק המניות
             </a>
-            <a href="file:///C:/Users/noam5/Downloads/chapter-02-technical-analysis_1.html#" class="nav-btn">
+<a class="nav-btn" href="chapter3.html">
                 פרק 3: ניהול סיכונים →
             </a>
-        </nav>
-    </div>
-
-    <!-- JavaScript -->
-    <script>
+</nav>
+</div>
+<!-- JavaScript -->
+<script>
         // מעקב התקדמות
         let chapterProgress = {
             videoWatched: false,
@@ -866,6 +833,4 @@
             });
         });
     </script>
-
-
 </body></html>
