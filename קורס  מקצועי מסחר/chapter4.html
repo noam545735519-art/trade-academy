@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+<!-- saved from url=(0067)file:///C:/Users/noam5/Downloads/chapter-04-trading-strategies.html -->
+<html dir="rtl" lang="he"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>פרק 4: אסטרטגיות מסחר למתחילים | Trade Academy</title>
+<link href="./פרק 4_ אסטרטגיות מסחר למתחילים _ Trade Academy_files/css2" rel="stylesheet"/>
+<style>
+        /* משתמש באותם צבעים כמו האתר שלך */
+        :root {
+            --gold: #f0b429;
+            --gold2: #ffd97d;
+            --dark: #080c14;
+            --dark2: #0f1520;
+            --dark3: #1a2235;
+            --text: #f0f4ff;
+            --muted: #8892a4;
+            --green: #00d4a0;
+            --blue: #00b4d8;
+            --blue2: #0077b6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            direction: rtl;
+            line-height: 1.6;
+        }
+
+        /* ── NAV ── */
+        nav {
+            background: rgba(8, 12, 20, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 180, 216, 0.15);
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--gold);
+        }
+
+        .back-btn {
+            background: var(--blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 9px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Heebo', sans-serif;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .back-btn:hover {
+            filter: brightness(1.1);
+        }
+
+        /* ── MAIN CONTENT ── */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .chapter-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--blue), var(--blue2));
+            color: white;
+            font-size: 52px;
+            font-weight: 900;
+            padding: 20px 30px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .chapter-title {
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 900;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .chapter-subtitle {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ── VIDEO SECTION ── */
+        .video-section {
+            background: var(--dark2);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 24px;
+            padding: 44px;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .video-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--blue);
+            color: white;
+            font-size: 14px;
+            font-weight: 800;
+            padding: 8px 24px;
+            border-radius: 20px;
+        }
+
+        .video-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .video-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .video-meta-icon {
+            font-size: 16px;
+        }
+
+        /* פלייסהולדר לסרטון */
+        .video-placeholder {
+            background: linear-gradient(135deg, var(--dark3), var(--dark));
+            border: 2px dashed rgba(0, 180, 216, 0.3);
+            border-radius: 16px;
+            padding: 80px 40px;
+            text-align: center;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0, 180, 216, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .play-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-placeholder h3 {
+            color: var(--blue);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-placeholder p {
+            color: var(--muted);
+            font-size: 16px;
+            max-width: 500px;
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* תכונות הסרטון */
+        .video-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .feature-item {
+            background: var(--dark3);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .feature-item:hover {
+            border-color: var(--blue);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .feature-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* ── STRATEGIES GRID ── */
+        .strategies-section {
+            background: var(--dark2);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 20px;
+            padding: 44px;
+            margin: 60px 0;
+        }
+
+        .strategies-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--blue);
+        }
+
+        .strategies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .strategy-card {
+            background: var(--dark3);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .strategy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--blue), var(--blue2));
+        }
+
+        .strategy-card:hover {
+            border-color: var(--blue);
+            transform: translateY(-4px);
+        }
+
+        .strategy-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--blue);
+        }
+
+        .strategy-card .difficulty {
+            display: inline-block;
+            background: rgba(0, 180, 216, 0.1);
+            color: var(--blue);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .strategy-card .success-rate {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .success-rate .rate-text {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .success-rate .rate-value {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .strategy-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .strategy-card li {
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .check-icon {
+            color: var(--green);
+            font-weight: 900;
+            font-size: 12px;
+        }
+
+        /* ── ACTIONS ── */
+        .chapter-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            background: var(--blue);
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Heebo', sans-serif;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .action-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .action-btn.secondary {
+            background: var(--dark3);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .action-btn.secondary:hover {
+            background: var(--dark2);
+            border-color: var(--blue);
+        }
+
+        /* ── PROGRESS BAR ── */
+        .progress-section {
+            background: var(--dark3);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 40px 0;
+        }
+
+        .progress-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            background: var(--dark);
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(135deg, var(--blue), var(--green));
+            height: 100%;
+            width: 33%; /* 4/12 פרקים */
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* ── NAVIGATION ── */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-btn {
+            background: var(--blue);
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Heebo', sans-serif;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            background: var(--dark3);
+            color: var(--muted);
+            cursor: not-allowed;
+            transform: none;
+            filter: none;
+        }
+
+        /* הודעת הצלחה */
+        .success-message {
+            background: rgba(0, 212, 160, 0.1);
+            border: 1px solid var(--green);
+            color: var(--green);
+            padding: 16px 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .video-section, .strategies-section {
+                padding: 24px;
+            }
+
+            .strategies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chapter-actions {
+                flex-direction: column;
+            }
+
+            .navigation {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav>
+<div class="logo">Trade Academy</div>
+<a class="back-btn" href="students.html">← חזרה לקורס</a>
+</nav>
+<!-- Main Content -->
+<div class="container">
+<!-- Chapter Header -->
+<div class="chapter-header">
+<div class="chapter-number">04</div>
+<h1 class="chapter-title">אסטרטגיות מסחר למתחילים</h1>
+<p class="chapter-subtitle">למד 5 אסטרטגיות מנצחות שקלות לביצוע ומתאימות למתחילים - עם שיעורי הצלחה מוכחים</p>
+</div>
+<!-- Video Section -->
+<section class="video-section">
+<div class="video-badge">🎯 אסטרטגיות מנצחות</div>
+<h2 class="video-title">5 אסטרטגיות טריידינג פשוטות וחזקות למתחילים</h2>
+<div class="video-meta">
+<div class="video-meta-item">
+<span class="video-meta-icon">⏱️</span>
+<span>משך: 28:15 דקות</span>
+</div>
+<div class="video-meta-item">
+<span class="video-meta-icon">🎯</span>
+<span>רמה: מתחיל</span>
+</div>
+<div class="video-meta-item">
+<span class="video-meta-icon">🏆</span>
+<span>5/5 דירוג</span>
+</div>
+</div>
+<!-- Video Placeholder -->
+<div class="video-placeholder">
+<div class="play-icon">▶</div>
+<h3>🚀 אסטרטגיות שעובדות!</h3>
+<p>למד 5 אסטרטגיות פשוטות שיכולות להניב תוצאות מדהימות - עם דוגמאות מעשיות מהשוק הישראלי</p>
+</div>
+<!-- Video Features -->
+<div class="video-features">
+<div class="feature-item">
+<div class="feature-icon">📈</div>
+<div class="feature-title">5 אסטרטגיות מוכחות</div>
+<div class="feature-desc">פשוטות לביצוע ויעילות</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🎯</div>
+<div class="feature-title">דוגמאות מעשיות</div>
+<div class="feature-desc">עם מניות ישראליות</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">📊</div>
+<div class="feature-title">שיעורי הצלחה</div>
+<div class="feature-desc">נתונים סטטיסטיים</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">💡</div>
+<div class="feature-title">טיפים מתקדמים</div>
+<div class="feature-desc">שיפור התוצאות</div>
+</div>
+</div>
+<!-- Chapter Actions -->
+<div class="chapter-actions">
+<button class="action-btn" onclick="markComplete()">
+                    ✅ סיימתי לצפות
+                </button>
+<button class="action-btn secondary" onclick="downloadMaterial()">
+                    📋 הורד רשימת אסטרטגיות
+                </button>
+<button class="action-btn secondary" onclick="askQuestion()">
+                    ❓ שאל שאלה
+                </button>
+</div>
+<!-- Success Message -->
+<div class="success-message" id="success-message">
+                🎉 מעולה! יש לך כעת 5 אסטרטגיות מנצחות לשימוש מיידי!
+            </div>
+</section>
+<!-- Strategies Section -->
+<section class="strategies-section">
+<h2>🎯 5 האסטרטגיות שתלמד</h2>
+<div class="strategies-grid">
+<div class="strategy-card">
+<div class="difficulty">קל</div>
+<h3>📈 פריצת תמיכה/התנגדות</h3>
+<div class="success-rate">
+<span class="rate-text">שיעור הצלחה:</span>
+<span class="rate-value">72%</span>
+</div>
+<ul>
+<li><span class="check-icon">✓</span>זיהוי קווי תמיכה והתנגדות</li>
+<li><span class="check-icon">✓</span>כניסה על הפריצה</li>
+<li><span class="check-icon">✓</span>אישור עם נפח</li>
+<li><span class="check-icon">✓</span>יעד מבוסס על גובה הטווח</li>
+</ul>
+</div>
+<div class="strategy-card">
+<div class="difficulty">קל</div>
+<h3>🌊 חיתוך ממוצעים נעים</h3>
+<div class="success-rate">
+<span class="rate-text">שיעור הצלחה:</span>
+<span class="rate-value">68%</span>
+</div>
+<ul>
+<li><span class="check-icon">✓</span>ממוצע 20 חוצה מעל ממוצע 50</li>
+<li><span class="check-icon">✓</span>אישור מגמה עולה</li>
+<li><span class="check-icon">✓</span>כניסה על הPullback</li>
+<li><span class="check-icon">✓</span>Stop Loss מתחת לממוצע</li>
+</ul>
+</div>
+<div class="strategy-card">
+<div class="difficulty">בינוני</div>
+<h3>⚡ RSI Divergence</h3>
+<div class="success-rate">
+<span class="rate-text">שיעור הצלחה:</span>
+<span class="rate-value">75%</span>
+</div>
+<ul>
+<li><span class="check-icon">✓</span>זיהוי דיברגנס בRSI</li>
+<li><span class="check-icon">✓</span>מחיר עולה + RSI יורד</li>
+<li><span class="check-icon">✓</span>אישור עם MACD</li>
+<li><span class="check-icon">✓</span>כניסה על שבירת קו מגמה</li>
+</ul>
+</div>
+<div class="strategy-card">
+<div class="difficulty">קל</div>
+<h3>📊 Volume Breakout</h3>
+<div class="success-rate">
+<span class="rate-text">שיעור הצלחה:</span>
+<span class="rate-value">70%</span>
+</div>
+<ul>
+<li><span class="check-icon">✓</span>זיהוי הצטברות (Accumulation)</li>
+<li><span class="check-icon">✓</span>פריצה בנפח גבוה</li>
+<li><span class="check-icon">✓</span>אישור הפריצה</li>
+<li><span class="check-icon">✓</span>מעקב אחר המשכיות</li>
+</ul>
+</div>
+<div class="strategy-card">
+<div class="difficulty">בינוני</div>
+<h3>🎯 MACD Signal Cross</h3>
+<div class="success-rate">
+<span class="rate-text">שיעור הצלחה:</span>
+<span class="rate-value">65%</span>
+</div>
+<ul>
+<li><span class="check-icon">✓</span>חיתוך MACD מעל Signal Line</li>
+<li><span class="check-icon">✓</span>אישור מעל קו האפס</li>
+<li><span class="check-icon">✓</span>סינון עם ממוצע נע</li>
+<li><span class="check-icon">✓</span>יציאה על חיתוך הפוך</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Progress Section -->
+<div class="progress-section">
+<div class="progress-title">📈 ההתקדמות שלך בקורס</div>
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+<div class="progress-text">פרק 4 מתוך 12 פרקים (33% הושלם)</div>
+</div>
+<!-- Navigation -->
+<nav class="navigation">
+<a class="nav-btn" href="chapter3.html">
+                ← פרק 3: ניהול סיכונים
+            </a>
+<a class="nav-btn" href="chapter5.html">
+                פרק 5: פסיכולוגיה של מסחר →
+            </a>
+</nav>
+</div>
+<!-- JavaScript -->
+<script>
+        // מעקב התקדמות
+        let chapterProgress = {
+            videoWatched: false,
+            completed: false
+        };
+
+        // פונקציות עיקריות
+        function markComplete() {
+            chapterProgress.videoWatched = true;
+            chapterProgress.completed = true;
+            
+            // שמירה ב-localStorage
+            localStorage.setItem('chapter4_progress', JSON.stringify(chapterProgress));
+            
+            // הצגת הודעת הצלחה
+            document.getElementById('success-message').style.display = 'block';
+            
+            // אנימציית התקדמות
+            const progressFill = document.querySelector('.progress-fill');
+            progressFill.style.width = '42%'; // עכשיו 5/12 פרקים
+            
+            // הודעה
+            alert('🎯 מעולה! יש לך כעת ארסנל אסטרטגיות מנצחות!');
+        }
+
+        function downloadMaterial() {
+            alert('📋 בקרוב: רשימת אסטרטגיות מפורטת וטמפלייט Excel');
+        }
+
+        function askQuestion() {
+            const question = prompt('איזה שאלה יש לך על האסטרטגיות?');
+            if (question) {
+                alert('תודה על השאלה! נחזור אליך בהקדם האפשרי.');
+            }
+        }
+
+        // טעינת התקדמות קודמת
+        window.onload = function() {
+            const savedProgress = localStorage.getItem('chapter4_progress');
+            if (savedProgress) {
+                chapterProgress = JSON.parse(savedProgress);
+                if (chapterProgress.completed) {
+                    document.getElementById('success-message').style.display = 'block';
+                    document.querySelector('.progress-fill').style.width = '42%';
+                }
+            }
+        };
+
+        // אפקט הדהרה יפה לכפתורים וכרטיסים
+        document.querySelectorAll('.action-btn, .nav-btn, .feature-item, .strategy-card').forEach(element => {
+            element.addEventListener('mouseover', function() {
+                if (this.style.transform !== undefined) {
+                    this.style.transform = 'translateY(-2px)';
+                }
+            });
+            
+            element.addEventListener('mouseout', function() {
+                if (!this.disabled) {
+                    this.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body></html>

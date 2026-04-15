@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+
+<!-- saved from url=(0069)file:///C:/Users/noam5/Downloads/chapter-06-fundamental-analysis.html -->
+<html dir="rtl" lang="he"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>פרק 6: ניתוח פונדמנטלי | Trade Academy</title>
+<link href="./פרק 6_ ניתוח פונדמנטלי _ Trade Academy_files/css2" rel="stylesheet"/>
+<style>
+        /* משתמש באותם צבעים כמו האתר שלך */
+        :root {
+            --gold: #f0b429;
+            --gold2: #ffd97d;
+            --dark: #080c14;
+            --dark2: #0f1520;
+            --dark3: #1a2235;
+            --text: #f0f4ff;
+            --muted: #8892a4;
+            --green: #00d4a0;
+            --orange: #ff9500;
+            --orange2: #ffa726;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            direction: rtl;
+            line-height: 1.6;
+        }
+
+        /* ── NAV ── */
+        nav {
+            background: rgba(8, 12, 20, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 149, 0, 0.15);
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--gold);
+        }
+
+        .back-btn {
+            background: var(--orange);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 9px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Heebo', sans-serif;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .back-btn:hover {
+            filter: brightness(1.1);
+        }
+
+        /* ── MAIN CONTENT ── */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .chapter-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--orange), var(--orange2));
+            color: white;
+            font-size: 52px;
+            font-weight: 900;
+            padding: 20px 30px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .chapter-title {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 900;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .chapter-subtitle {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ── VIDEO SECTION ── */
+        .video-section {
+            background: var(--dark2);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 24px;
+            padding: 44px;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .video-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--orange);
+            color: white;
+            font-size: 14px;
+            font-weight: 800;
+            padding: 8px 24px;
+            border-radius: 20px;
+        }
+
+        .video-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .video-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .video-meta-icon {
+            font-size: 16px;
+        }
+
+        /* פלייסהולדר לסרטון */
+        .video-placeholder {
+            background: linear-gradient(135deg, var(--dark3), var(--dark));
+            border: 2px dashed rgba(255, 149, 0, 0.3);
+            border-radius: 16px;
+            padding: 80px 40px;
+            text-align: center;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255, 149, 0, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .play-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-placeholder h3 {
+            color: var(--orange);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-placeholder p {
+            color: var(--muted);
+            font-size: 16px;
+            max-width: 500px;
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* תכונות הסרטון */
+        .video-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .feature-item {
+            background: var(--dark3);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .feature-item:hover {
+            border-color: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .feature-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* ── FUNDAMENTALS GRID ── */
+        .fundamentals-section {
+            background: var(--dark2);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 20px;
+            padding: 44px;
+            margin: 60px 0;
+        }
+
+        .fundamentals-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--orange);
+        }
+
+        .fundamentals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .fundamental-card {
+            background: var(--dark3);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .fundamental-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--orange), var(--orange2));
+        }
+
+        .fundamental-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-4px);
+        }
+
+        .fundamental-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--orange);
+        }
+
+        .fundamental-card .metric-type {
+            display: inline-block;
+            background: rgba(255, 149, 0, 0.1);
+            color: var(--orange);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .fundamental-card .importance {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .importance .importance-text {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .importance .importance-value {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .fundamental-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .fundamental-card li {
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .check-icon {
+            color: var(--green);
+            font-weight: 900;
+            font-size: 12px;
+        }
+
+        /* אזור דוגמה מעשית */
+        .example-section {
+            background: linear-gradient(135deg, rgba(255, 149, 0, 0.1), rgba(255, 167, 38, 0.1));
+            border: 2px solid var(--orange);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .example-section h4 {
+            color: var(--orange);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .example-section p {
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ── ACTIONS ── */
+        .chapter-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            background: var(--orange);
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Heebo', sans-serif;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .action-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .action-btn.secondary {
+            background: var(--dark3);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .action-btn.secondary:hover {
+            background: var(--dark2);
+            border-color: var(--orange);
+        }
+
+        /* ── PROGRESS BAR ── */
+        .progress-section {
+            background: var(--dark3);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 40px 0;
+        }
+
+        .progress-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            background: var(--dark);
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(135deg, var(--orange), var(--green));
+            height: 100%;
+            width: 50%; /* 6/12 פרקים */
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* ── NAVIGATION ── */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-btn {
+            background: var(--orange);
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Heebo', sans-serif;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            background: var(--dark3);
+            color: var(--muted);
+            cursor: not-allowed;
+            transform: none;
+            filter: none;
+        }
+
+        /* הודעת הצלחה */
+        .success-message {
+            background: rgba(0, 212, 160, 0.1);
+            border: 1px solid var(--green);
+            color: var(--green);
+            padding: 16px 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .video-section, .fundamentals-section {
+                padding: 24px;
+            }
+
+            .fundamentals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chapter-actions {
+                flex-direction: column;
+            }
+
+            .navigation {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav>
+<div class="logo">Trade Academy</div>
+<a class="back-btn" href="students.html">← חזרה לקורס</a>
+</nav>
+<!-- Main Content -->
+<div class="container">
+<!-- Chapter Header -->
+<div class="chapter-header">
+<div class="chapter-number">06</div>
+<h1 class="chapter-title">ניתוח פונדמנטלי</h1>
+<p class="chapter-subtitle">למד לבחור מניות מנצחות באמצעות ניתוח הנתונים הכספיים והעסקיים של החברות</p>
+</div>
+<!-- Video Section -->
+<section class="video-section">
+<div class="video-badge">📊 ניתוח עמוק</div>
+<h2 class="video-title">ניתוח פונדמנטלי - איך לבחור מניות מנצחות</h2>
+<div class="video-meta">
+<div class="video-meta-item">
+<span class="video-meta-icon">⏱️</span>
+<span>משך: 26:30 דקות</span>
+</div>
+<div class="video-meta-item">
+<span class="video-meta-icon">🎯</span>
+<span>רמה: בינוני</span>
+</div>
+<div class="video-meta-item">
+<span class="video-meta-icon">🏆</span>
+<span>4.8/5 דירוג</span>
+</div>
+</div>
+<!-- Video Placeholder -->
+<div class="video-placeholder">
+<div class="play-icon">▶</div>
+<h3>🔍 חקר עמוק של החברות!</h3>
+<p>למד לנתח את הדוחות הכספיים ולמצוא את המניות עם הפוטנציאל הגדול ביותר</p>
+</div>
+<!-- Video Features -->
+<div class="video-features">
+<div class="feature-item">
+<div class="feature-icon">📈</div>
+<div class="feature-title">מדדי רווחיות</div>
+<div class="feature-desc">P/E, ROE, ROA ועוד</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">💰</div>
+<div class="feature-title">ניתוח תזרים</div>
+<div class="feature-desc">תזרים מזומנים וחובות</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">📊</div>
+<div class="feature-title">דוחות כספיים</div>
+<div class="feature-desc">איך לקרוא ולהבין</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🎯</div>
+<div class="feature-title">דוגמאות ישראליות</div>
+<div class="feature-desc">ניתוח מניות מהמדד</div>
+</div>
+</div>
+<!-- Example Section -->
+<div class="example-section">
+<h4>📋 דוגמה מעשית: מניית בנק לאומי</h4>
+<p><strong>P/E = 5.2</strong> (זול יחסית לשוק), <strong>ROE = 12%</strong> (רווחיות טובה), <strong>יחס חוב = 8%</strong> (חוב נמוך). מדדים אלו מצביעים על חברה יציבה עם פוטנציאל צמיחה סביר.</p>
+</div>
+<!-- Chapter Actions -->
+<div class="chapter-actions">
+<button class="action-btn" onclick="markComplete()">
+                    ✅ סיימתי לצפות
+                </button>
+<button class="action-btn secondary" onclick="downloadMaterial()">
+                    📊 הורד מחשבון יחסים
+                </button>
+<button class="action-btn secondary" onclick="askQuestion()">
+                    ❓ שאל שאלה
+                </button>
+</div>
+<!-- Success Message -->
+<div class="success-message" id="success-message">
+                🎉 מעולה! עכשיו אתה יודע לנתח חברות כמו אנליסט מקצועי!
+            </div>
+</section>
+<!-- Fundamentals Section -->
+<section class="fundamentals-section">
+<h2>📊 המדדים הפונדמנטליים החשובים</h2>
+<div class="fundamentals-grid">
+<div class="fundamental-card">
+<div class="metric-type">רווחיות</div>
+<h3>📈 P/E Ratio (מכפיל רווח)</h3>
+<div class="importance">
+<span class="importance-text">חשיבות:</span>
+<span class="importance-value">גבוהה מאוד</span>
+</div>
+<ul>
+<li><span class="check-icon">✓</span>מחיר המניה חלקי רווח למניה</li>
+<li><span class="check-icon">✓</span>מדד זילות/יוקר</li>
+<li><span class="check-icon">✓</span>השוואה בין חברות</li>
+<li><span class="check-icon">✓</span>ערכים נורמליים: 10-25</li>
+</ul>
+</div>
+<div class="fundamental-card">
+<div class="metric-type">רווחיות</div>
+<h3>💎 ROE (תשואה על ההון העצמי)</h3>
+<div class="importance">
+<span class="importance-text">חשיבות:</span>
+<span class="importance-value">גבוהה</span>
+</div>
+<ul>
+<li><span class="check-icon">✓</span>רווח נקי חלקי הון עצמי</li>
+<li><span class="check-icon">✓</span>יעילות השקעת ההון</li>
+<li><span class="check-icon">✓</span>מעל 15% - מעולה</li>
+<li><span class="check-icon">✓</span>10-15% - טוב</li>
+</ul>
+</div>
+<div class="fundamental-card">
+<div class="metric-type">גדילה</div>
+<h3>🚀 צמיחת הכנסות</h3>
+<div class="importance">
+<span class="importance-text">חשיבות:</span>
+<span class="importance-value">גבוהה</span>
+</div>
+<ul>
+<li><span class="check-icon">✓</span>צמיחה שנתית בהכנסות</li>
+<li><span class="check-icon">✓</span>מגמה רב-שנתית</li>
+<li><span class="check-icon">✓</span>עקביות בצמיחה</li>
+<li><span class="check-icon">✓</span>מעל 10% - חזקה</li>
+</ul>
+</div>
+<div class="fundamental-card">
+<div class="metric-type">חוב</div>
+<h3>⚖️ יחס חוב להון</h3>
+<div class="importance">
+<span class="importance-text">חשיבות:</span>
+<span class="importance-value">גבוהה</span>
+</div>
+<ul>
+<li><span class="check-icon">✓</span>סך החובות חלקי הון עצמי</li>
+<li><span class="check-icon">✓</span>רמת הסיכון הפיננסי</li>
+<li><span class="check-icon">✓</span>מתחת ל-30% - טוב</li>
+<li><span class="check-icon">✓</span>מעל 70% - סיכוני</li>
+</ul>
+</div>
+<div class="fundamental-card">
+<div class="metric-type">תזרים</div>
+<h3>💰 תזרים מזומנים חופשי</h3>
+<div class="importance">
+<span class="importance-text">חשיבות:</span>
+<span class="importance-value">גבוהה</span>
+</div>
+<ul>
+<li><span class="check-icon">✓</span>כמה כסף נכנס בפועל</li>
+<li><span class="check-icon">✓</span>יכולת לשלם דיבידנדים</li>
+<li><span class="check-icon">✓</span>מגמה עולה - חיובי</li>
+<li><span class="check-icon">✓</span>עקביות בתזרים</li>
+</ul>
+</div>
+<div class="fundamental-card">
+<div class="metric-type">השוואתי</div>
+<h3>📊 P/B Ratio (מכפיל הון)</h3>
+<div class="importance">
+<span class="importance-text">חשיבות:</span>
+<span class="importance-value">בינונית</span>
+</div>
+<ul>
+<li><span class="check-icon">✓</span>מחיר חלקי ערך בספרים</li>
+<li><span class="check-icon">✓</span>מדד זילות נוסף</li>
+<li><span class="check-icon">✓</span>מתחת ל-1 - זול מאוד</li>
+<li><span class="check-icon">✓</span>1-3 - סביר</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Progress Section -->
+<div class="progress-section">
+<div class="progress-title">📈 ההתקדמות שלך בקורס</div>
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+<div class="progress-text">פרק 6 מתוך 12 פרקים (50% הושלם)</div>
+</div>
+<!-- Navigation -->
+<nav class="navigation">
+<a class="nav-btn" href="chapter5.html">
+                ← פרק 5: פסיכולוגיה של מסחר
+            </a>
+<a class="nav-btn" href="chapter7.html">
+                פרק 7: סורקי מניות ודוחות →
+            </a>
+</nav>
+</div>
+<!-- JavaScript -->
+<script>
+        // מעקב התקדמות
+        let chapterProgress = {
+            videoWatched: false,
+            completed: false
+        };
+
+        // פונקציות עיקריות
+        function markComplete() {
+            chapterProgress.videoWatched = true;
+            chapterProgress.completed = true;
+            
+            // שמירה ב-localStorage
+            localStorage.setItem('chapter6_progress', JSON.stringify(chapterProgress));
+            
+            // הצגת הודעת הצלחה
+            document.getElementById('success-message').style.display = 'block';
+            
+            // אנימציית התקדמות
+            const progressFill = document.querySelector('.progress-fill');
+            progressFill.style.width = '58%'; // עכשיו 7/12 פרקים
+            
+            // הודעה
+            alert('📊 מעולה! עכשיו אתה אנליסט פונדמנטלי!');
+        }
+
+        function downloadMaterial() {
+            alert('📊 בקרוב: מחשבון יחסים פיננסיים ורשימת מדדים');
+        }
+
+        function askQuestion() {
+            const question = prompt('איזה שאלה יש לך על ניתוח פונדמנטלי?');
+            if (question) {
+                alert('תודה על השאלה! נחזור אליך בהקדם האפשרי.');
+            }
+        }
+
+        // טעינת התקדמות קודמת
+        window.onload = function() {
+            const savedProgress = localStorage.getItem('chapter6_progress');
+            if (savedProgress) {
+                chapterProgress = JSON.parse(savedProgress);
+                if (chapterProgress.completed) {
+                    document.getElementById('success-message').style.display = 'block';
+                    document.querySelector('.progress-fill').style.width = '58%';
+                }
+            }
+        };
+
+        // אפקט הדהרה יפה לכפתורים וכרטיסים
+        document.querySelectorAll('.action-btn, .nav-btn, .feature-item, .fundamental-card').forEach(element => {
+            element.addEventListener('mouseover', function() {
+                if (this.style.transform !== undefined) {
+                    this.style.transform = 'translateY(-2px)';
+                }
+            });
+            
+            element.addEventListener('mouseout', function() {
+                if (!this.disabled) {
+                    this.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body></html>
