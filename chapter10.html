@@ -1,11 +1,11 @@
 <!DOCTYPE html>
+
 <!-- saved from url=(0056)file:///C:/Users/noam5/Downloads/chapter-10-sectors.html -->
-<html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>פרק 10: מגמות ומגזרים | Trade Academy</title>
-    <link href="./פרק 10_ מגמות ומגזרים _ Trade Academy_files/css2" rel="stylesheet">
-    <style>
+<html dir="rtl" lang="he"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>פרק 10: מגמות ומגזרים | Trade Academy</title>
+<link href="./פרק 10_ מגמות ומגזרים _ Trade Academy_files/css2" rel="stylesheet"/>
+<style>
         /* משתמש באותם צבעים כמו האתר שלך עם אקסנט בורגונדי */
         :root {
             --gold: #f0b429;
@@ -556,269 +556,236 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Trade Academy</div>
-        <a href="file:///C:/Users/noam5/Downloads/chapter-10-sectors.html#" class="back-btn">← חזרה לקורס</a>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Chapter Header -->
-        <div class="chapter-header">
-            <div class="chapter-number">10</div>
-            <h1 class="chapter-title">מגמות ומגזרים</h1>
-            <p class="chapter-subtitle">למד לזהות מגמות חזקות במגזרים שונים ולנצל אותן לרווחים</p>
-        </div>
-
-        <!-- Video Section -->
-        <section class="video-section">
-            <div class="video-badge">🏭 ניתוח מגזרי</div>
-            <h2 class="video-title">איך לזהות מגזרים חזקים ולרכב על המגמות</h2>
-            
-            <div class="video-meta">
-                <div class="video-meta-item">
-                    <span class="video-meta-icon">⏱️</span>
-                    <span>משך: 26:15 דקות</span>
-                </div>
-                <div class="video-meta-item">
-                    <span class="video-meta-icon">🎯</span>
-                    <span>רמה: בינוני-מתקדם</span>
-                </div>
-                <div class="video-meta-item">
-                    <span class="video-meta-icon">🏭</span>
-                    <span>ניתוח מגזרי</span>
-                </div>
-            </div>
-
-            <!-- Video Placeholder -->
-            <div class="video-placeholder">
-                <div class="play-icon">▶</div>
-                <h3>תפוס מגמות חזקות במגזרים!</h3>
-                <p>למד לזהות מגזרים בעלייה וירידה ולנצל את הכוח של מגמות מגזריות</p>
-            </div>
-
-            <!-- Chapter Actions -->
-            <div class="chapter-actions">
-                <button class="action-btn" onclick="markComplete()">
+<!-- Navigation -->
+<nav>
+<div class="logo">Trade Academy</div>
+<a class="back-btn" href="students.html">← חזרה לקורס</a>
+</nav>
+<!-- Main Content -->
+<div class="container">
+<!-- Chapter Header -->
+<div class="chapter-header">
+<div class="chapter-number">10</div>
+<h1 class="chapter-title">מגמות ומגזרים</h1>
+<p class="chapter-subtitle">למד לזהות מגמות חזקות במגזרים שונים ולנצל אותן לרווחים</p>
+</div>
+<!-- Video Section -->
+<section class="video-section">
+<div class="video-badge">🏭 ניתוח מגזרי</div>
+<h2 class="video-title">איך לזהות מגזרים חזקים ולרכב על המגמות</h2>
+<div class="video-meta">
+<div class="video-meta-item">
+<span class="video-meta-icon">⏱️</span>
+<span>משך: 26:15 דקות</span>
+</div>
+<div class="video-meta-item">
+<span class="video-meta-icon">🎯</span>
+<span>רמה: בינוני-מתקדם</span>
+</div>
+<div class="video-meta-item">
+<span class="video-meta-icon">🏭</span>
+<span>ניתוח מגזרי</span>
+</div>
+</div>
+<!-- Video Placeholder -->
+<div class="video-placeholder">
+<div class="play-icon">▶</div>
+<h3>תפוס מגמות חזקות במגזרים!</h3>
+<p>למד לזהות מגזרים בעלייה וירידה ולנצל את הכוח של מגמות מגזריות</p>
+</div>
+<!-- Chapter Actions -->
+<div class="chapter-actions">
+<button class="action-btn" onclick="markComplete()">
                     ✅ סיימתי לצפות
                 </button>
-                <button class="action-btn secondary" onclick="downloadMaterial()">
+<button class="action-btn secondary" onclick="downloadMaterial()">
                     🏭 מפת מגזרים
                 </button>
-                <button class="action-btn secondary" onclick="askQuestion()">
+<button class="action-btn secondary" onclick="askQuestion()">
                     ❓ שאל על מגזרים
                 </button>
-            </div>
-
-            <!-- Success Message -->
-            <div id="success-message" class="success-message">
+</div>
+<!-- Success Message -->
+<div class="success-message" id="success-message">
                 🎉 מעולה! עכשיו אתה יודע לזהות מגמות מגזריות חזקות!
             </div>
-        </section>
-
-        <!-- Sectors Section -->
-        <section class="sectors-section">
-            <h2>🏭 המגזרים הישראליים העיקריים</h2>
-            
-            <div class="sector-grid">
-                <!-- Banking Sector -->
-                <div class="sector-card">
-                    <div class="sector-icon">🏦</div>
-                    <div class="sector-title">בנקאות</div>
-                    <div class="sector-trend bullish">📈 חיובי</div>
-                    
-                    <div class="sector-description">
+</section>
+<!-- Sectors Section -->
+<section class="sectors-section">
+<h2>🏭 המגזרים הישראליים העיקריים</h2>
+<div class="sector-grid">
+<!-- Banking Sector -->
+<div class="sector-card">
+<div class="sector-icon">🏦</div>
+<div class="sector-title">בנקאות</div>
+<div class="sector-trend bullish">📈 חיובי</div>
+<div class="sector-description">
                         מגזר הבנקאות הישראלי - מושפע מריביות, איכות אשראי ומצב הכלכלה. מגזר יציב ומניב דיבידנדים.
                     </div>
-                    
-                    <div class="sector-stocks">
-                        <h4>מניות עיקריות:</h4>
-                        <div class="stock-list">
-                            <span class="stock-tag">בנק הפועלים</span>
-                            <span class="stock-tag">בנק לאומי</span>
-                            <span class="stock-tag">בנק מזרחי</span>
-                            <span class="stock-tag">בנק דיסקונט</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Technology Sector -->
-                <div class="sector-card">
-                    <div class="sector-icon">💻</div>
-                    <div class="sector-title">טכנולוגיה</div>
-                    <div class="sector-trend bullish">📈 חזק מאוד</div>
-                    
-                    <div class="sector-description">
+<div class="sector-stocks">
+<h4>מניות עיקריות:</h4>
+<div class="stock-list">
+<span class="stock-tag">בנק הפועלים</span>
+<span class="stock-tag">בנק לאומי</span>
+<span class="stock-tag">בנק מזרחי</span>
+<span class="stock-tag">בנק דיסקונט</span>
+</div>
+</div>
+</div>
+<!-- Technology Sector -->
+<div class="sector-card">
+<div class="sector-icon">💻</div>
+<div class="sector-title">טכנולוגיה</div>
+<div class="sector-trend bullish">📈 חזק מאוד</div>
+<div class="sector-description">
                         מגזר ההיי-טק הישראלי - כולל סייבר, תוכנה, מוליכים למחצה. המנוע הצמיחה של הכלכלה הישראלית.
                     </div>
-                    
-                    <div class="sector-stocks">
-                        <h4>מניות עיקריות:</h4>
-                        <div class="stock-list">
-                            <span class="stock-tag">Check Point</span>
-                            <span class="stock-tag">Nice</span>
-                            <span class="stock-tag">טבע</span>
-                            <span class="stock-tag">TEVA ADR</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Real Estate Sector -->
-                <div class="sector-card">
-                    <div class="sector-icon">🏢</div>
-                    <div class="sector-title">נדל"ן</div>
-                    <div class="sector-trend neutral">📊 מעורב</div>
-                    
-                    <div class="sector-description">
+<div class="sector-stocks">
+<h4>מניות עיקריות:</h4>
+<div class="stock-list">
+<span class="stock-tag">Check Point</span>
+<span class="stock-tag">Nice</span>
+<span class="stock-tag">טבע</span>
+<span class="stock-tag">TEVA ADR</span>
+</div>
+</div>
+</div>
+<!-- Real Estate Sector -->
+<div class="sector-card">
+<div class="sector-icon">🏢</div>
+<div class="sector-title">נדל"ן</div>
+<div class="sector-trend neutral">📊 מעורב</div>
+<div class="sector-description">
                         חברות נדל"ן, בניה ופיתוח. מושפע מריביות, מחירי דיור ופעילות בנייה. מגזר מחזורי.
                     </div>
-                    
-                    <div class="sector-stocks">
-                        <h4>מניות עיקריות:</h4>
-                        <div class="stock-list">
-                            <span class="stock-tag">אפריקה ישראל</span>
-                            <span class="stock-tag">אלקטרה נדל"ן</span>
-                            <span class="stock-tag">בינוי</span>
-                            <span class="stock-tag">שיקמה</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Insurance Sector -->
-                <div class="sector-card">
-                    <div class="sector-icon">🛡️</div>
-                    <div class="sector-title">ביטוח</div>
-                    <div class="sector-trend bullish">📈 יציב</div>
-                    
-                    <div class="sector-description">
+<div class="sector-stocks">
+<h4>מניות עיקריות:</h4>
+<div class="stock-list">
+<span class="stock-tag">אפריקה ישראל</span>
+<span class="stock-tag">אלקטרה נדל"ן</span>
+<span class="stock-tag">בינוי</span>
+<span class="stock-tag">שיקמה</span>
+</div>
+</div>
+</div>
+<!-- Insurance Sector -->
+<div class="sector-card">
+<div class="sector-icon">🛡️</div>
+<div class="sector-title">ביטוח</div>
+<div class="sector-trend bullish">📈 יציב</div>
+<div class="sector-description">
                         חברות ביטוח חיים, אלמנטרי וגמל. מושפע מתשואות בשוק ההון ומריביות. מגזר הגנתי יחסית.
                     </div>
-                    
-                    <div class="sector-stocks">
-                        <h4>מניות עיקריות:</h4>
-                        <div class="stock-list">
-                            <span class="stock-tag">כלל ביטוח</span>
-                            <span class="stock-tag">הכשרה</span>
-                            <span class="stock-tag">מגדל</span>
-                            <span class="stock-tag">מנורה מבטחים</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Energy Sector -->
-                <div class="sector-card">
-                    <div class="sector-icon">⚡</div>
-                    <div class="sector-title">אנרגיה</div>
-                    <div class="sector-trend bearish">📉 חלש</div>
-                    
-                    <div class="sector-description">
+<div class="sector-stocks">
+<h4>מניות עיקריות:</h4>
+<div class="stock-list">
+<span class="stock-tag">כלל ביטוח</span>
+<span class="stock-tag">הכשרה</span>
+<span class="stock-tag">מגדל</span>
+<span class="stock-tag">מנורה מבטחים</span>
+</div>
+</div>
+</div>
+<!-- Energy Sector -->
+<div class="sector-card">
+<div class="sector-icon">⚡</div>
+<div class="sector-title">אנרגיה</div>
+<div class="sector-trend bearish">📉 חלש</div>
+<div class="sector-description">
                         חברות אנרגיה, חברת החשמל וחברות גז. מושפע ממחירי אנרגיה עולמיים ורגולציה ממשלתית.
                     </div>
-                    
-                    <div class="sector-stocks">
-                        <h4>מניות עיקריות:</h4>
-                        <div class="stock-list">
-                            <span class="stock-tag">חברת החשמל</span>
-                            <span class="stock-tag">דלק קידוחים</span>
-                            <span class="stock-tag">רציו</span>
-                            <span class="stock-tag">אנרג'יקס</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Retail Sector -->
-                <div class="sector-card">
-                    <div class="sector-icon">🛒</div>
-                    <div class="sector-title">קמעונאות</div>
-                    <div class="sector-trend neutral">📊 תלוי צריכה</div>
-                    
-                    <div class="sector-description">
+<div class="sector-stocks">
+<h4>מניות עיקריות:</h4>
+<div class="stock-list">
+<span class="stock-tag">חברת החשמל</span>
+<span class="stock-tag">דלק קידוחים</span>
+<span class="stock-tag">רציו</span>
+<span class="stock-tag">אנרג'יקס</span>
+</div>
+</div>
+</div>
+<!-- Retail Sector -->
+<div class="sector-card">
+<div class="sector-icon">🛒</div>
+<div class="sector-title">קמעונאות</div>
+<div class="sector-trend neutral">📊 תלוי צריכה</div>
+<div class="sector-description">
                         רשתות קמעונאות, אופנה ומזון. מושפע מצריכה פרטית, כוח קנייה של הציבור ותחרות מקוונת.
                     </div>
-                    
-                    <div class="sector-stocks">
-                        <h4>מניות עיקריות:</h4>
-                        <div class="stock-list">
-                            <span class="stock-tag">שופרסל</span>
-                            <span class="stock-tag">רמי לוי</span>
-                            <span class="stock-tag">אזרחי</span>
-                            <span class="stock-tag">פקס</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Course Content -->
-        <section class="content-section">
-            <h2>🏭 מה תלמד בפרק זה</h2>
-            
-            <div class="content-grid">
-                <div class="content-card">
-                    <h3>📊 ניתוח מגזרי</h3>
-                    <ul>
-                        <li><span class="check-icon">✓</span>הבנת מגזרי הכלכלה</li>
-                        <li><span class="check-icon">✓</span>זיהוי מגמות מגזריות</li>
-                        <li><span class="check-icon">✓</span>רוטציה מגזרית</li>
-                        <li><span class="check-icon">✓</span>מגזרים מחזוריים מול הגנתיים</li>
-                    </ul>
-                </div>
-
-                <div class="content-card">
-                    <h3>🔄 ניתוח יחסי</h3>
-                    <ul>
-                        <li><span class="check-icon">✓</span>חוזק יחסי מגזרי</li>
-                        <li><span class="check-icon">✓</span>השוואה לתנ"ך 25</li>
-                        <li><span class="check-icon">✓</span>מגזרים מובילים ומפגרים</li>
-                        <li><span class="check-icon">✓</span>טיימינג של מעברים</li>
-                    </ul>
-                </div>
-
-                <div class="content-card">
-                    <h3>🌍 השפעות חיצוניות</h3>
-                    <ul>
-                        <li><span class="check-icon">✓</span>השפעת מדיניות הפד</li>
-                        <li><span class="check-icon">✓</span>מחירי סחורות</li>
-                        <li><span class="check-icon">✓</span>מצב גיאופוליטי</li>
-                        <li><span class="check-icon">✓</span>טרנדים טכנולוגיים</li>
-                    </ul>
-                </div>
-
-                <div class="content-card">
-                    <h3>💡 אסטרטגיות מגזריות</h3>
-                    <ul>
-                        <li><span class="check-icon">✓</span>מסחר ברוטציה</li>
-                        <li><span class="check-icon">✓</span>בניית תיק מגוון</li>
-                        <li><span class="check-icon">✓</span>ETF מגזריים</li>
-                        <li><span class="check-icon">✓</span>טעויות נפוצות למנוע</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Progress Section -->
-        <div class="progress-section">
-            <div class="progress-title">📈 ההתקדמות שלך בקורס</div>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
-            </div>
-            <div class="progress-text">פרק 10 מתוך 12 פרקים (83% הושלם)</div>
-        </div>
-
-        <!-- Navigation -->
-        <nav class="navigation">
-            <a href="file:///C:/Users/noam5/Downloads/chapter-10-sectors.html#" class="nav-btn">
+<div class="sector-stocks">
+<h4>מניות עיקריות:</h4>
+<div class="stock-list">
+<span class="stock-tag">שופרסל</span>
+<span class="stock-tag">רמי לוי</span>
+<span class="stock-tag">אזרחי</span>
+<span class="stock-tag">פקס</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Course Content -->
+<section class="content-section">
+<h2>🏭 מה תלמד בפרק זה</h2>
+<div class="content-grid">
+<div class="content-card">
+<h3>📊 ניתוח מגזרי</h3>
+<ul>
+<li><span class="check-icon">✓</span>הבנת מגזרי הכלכלה</li>
+<li><span class="check-icon">✓</span>זיהוי מגמות מגזריות</li>
+<li><span class="check-icon">✓</span>רוטציה מגזרית</li>
+<li><span class="check-icon">✓</span>מגזרים מחזוריים מול הגנתיים</li>
+</ul>
+</div>
+<div class="content-card">
+<h3>🔄 ניתוח יחסי</h3>
+<ul>
+<li><span class="check-icon">✓</span>חוזק יחסי מגזרי</li>
+<li><span class="check-icon">✓</span>השוואה לתנ"ך 25</li>
+<li><span class="check-icon">✓</span>מגזרים מובילים ומפגרים</li>
+<li><span class="check-icon">✓</span>טיימינג של מעברים</li>
+</ul>
+</div>
+<div class="content-card">
+<h3>🌍 השפעות חיצוניות</h3>
+<ul>
+<li><span class="check-icon">✓</span>השפעת מדיניות הפד</li>
+<li><span class="check-icon">✓</span>מחירי סחורות</li>
+<li><span class="check-icon">✓</span>מצב גיאופוליטי</li>
+<li><span class="check-icon">✓</span>טרנדים טכנולוגיים</li>
+</ul>
+</div>
+<div class="content-card">
+<h3>💡 אסטרטגיות מגזריות</h3>
+<ul>
+<li><span class="check-icon">✓</span>מסחר ברוטציה</li>
+<li><span class="check-icon">✓</span>בניית תיק מגוון</li>
+<li><span class="check-icon">✓</span>ETF מגזריים</li>
+<li><span class="check-icon">✓</span>טעויות נפוצות למנוע</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Progress Section -->
+<div class="progress-section">
+<div class="progress-title">📈 ההתקדמות שלך בקורס</div>
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+<div class="progress-text">פרק 10 מתוך 12 פרקים (83% הושלם)</div>
+</div>
+<!-- Navigation -->
+<nav class="navigation">
+<a class="nav-btn" href="chapter9.html">
                 ← פרק 9: בניית תיק השקעות
             </a>
-            <a href="file:///C:/Users/noam5/Downloads/chapter-10-sectors.html#" class="nav-btn">
+<a class="nav-btn" href="chapter11.html">
                 פרק 11: אסטרטגיות מתקדמות →
             </a>
-        </nav>
-    </div>
-
-    <!-- JavaScript -->
-    <script>
+</nav>
+</div>
+<!-- JavaScript -->
+<script>
         // מעקב התקדמות
         let chapterProgress = {
             videoWatched: false,
@@ -894,6 +861,4 @@
             });
         });
     </script>
-
-
 </body></html>
