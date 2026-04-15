@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+
+<html dir="rtl" lang="he">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>שיעור 2 – ניתוח טכני</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>שיעור 2 – ניתוח טכני</title>
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -481,370 +482,329 @@
     }
   </style>
 </head>
-<body> 
+<body><div id="ai-banner" style="background:linear-gradient(90deg,#0f3460 0%,#1a1a2e 60%,#0f3460 100%);border-bottom:2px solid #f0b429;padding:10px 24px;display:flex;align-items:center;justify-content:center;gap:12px;font-family:'Heebo',Arial,sans-serif;direction:rtl;position:sticky;top:0;z-index:999;box-shadow:0 2px 16px rgba(240,180,41,0.15);"><span style="font-size:22px;">🤖</span><span style="color:#f0b429;font-weight:800;font-size:15px;">מאמן AI אישי</span><span style="color:rgba(255,255,255,0.6);font-size:13px;">|</span><span style="color:rgba(255,255,255,0.85);font-size:13px;">שאל כל שאלה על החומר — זמין</span><span style="background:#22c55e;color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;">● 24/7</span><button onclick="document.getElementById('ai-chat-window').style.display='flex';document.getElementById('ai-chat-window').style.flexDirection='column';" style="background:#f0b429;color:#0f3460;border:none;border-radius:20px;padding:6px 18px;font-weight:800;font-size:13px;cursor:pointer;margin-right:8px;">💬 שוחח עם המאמן</button></div>
 <div class="page">
-<div style="background:#1a1a2e;padding:12px 24px;"><a href="students.html" style="color:#f0b429;text-decoration:none;font-family:Heebo,sans-serif;font-size:14px;">← חזרה לאזור התלמידים</a></div>
-  <!-- HEADER -->
-  <div class="header">
-    <div class="course-tag">קורס מסחר מקצועי · שיעור 2 מתוך 6</div>
-    <h1>ניתוח טכני</h1>
-    <p class="subtitle">ללמוד לקרוא גרפים — הכלי החזק ביותר של הסוחר המקצועי</p>
-    <div class="header-meta">
-      <div class="meta-item">⏱ 75 דקות</div>
-      <div class="meta-item">📊 רמה: מתחיל–בינוני</div>
-      <div class="meta-item">📋 כולל תרגיל מעשי</div>
-    </div>
-  </div>
-
-  <!-- RECAP -->
-  <div class="recap">
-    <h3>🔁 חזרה מהשיעור הקודם</h3>
-    <div class="recap-row">
-      <span class="recap-chip">שוק ההון</span>
-      <span class="recap-chip">מניה = בעלות</span>
-      <span class="recap-chip">Bull / Bear Market</span>
-      <span class="recap-chip">Volume</span>
-      <span class="recap-chip">Market Cap</span>
-      <span class="recap-chip">Spread</span>
-    </div>
-  </div>
-
-  <!-- OBJECTIVES -->
-  <div class="objectives">
-    <h3>🎯 מטרות השיעור</h3>
-    <ul>
-      <li>להבין מה זה ניתוח טכני ולמה הוא עובד</li>
-      <li>לקרוא נרות יפניים (Candlesticks) בביטחון</li>
-      <li>לזהות תמיכה והתנגדות על גרף</li>
-      <li>לדעת מה ה-Trend ואיך לזהות אותו</li>
-      <li>להכיר אינדיקטורים מרכזיים: RSI, MACD, MA</li>
-      <li>לזהות 5 תבניות נרות קריטיות למסחר</li>
-    </ul>
-  </div>
-
-  <div class="content">
-
-    <!-- SECTION 1 -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-number">1</div>
-        <div class="section-title">מה זה ניתוח טכני ולמה הוא עובד?</div>
-      </div>
-
-      <p>ניתוח טכני הוא <strong>קריאת היסטוריית המחיר והנפח</strong> כדי לחזות לאן המחיר הולך. הרעיון המרכזי: <em>כל המידע שיש בעולם על מניה כבר מגולם במחירה</em> — כולל חדשות, פחדים, ציפיות ותקוות של כל המשקיעים.</p>
-
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-icon">🔁</div>
-          <h4>ההיסטוריה חוזרת על עצמה</h4>
-          <p>דפוסי מחיר חוזרים כי פסיכולוגיית אנשים לא משתנה — פחד, בצע, ספק. הגרפים מצלמים את הרגשות.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">📉</div>
-          <h4>המחיר מכיל הכל</h4>
-          <p>לא צריך לדעת על הדוחות — אם הכסף הגדול יודע, הוא יזוז. הגרף מגלה לנו את זה.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🌊</div>
-          <h4>מחיר נע בטרנדים</h4>
-          <p>מחיר לא קופץ אקראית. יש גלים, מגמות ומבנים שניתן לזהות ולמסחר לפיהם.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">👁</div>
-          <h4>אובייקטיבי לחלוטין</h4>
-          <p>הגרף לא משקר. הוא מראה בדיוק מה קנו ומה מכרו — עובדות, לא דעות.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- SECTION 2 — CANDLESTICKS -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-number">2</div>
-        <div class="section-title">נרות יפניים — Candlesticks</div>
-      </div>
-
-      <p>נרות יפניים הם <strong>הכלי הגרפי הנפוץ ביותר</strong> בעולם המסחר. כל נר מייצג תקופת זמן (דקה, שעה, יום) ומכיל 4 נקודות מידע קריטיות.</p>
-
-      <div class="candle-layout">
-        <div style="flex-shrink:0; display:flex; gap:36px; align-items:flex-end; flex-direction:column; justify-content:center;">
-          <div class="candles-pair">
-            <div class="candle-group">
-              <div class="candle-title bull">🟢 נר שורי (Bullish)</div>
-              <div class="candle-visual">
-                <div class="candle-wick-top" style="height:35px;"></div>
-                <div class="candle-body green" style="height:80px;">
-                  <div class="candle-label">CLOSE</div>
-                  <div class="candle-label">OPEN</div>
-                </div>
-                <div class="candle-wick-bottom" style="height:25px;"></div>
-              </div>
-            </div>
-            <div class="candle-group">
-              <div class="candle-title bear">🔴 נר דובי (Bearish)</div>
-              <div class="candle-visual">
-                <div class="candle-wick-top" style="height:25px;"></div>
-                <div class="candle-body red" style="height:80px;">
-                  <div class="candle-label">OPEN</div>
-                  <div class="candle-label">CLOSE</div>
-                </div>
-                <div class="candle-wick-bottom" style="height:35px;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="candle-info">
-          <table>
-            <tr><td>פתיחה (Open)</td><td>מחיר הפתיחה של התקופה — תחתית הגוף בנר ירוק</td></tr>
-            <tr><td>סגירה (Close)</td><td>מחיר הסגירה — חשוב מאוד, מראה כוח הסיכום</td></tr>
-            <tr><td>שיא (High)</td><td>הנקודה הגבוהה ביותר שנגע בה המחיר — קצה הפתיל העליון</td></tr>
-            <tr><td>שפל (Low)</td><td>הנקודה הנמוכה ביותר — קצה הפתיל התחתון</td></tr>
-            <tr><td>גוף (Body)</td><td>ההפרש בין פתיחה לסגירה — ירוק = עלייה, אדום = ירידה</td></tr>
-            <tr><td>פתיל (Wick/Shadow)</td><td>מגלה מה ניסו — ומה דחו. פתיל ארוך = דחייה חזקה</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="example-box">
-        <div class="example-label">📌 איך לקרוא נר</div>
-        <p>נר עם <strong>גוף ירוק גדול ופתילים קצרים</strong> = הקונים שלטו לגמרי בתקופה — סיגנל עוצמה.<br>
-        נר עם <strong>גוף קטן ופתיל תחתון ארוך</strong> = ניסו להוריד, נדחו — סיגנל היפוך פוטנציאלי.<br>
-        נר <strong>Doji</strong> (פתיחה = סגירה) = חוסר החלטיות — שים לב לנר הבא.</p>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- SECTION 3 — PATTERNS -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-number">3</div>
-        <div class="section-title">5 תבניות נרות שחייבים להכיר</div>
-      </div>
-
-      <table class="patterns-table">
-        <thead>
-          <tr>
-            <th>שם התבנית</th>
-            <th>תיאור</th>
-            <th>סיגנל</th>
-            <th>מה לעשות</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Hammer 🔨</td>
-            <td>גוף קטן למעלה, פתיל תחתון ארוך מאוד. מופיע לאחר ירידה.</td>
-            <td class="signal-bull">שורי ↑</td>
-            <td>חפש כניסה קנייה עם אישור</td>
-          </tr>
-          <tr>
-            <td>Shooting Star ⭐</td>
-            <td>גוף קטן למטה, פתיל עליון ארוך. מופיע לאחר עלייה.</td>
-            <td class="signal-bear">דובי ↓</td>
-            <td>שקול יציאה או שורט</td>
-          </tr>
-          <tr>
-            <td>Engulfing 🌑</td>
-            <td>נר גדול בולע את הנר הקודם לגמרי — שינוי מומנטום.</td>
-            <td>תלוי כיוון</td>
-            <td>אחד הסיגנלים החזקים — כנס בכיוון הבליעה</td>
-          </tr>
-          <tr>
-            <td>Doji ➕</td>
-            <td>פתיחה וסגירה כמעט זהות — חוסר החלטיות מוחלט.</td>
-            <td>ניטרלי / אזהרה</td>
-            <td>המתן לנר הבא לפני פעולה</td>
-          </tr>
-          <tr>
-            <td>Morning Star 🌟</td>
-            <td>3 נרות: ירידה ← דוג'י ← עלייה חזקה. היפוך קלאסי.</td>
-            <td class="signal-bull">שורי חזק ↑</td>
-            <td>כניסה קנייה בסגירת הנר השלישי</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="warning-box" style="margin-top:16px;">
-        <div class="w-icon">⚠️</div>
-        <p><strong>כלל זהב:</strong> לעולם אל תסחר על תבנית אחת בלבד. תבנית נר היא רק <em>רמז</em>. אשר אותה עם תמיכה/התנגדות, Volume ואינדיקטורים — רק אז כנס לעסקה.</p>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- SECTION 4 — SUPPORT/RESISTANCE -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-number">4</div>
-        <div class="section-title">תמיכה והתנגדות — הבסיס של כל גרף</div>
-      </div>
-
-      <p><strong>תמיכה (Support)</strong> היא רמת מחיר שבה הביקוש חזק — המחיר "קופץ" ממנה למעלה. <strong>התנגדות (Resistance)</strong> היא רמה שבה ההיצע חזק — המחיר "נדחה" ממנה למטה.</p>
-
-      <div class="sr-visual">
-        <div class="sr-line-resist">─────────── התנגדות: 155$ ─────────── (נדחה פה 3 פעמים)</div>
-        <div class="sr-price-action">↕ תנועת מחיר בין הרמות ↕</div>
-        <div class="sr-line-support">─────────── תמיכה: 140$ ─────────── (קפץ פה 4 פעמים)</div>
-      </div>
-
-      <div class="cards-grid" style="margin-top:16px;">
-        <div class="card">
-          <div class="card-icon">🔄</div>
-          <h4>היפוך תפקידים (Role Reversal)</h4>
-          <p>התנגדות שנשברת הופכת לתמיכה. תמיכה שנשברת הופכת להתנגדות. זה אחד הרעיונות הכי עוצמתיים בניתוח טכני.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">💪</div>
-          <h4>כמה פעמים נבדק = כמה חזק</h4>
-          <p>ככל שרמה נבדקה יותר פעמים ועמדה — היא חזקה יותר. פריצה של רמה חזקה = תנועה גדולה.</p>
-        </div>
-      </div>
-
-      <div class="highlight-box" style="margin-top:16px;">
-        <h4>💡 איך מציירים תמיכה והתנגדות?</h4>
-        <p>מחפשים נקודות שיא (High) ושפל (Low) שחזרו לפחות פעמיים. מחברים אותן בקו ישר. ככל שיש יותר "נגיעות" — הרמה חשובה יותר. הרמות החשובות ביותר הן אלו שגם ניתחנו ברמת שבועי/חודשי.</p>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- SECTION 5 — TREND -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-number">5</div>
-        <div class="section-title">טרנד — "The Trend is Your Friend"</div>
-      </div>
-
-      <p>אחד הכללים הכי חשובים במסחר: <strong>לעולם אל תסחר נגד הטרנד</strong>. טרנד הוא מגמה מתמשכת של המחיר לכיוון מסוים.</p>
-
-      <ul class="checklist">
-        <li>
-          <span class="check-icon">📈</span>
-          <div><strong>Uptrend (מגמת עלייה):</strong> כל שיא גבוה מהקודם (Higher High) וכל שפל גבוה מהקודם (Higher Low). הפעולה המומלצת: <strong>קנייה</strong></div>
-        </li>
-        <li>
-          <span class="check-icon">📉</span>
-          <div><strong>Downtrend (מגמת ירידה):</strong> כל שיא נמוך מהקודם (Lower High) וכל שפל נמוך מהקודם (Lower Low). הפעולה המומלצת: <strong>המתנה או שורט</strong></div>
-        </li>
-        <li>
-          <span class="check-icon">➡️</span>
-          <div><strong>Sideways / Range (צד):</strong> המחיר עובר בין תמיכה להתנגדות בלי כיוון. פחות מעניין לסוחרי יום, נהדר לסוחרי Range.</div>
-        </li>
-        <li>
-          <span class="check-icon">🔍</span>
-          <div><strong>Multi-timeframe:</strong> בדוק תמיד את הטרנד על גרף שבועי/יומי לפני שאתה מסחר על גרף של שעה. טרנד גדול גובר על קטן.</div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- SECTION 6 — INDICATORS -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-number">6</div>
-        <div class="section-title">אינדיקטורים מרכזיים</div>
-      </div>
-
-      <p>אינדיקטורים הם <strong>נוסחאות מתמטיות על המחיר</strong> שעוזרות לנו לאשר תנועות. הם לא קוסמים — הם כלי אישור. תמיד שים אותם אחרי שיש לך תזה על הגרף.</p>
-
-      <div class="indicators-grid">
-        <div class="indicator-card">
-          <div class="ind-header">
-            <div class="ind-badge">MA</div>
-            <h4>Moving Average</h4>
-          </div>
-          <p>ממוצע נע — מחליק את המחיר ומראה את כיוון הטרנד. הנפוצים: MA20, MA50, MA200.</p>
-          <div class="ind-rule">📌 מחיר מעל MA200 = שוק בריא. מחיר מתחת = זהירות</div>
-        </div>
-        <div class="indicator-card">
-          <div class="ind-header">
-            <div class="ind-badge">RSI</div>
-            <h4>Relative Strength Index</h4>
-          </div>
-          <p>מדד 0–100 שמראה האם המניה קנויה יתר על המידה (Overbought) או מכורה מדי (Oversold).</p>
-          <div class="ind-rule">📌 מעל 70 = Overbought. מתחת 30 = Oversold</div>
-        </div>
-        <div class="indicator-card">
-          <div class="ind-header">
-            <div class="ind-badge">MACD</div>
-            <h4>MACD</h4>
-          </div>
-          <p>מדד מומנטום — מראה את ההפרש בין שני ממוצעים. כשה-MACD חוצה את קו ה-Signal — סיגנל כניסה.</p>
-          <div class="ind-rule">📌 חציה מעלה = שורי. חציה מטה = דובי</div>
-        </div>
-        <div class="indicator-card">
-          <div class="ind-header">
-            <div class="ind-badge">VOL</div>
-            <h4>Volume (נפח)</h4>
-          </div>
-          <p>נפח הוא ה-"דלק" של התנועה. תנועה בנפח גבוה = אמינה. תנועה בנפח נמוך = חשודה.</p>
-          <div class="ind-rule">📌 פריצה + Volume גבוה = כניסה אמינה</div>
-        </div>
-      </div>
-
-      <div class="warning-box" style="margin-top:16px;">
-        <div class="w-icon">🚫</div>
-        <p><strong>טעות נפוצה:</strong> אל תשים 10 אינדיקטורים על הגרף. זה יבלבל אותך. בחר 2–3 מקסימום ולמד אותם לעומק. פחות = יותר.</p>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- SECTION 7 — QUIZ -->
-    <div class="section">
-      <div class="section-header">
-        <div class="section-number">7</div>
-        <div class="section-title">בדיקת הבנה</div>
-      </div>
-
-      <div class="quiz-section">
-        <h3>🧠 שאלות חשיבה</h3>
-        <p class="quiz-subtitle">ענה על השאלות הבאות — הן מבוססות על סיטואציות אמיתיות</p>
-
-        <div class="quiz-question">
-          <div class="q-number">שאלה 1</div>
-          <p>ראית מניה שנפלה 10 ימים ברצף. ביום ה-11 הופיע Hammer עם פתיל תחתון ארוך בנגיעה ברמת תמיכה חזקה שנבדקה 4 פעמים, עם Volume גבוה פי 3 מהממוצע. האם תיכנס? אם כן — איפה תשים Stop Loss?</p>
-          <div class="quiz-answer-space"></div>
-        </div>
-
-        <div class="quiz-question">
-          <div class="q-number">שאלה 2</div>
-          <p>RSI של מניה נמצא ב-78 ומחירה חצתה את ההתנגדות עם Volume גבוה. יש כאן קונפליקט בין האינדיקטורים — RSI אומר "זהירות" אבל הפריצה אומרת "כנס". מה עדיף ולמה?</p>
-          <div class="quiz-answer-space"></div>
-        </div>
-
-        <div class="quiz-question">
-          <div class="q-number">שאלה 3</div>
-          <p>מה ההבדל בין סוחר שרואה Doji ומיד נכנס לעסקה לבין סוחר מקצועי שרואה אותו? מה המקצוען עושה שונה?</p>
-          <div class="quiz-answer-space"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- HOMEWORK -->
-    <div class="homework">
-      <div class="hw-header">
-        <div class="hw-icon">📝</div>
-        <h3>מטלה לשיעור הבא</h3>
-      </div>
-      <ol>
-        <li>היכנס ל-<strong>TradingView.com</strong> (בחינם) ובחר מניה שבחרת בשיעור הקודם. צייר על הגרף היומי את רמות התמיכה וההתנגדות — צלם ושמור.</li>
-        <li>חפש בגרף <strong>3 תבניות נרות שלמדנו</strong> וסמן אותן. כתוב לצד כל אחת מה הסיגנל שלה ומה קרה לאחר מכן.</li>
-        <li>הוסף לגרף RSI ו-MA50 — בדוק: האם המניה בטרנד עולה? האם RSI מאשר?</li>
-      </ol>
-    </div>
-
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    קורס מסחר מקצועי · שיעור 2 מתוך 6 — ניתוח טכני &nbsp;|&nbsp; <span>השיעור הבא: ניהול סיכונים</span> &nbsp;|&nbsp; Ctrl+P להדפסה כ-PDF
-  </div>
-
+<!-- HEADER -->
+<div class="header">
+<div class="course-tag">קורס מסחר מקצועי · שיעור 2 מתוך 6</div>
+<h1>ניתוח טכני</h1>
+<p class="subtitle">ללמוד לקרוא גרפים — הכלי החזק ביותר של הסוחר המקצועי</p>
+<div class="header-meta">
+<div class="meta-item">⏱ 75 דקות</div>
+<div class="meta-item">📊 רמה: מתחיל–בינוני</div>
+<div class="meta-item">📋 כולל תרגיל מעשי</div>
 </div>
-</body>
+</div>
+<!-- RECAP -->
+<div class="recap">
+<h3>🔁 חזרה מהשיעור הקודם</h3>
+<div class="recap-row">
+<span class="recap-chip">שוק ההון</span>
+<span class="recap-chip">מניה = בעלות</span>
+<span class="recap-chip">Bull / Bear Market</span>
+<span class="recap-chip">Volume</span>
+<span class="recap-chip">Market Cap</span>
+<span class="recap-chip">Spread</span>
+</div>
+</div>
+<!-- OBJECTIVES -->
+<div class="objectives">
+<h3>🎯 מטרות השיעור</h3>
+<ul>
+<li>להבין מה זה ניתוח טכני ולמה הוא עובד</li>
+<li>לקרוא נרות יפניים (Candlesticks) בביטחון</li>
+<li>לזהות תמיכה והתנגדות על גרף</li>
+<li>לדעת מה ה-Trend ואיך לזהות אותו</li>
+<li>להכיר אינדיקטורים מרכזיים: RSI, MACD, MA</li>
+<li>לזהות 5 תבניות נרות קריטיות למסחר</li>
+</ul>
+</div>
+<div class="content">
+<!-- SECTION 1 -->
+<div class="section">
+<div class="section-header">
+<div class="section-number">1</div>
+<div class="section-title">מה זה ניתוח טכני ולמה הוא עובד?</div>
+</div>
+<p>ניתוח טכני הוא <strong>קריאת היסטוריית המחיר והנפח</strong> כדי לחזות לאן המחיר הולך. הרעיון המרכזי: <em>כל המידע שיש בעולם על מניה כבר מגולם במחירה</em> — כולל חדשות, פחדים, ציפיות ותקוות של כל המשקיעים.</p>
+<div class="cards-grid">
+<div class="card">
+<div class="card-icon">🔁</div>
+<h4>ההיסטוריה חוזרת על עצמה</h4>
+<p>דפוסי מחיר חוזרים כי פסיכולוגיית אנשים לא משתנה — פחד, בצע, ספק. הגרפים מצלמים את הרגשות.</p>
+</div>
+<div class="card">
+<div class="card-icon">📉</div>
+<h4>המחיר מכיל הכל</h4>
+<p>לא צריך לדעת על הדוחות — אם הכסף הגדול יודע, הוא יזוז. הגרף מגלה לנו את זה.</p>
+</div>
+<div class="card">
+<div class="card-icon">🌊</div>
+<h4>מחיר נע בטרנדים</h4>
+<p>מחיר לא קופץ אקראית. יש גלים, מגמות ומבנים שניתן לזהות ולמסחר לפיהם.</p>
+</div>
+<div class="card">
+<div class="card-icon">👁</div>
+<h4>אובייקטיבי לחלוטין</h4>
+<p>הגרף לא משקר. הוא מראה בדיוק מה קנו ומה מכרו — עובדות, לא דעות.</p>
+</div>
+</div>
+</div>
+<div class="divider"></div>
+<!-- SECTION 2 — CANDLESTICKS -->
+<div class="section">
+<div class="section-header">
+<div class="section-number">2</div>
+<div class="section-title">נרות יפניים — Candlesticks</div>
+</div>
+<p>נרות יפניים הם <strong>הכלי הגרפי הנפוץ ביותר</strong> בעולם המסחר. כל נר מייצג תקופת זמן (דקה, שעה, יום) ומכיל 4 נקודות מידע קריטיות.</p>
+<div class="candle-layout">
+<div style="flex-shrink:0; display:flex; gap:36px; align-items:flex-end; flex-direction:column; justify-content:center;">
+<div class="candles-pair">
+<div class="candle-group">
+<div class="candle-title bull">🟢 נר שורי (Bullish)</div>
+<div class="candle-visual">
+<div class="candle-wick-top" style="height:35px;"></div>
+<div class="candle-body green" style="height:80px;">
+<div class="candle-label">CLOSE</div>
+<div class="candle-label">OPEN</div>
+</div>
+<div class="candle-wick-bottom" style="height:25px;"></div>
+</div>
+</div>
+<div class="candle-group">
+<div class="candle-title bear">🔴 נר דובי (Bearish)</div>
+<div class="candle-visual">
+<div class="candle-wick-top" style="height:25px;"></div>
+<div class="candle-body red" style="height:80px;">
+<div class="candle-label">OPEN</div>
+<div class="candle-label">CLOSE</div>
+</div>
+<div class="candle-wick-bottom" style="height:35px;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="candle-info">
+<table>
+<tr><td>פתיחה (Open)</td><td>מחיר הפתיחה של התקופה — תחתית הגוף בנר ירוק</td></tr>
+<tr><td>סגירה (Close)</td><td>מחיר הסגירה — חשוב מאוד, מראה כוח הסיכום</td></tr>
+<tr><td>שיא (High)</td><td>הנקודה הגבוהה ביותר שנגע בה המחיר — קצה הפתיל העליון</td></tr>
+<tr><td>שפל (Low)</td><td>הנקודה הנמוכה ביותר — קצה הפתיל התחתון</td></tr>
+<tr><td>גוף (Body)</td><td>ההפרש בין פתיחה לסגירה — ירוק = עלייה, אדום = ירידה</td></tr>
+<tr><td>פתיל (Wick/Shadow)</td><td>מגלה מה ניסו — ומה דחו. פתיל ארוך = דחייה חזקה</td></tr>
+</table>
+</div>
+</div>
+<div class="example-box">
+<div class="example-label">📌 איך לקרוא נר</div>
+<p>נר עם <strong>גוף ירוק גדול ופתילים קצרים</strong> = הקונים שלטו לגמרי בתקופה — סיגנל עוצמה.<br/>
+        נר עם <strong>גוף קטן ופתיל תחתון ארוך</strong> = ניסו להוריד, נדחו — סיגנל היפוך פוטנציאלי.<br/>
+        נר <strong>Doji</strong> (פתיחה = סגירה) = חוסר החלטיות — שים לב לנר הבא.</p>
+</div>
+</div>
+<div class="divider"></div>
+<!-- SECTION 3 — PATTERNS -->
+<div class="section">
+<div class="section-header">
+<div class="section-number">3</div>
+<div class="section-title">5 תבניות נרות שחייבים להכיר</div>
+</div>
+<table class="patterns-table">
+<thead>
+<tr>
+<th>שם התבנית</th>
+<th>תיאור</th>
+<th>סיגנל</th>
+<th>מה לעשות</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hammer 🔨</td>
+<td>גוף קטן למעלה, פתיל תחתון ארוך מאוד. מופיע לאחר ירידה.</td>
+<td class="signal-bull">שורי ↑</td>
+<td>חפש כניסה קנייה עם אישור</td>
+</tr>
+<tr>
+<td>Shooting Star ⭐</td>
+<td>גוף קטן למטה, פתיל עליון ארוך. מופיע לאחר עלייה.</td>
+<td class="signal-bear">דובי ↓</td>
+<td>שקול יציאה או שורט</td>
+</tr>
+<tr>
+<td>Engulfing 🌑</td>
+<td>נר גדול בולע את הנר הקודם לגמרי — שינוי מומנטום.</td>
+<td>תלוי כיוון</td>
+<td>אחד הסיגנלים החזקים — כנס בכיוון הבליעה</td>
+</tr>
+<tr>
+<td>Doji ➕</td>
+<td>פתיחה וסגירה כמעט זהות — חוסר החלטיות מוחלט.</td>
+<td>ניטרלי / אזהרה</td>
+<td>המתן לנר הבא לפני פעולה</td>
+</tr>
+<tr>
+<td>Morning Star 🌟</td>
+<td>3 נרות: ירידה ← דוג'י ← עלייה חזקה. היפוך קלאסי.</td>
+<td class="signal-bull">שורי חזק ↑</td>
+<td>כניסה קנייה בסגירת הנר השלישי</td>
+</tr>
+</tbody>
+</table>
+<div class="warning-box" style="margin-top:16px;">
+<div class="w-icon">⚠️</div>
+<p><strong>כלל זהב:</strong> לעולם אל תסחר על תבנית אחת בלבד. תבנית נר היא רק <em>רמז</em>. אשר אותה עם תמיכה/התנגדות, Volume ואינדיקטורים — רק אז כנס לעסקה.</p>
+</div>
+</div>
+<div class="divider"></div>
+<!-- SECTION 4 — SUPPORT/RESISTANCE -->
+<div class="section">
+<div class="section-header">
+<div class="section-number">4</div>
+<div class="section-title">תמיכה והתנגדות — הבסיס של כל גרף</div>
+</div>
+<p><strong>תמיכה (Support)</strong> היא רמת מחיר שבה הביקוש חזק — המחיר "קופץ" ממנה למעלה. <strong>התנגדות (Resistance)</strong> היא רמה שבה ההיצע חזק — המחיר "נדחה" ממנה למטה.</p>
+<div class="sr-visual">
+<div class="sr-line-resist">─────────── התנגדות: 155$ ─────────── (נדחה פה 3 פעמים)</div>
+<div class="sr-price-action">↕ תנועת מחיר בין הרמות ↕</div>
+<div class="sr-line-support">─────────── תמיכה: 140$ ─────────── (קפץ פה 4 פעמים)</div>
+</div>
+<div class="cards-grid" style="margin-top:16px;">
+<div class="card">
+<div class="card-icon">🔄</div>
+<h4>היפוך תפקידים (Role Reversal)</h4>
+<p>התנגדות שנשברת הופכת לתמיכה. תמיכה שנשברת הופכת להתנגדות. זה אחד הרעיונות הכי עוצמתיים בניתוח טכני.</p>
+</div>
+<div class="card">
+<div class="card-icon">💪</div>
+<h4>כמה פעמים נבדק = כמה חזק</h4>
+<p>ככל שרמה נבדקה יותר פעמים ועמדה — היא חזקה יותר. פריצה של רמה חזקה = תנועה גדולה.</p>
+</div>
+</div>
+<div class="highlight-box" style="margin-top:16px;">
+<h4>💡 איך מציירים תמיכה והתנגדות?</h4>
+<p>מחפשים נקודות שיא (High) ושפל (Low) שחזרו לפחות פעמיים. מחברים אותן בקו ישר. ככל שיש יותר "נגיעות" — הרמה חשובה יותר. הרמות החשובות ביותר הן אלו שגם ניתחנו ברמת שבועי/חודשי.</p>
+</div>
+</div>
+<div class="divider"></div>
+<!-- SECTION 5 — TREND -->
+<div class="section">
+<div class="section-header">
+<div class="section-number">5</div>
+<div class="section-title">טרנד — "The Trend is Your Friend"</div>
+</div>
+<p>אחד הכללים הכי חשובים במסחר: <strong>לעולם אל תסחר נגד הטרנד</strong>. טרנד הוא מגמה מתמשכת של המחיר לכיוון מסוים.</p>
+<ul class="checklist">
+<li>
+<span class="check-icon">📈</span>
+<div><strong>Uptrend (מגמת עלייה):</strong> כל שיא גבוה מהקודם (Higher High) וכל שפל גבוה מהקודם (Higher Low). הפעולה המומלצת: <strong>קנייה</strong></div>
+</li>
+<li>
+<span class="check-icon">📉</span>
+<div><strong>Downtrend (מגמת ירידה):</strong> כל שיא נמוך מהקודם (Lower High) וכל שפל נמוך מהקודם (Lower Low). הפעולה המומלצת: <strong>המתנה או שורט</strong></div>
+</li>
+<li>
+<span class="check-icon">➡️</span>
+<div><strong>Sideways / Range (צד):</strong> המחיר עובר בין תמיכה להתנגדות בלי כיוון. פחות מעניין לסוחרי יום, נהדר לסוחרי Range.</div>
+</li>
+<li>
+<span class="check-icon">🔍</span>
+<div><strong>Multi-timeframe:</strong> בדוק תמיד את הטרנד על גרף שבועי/יומי לפני שאתה מסחר על גרף של שעה. טרנד גדול גובר על קטן.</div>
+</li>
+</ul>
+</div>
+<div class="divider"></div>
+<!-- SECTION 6 — INDICATORS -->
+<div class="section">
+<div class="section-header">
+<div class="section-number">6</div>
+<div class="section-title">אינדיקטורים מרכזיים</div>
+</div>
+<p>אינדיקטורים הם <strong>נוסחאות מתמטיות על המחיר</strong> שעוזרות לנו לאשר תנועות. הם לא קוסמים — הם כלי אישור. תמיד שים אותם אחרי שיש לך תזה על הגרף.</p>
+<div class="indicators-grid">
+<div class="indicator-card">
+<div class="ind-header">
+<div class="ind-badge">MA</div>
+<h4>Moving Average</h4>
+</div>
+<p>ממוצע נע — מחליק את המחיר ומראה את כיוון הטרנד. הנפוצים: MA20, MA50, MA200.</p>
+<div class="ind-rule">📌 מחיר מעל MA200 = שוק בריא. מחיר מתחת = זהירות</div>
+</div>
+<div class="indicator-card">
+<div class="ind-header">
+<div class="ind-badge">RSI</div>
+<h4>Relative Strength Index</h4>
+</div>
+<p>מדד 0–100 שמראה האם המניה קנויה יתר על המידה (Overbought) או מכורה מדי (Oversold).</p>
+<div class="ind-rule">📌 מעל 70 = Overbought. מתחת 30 = Oversold</div>
+</div>
+<div class="indicator-card">
+<div class="ind-header">
+<div class="ind-badge">MACD</div>
+<h4>MACD</h4>
+</div>
+<p>מדד מומנטום — מראה את ההפרש בין שני ממוצעים. כשה-MACD חוצה את קו ה-Signal — סיגנל כניסה.</p>
+<div class="ind-rule">📌 חציה מעלה = שורי. חציה מטה = דובי</div>
+</div>
+<div class="indicator-card">
+<div class="ind-header">
+<div class="ind-badge">VOL</div>
+<h4>Volume (נפח)</h4>
+</div>
+<p>נפח הוא ה-"דלק" של התנועה. תנועה בנפח גבוה = אמינה. תנועה בנפח נמוך = חשודה.</p>
+<div class="ind-rule">📌 פריצה + Volume גבוה = כניסה אמינה</div>
+</div>
+</div>
+<div class="warning-box" style="margin-top:16px;">
+<div class="w-icon">🚫</div>
+<p><strong>טעות נפוצה:</strong> אל תשים 10 אינדיקטורים על הגרף. זה יבלבל אותך. בחר 2–3 מקסימום ולמד אותם לעומק. פחות = יותר.</p>
+</div>
+</div>
+<div class="divider"></div>
+<!-- SECTION 7 — QUIZ -->
+<div class="section">
+<div class="section-header">
+<div class="section-number">7</div>
+<div class="section-title">בדיקת הבנה</div>
+</div>
+<div class="quiz-section">
+<h3>🧠 שאלות חשיבה</h3>
+<p class="quiz-subtitle">ענה על השאלות הבאות — הן מבוססות על סיטואציות אמיתיות</p>
+<div class="quiz-question">
+<div class="q-number">שאלה 1</div>
+<p>ראית מניה שנפלה 10 ימים ברצף. ביום ה-11 הופיע Hammer עם פתיל תחתון ארוך בנגיעה ברמת תמיכה חזקה שנבדקה 4 פעמים, עם Volume גבוה פי 3 מהממוצע. האם תיכנס? אם כן — איפה תשים Stop Loss?</p>
+<div class="quiz-answer-space"></div>
+</div>
+<div class="quiz-question">
+<div class="q-number">שאלה 2</div>
+<p>RSI של מניה נמצא ב-78 ומחירה חצתה את ההתנגדות עם Volume גבוה. יש כאן קונפליקט בין האינדיקטורים — RSI אומר "זהירות" אבל הפריצה אומרת "כנס". מה עדיף ולמה?</p>
+<div class="quiz-answer-space"></div>
+</div>
+<div class="quiz-question">
+<div class="q-number">שאלה 3</div>
+<p>מה ההבדל בין סוחר שרואה Doji ומיד נכנס לעסקה לבין סוחר מקצועי שרואה אותו? מה המקצוען עושה שונה?</p>
+<div class="quiz-answer-space"></div>
+</div>
+</div>
+</div>
+<!-- HOMEWORK -->
+<div class="homework">
+<div class="hw-header">
+<div class="hw-icon">📝</div>
+<h3>מטלה לשיעור הבא</h3>
+</div>
+<ol>
+<li>היכנס ל-<strong>TradingView.com</strong> (בחינם) ובחר מניה שבחרת בשיעור הקודם. צייר על הגרף היומי את רמות התמיכה וההתנגדות — צלם ושמור.</li>
+<li>חפש בגרף <strong>3 תבניות נרות שלמדנו</strong> וסמן אותן. כתוב לצד כל אחת מה הסיגנל שלה ומה קרה לאחר מכן.</li>
+<li>הוסף לגרף RSI ו-MA50 — בדוק: האם המניה בטרנד עולה? האם RSI מאשר?</li>
+</ol>
+</div>
+</div>
+<!-- FOOTER -->
+<div class="footer">
+    קורס מסחר מקצועי · שיעור 2 מתוך 6 — ניתוח טכני  |  <span>השיעור הבא: ניהול סיכונים</span>  |  Ctrl+P להדפסה כ-PDF
+  </div>
+</div>
+<div id="ai-chat-window" style="display:none;position:fixed;bottom:90px;left:24px;width:360px;max-height:520px;background:#1a1a2e;border:1px solid rgba(240,180,41,0.35);border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,0.5);z-index:9999;font-family:'Heebo',Arial,sans-serif;direction:rtl;overflow:hidden;flex-direction:column;"><div style="background:linear-gradient(135deg,#0f3460,#16213e);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(240,180,41,0.2);"><div style="display:flex;align-items:center;gap:10px;"><span style="font-size:24px;">🤖</span><div><div style="color:#f0b429;font-weight:800;font-size:14px;">מאמן AI אישי</div><div style="color:#22c55e;font-size:11px;font-weight:600;">● מחובר | זמין 24/7</div></div></div><button onclick="document.getElementById('ai-chat-window').style.display='none';" style="background:rgba(255,255,255,0.08);border:none;color:#fff;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px;">✕</button></div><div id="ai-messages" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:340px;"><div style="background:rgba(240,180,41,0.1);border:1px solid rgba(240,180,41,0.2);border-radius:14px 14px 14px 2px;padding:12px 14px;color:rgba(255,255,255,0.9);font-size:13px;line-height:1.6;">שלום\! אני המאמן האישי שלך 🎯<br/>שאל אותי כל שאלה על החומר — אני כאן בשבילך\!</div></div><div style="padding:12px;border-top:1px solid rgba(255,255,255,0.08);display:flex;gap:8px;align-items:center;"><input id="ai-input" onkeydown="if(event.key==='Enter') sendAIMessage()" placeholder="שאל שאלה על המסחר..." style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(240,180,41,0.2);border-radius:20px;padding:10px 16px;color:#fff;font-size:13px;font-family:'Heebo',Arial,sans-serif;direction:rtl;outline:none;" type="text"/><button onclick="sendAIMessage()" style="background:#f0b429;border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:16px;flex-shrink:0;">➤</button></div></div><button onclick="var w=document.getElementById('ai-chat-window');w.style.display=w.style.display==='none'||w.style.display===''?'flex':'none';w.style.flexDirection='column';" style="position:fixed;bottom:24px;left:24px;background:linear-gradient(135deg,#f0b429,#e09900);border:none;border-radius:50px;padding:12px 20px;color:#0f3460;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 4px 20px rgba(240,180,41,0.4);z-index:9999;font-family:'Heebo',Arial,sans-serif;display:flex;align-items:center;gap:8px;">🤖 מאמן AI</button><script>const OPENAI_API_KEY='YOUR_API_KEY_HERE';async function sendAIMessage(){const input=document.getElementById('ai-input');const messages=document.getElementById('ai-messages');const userText=input.value.trim();if(\!userText)return;const userMsg=document.createElement('div');userMsg.style.cssText='background:rgba(15,52,96,0.8);border:1px solid rgba(255,255,255,0.1);border-radius:14px 14px 2px 14px;padding:10px 14px;color:rgba(255,255,255,0.9);font-size:13px;line-height:1.6;align-self:flex-end;max-width:85%;';userMsg.textContent=userText;messages.appendChild(userMsg);input.value='';messages.scrollTop=messages.scrollHeight;const loadingMsg=document.createElement('div');loadingMsg.id='ai-loading';loadingMsg.style.cssText='background:rgba(240,180,41,0.1);border:1px solid rgba(240,180,41,0.2);border-radius:14px 14px 14px 2px;padding:10px 14px;color:rgba(255,255,255,0.6);font-size:13px;';loadingMsg.textContent='⏳ חושב...';messages.appendChild(loadingMsg);messages.scrollTop=messages.scrollHeight;try{const response=await fetch('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+OPENAI_API_KEY},body:JSON.stringify({model:'gpt-4o-mini',messages:[{role:'system',content:'אתה מאמן מסחר מקצועי של קורס TradeAcademy IL. עונה תמיד בעברית, בצורה ברורה וידידותית.'},{role:'user',content:userText}],max_tokens:500,temperature:0.7})});const data=await response.json();document.getElementById('ai-loading').remove();const aiMsg=document.createElement('div');aiMsg.style.cssText='background:rgba(240,180,41,0.1);border:1px solid rgba(240,180,41,0.2);border-radius:14px 14px 14px 2px;padding:12px 14px;color:rgba(255,255,255,0.9);font-size:13px;line-height:1.6;';aiMsg.textContent=data.choices[0].message.content;messages.appendChild(aiMsg);messages.scrollTop=messages.scrollHeight;}catch(e){document.getElementById('ai-loading').remove();const errMsg=document.createElement('div');errMsg.style.cssText='background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);border-radius:14px;padding:10px 14px;color:#fca5a5;font-size:13px;';errMsg.textContent='⚠️ שגיאה בחיבור. בדוק את מפתח ה-API.';messages.appendChild(errMsg);}}</script></body>
 </html>
