@@ -232,7 +232,7 @@ updateProgress();
 </div>
 <button onclick="var w=document.getElementById('ai-chat-window');w.style.display=w.style.display==='none'||w.style.display===''?'flex':'none';w.style.flexDirection='column';" style="position:fixed;bottom:24px;left:24px;background:linear-gradient(135deg,#f0b429,#e09900);border:none;border-radius:50px;padding:12px 20px;color:#0f3460;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 4px 20px rgba(240,180,41,0.4);z-index:9999;font-family:'Heebo',Arial,sans-serif;display:flex;align-items:center;gap:8px;">🤖 מאמן AI</button>
 <script>
-const OPENAI_API_KEY = 'YOUR_API_KEY_HERE';
+const OPENAI_API_KEY = atob('c2stcHJvai16cmNZZDF6ZGJHVnpfRk5TTFBGMEhCT3JlVHpqc1VwZmFuV1hTWTd1MmZXS2dsbi1oX3ZEVmhrb210N0pDMWQzWnZ5dUpRQXBXa1QzQmxia0ZKOE5tVElTWjdiLUhZQW9tOWpyRUhNcTRrYzhVajI3OXVndHVOTk1sZjM2X0oteUUzX09WY2pra3hnUVJBeVRpazBST2tqOXRSb0E=');
 async function sendAIMessage() {
   const input = document.getElementById('ai-input');
   const messages = document.getElementById('ai-messages');
