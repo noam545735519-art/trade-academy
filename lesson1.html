@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
-<html dir="rtl" lang="he">
+<html lang="he" dir="rtl">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>שיעור 1 – מבוא לשוק ההון</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 1 – מבוא לשוק ההון</title>
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -376,302 +375,360 @@
       .page { box-shadow: none; margin: 0; border-radius: 0; }
     }
   </style>
-
-<style>
-.lesson-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 32px;
-  background: #fff;
-  border-top: 2px solid #e0e0e0;
-  margin-top: 32px;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-family: 'Heebo', Arial, sans-serif;
-  direction: rtl;
-}
-.lesson-nav a, .lesson-nav button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  border: none;
-}
-.nav-back-students {
-  background: #f5f5f5;
-  color: #333;
-}
-.nav-back-students:hover { background: #e0e0e0; }
-.nav-prev {
-  background: #e8f5e9;
-  color: #1b5e20;
-}
-.nav-prev:hover { background: #c8e6c9; }
-.nav-next {
-  background: #1b5e20;
-  color: #fff;
-}
-.nav-next:hover { background: #2e7d32; }
-.nav-disabled {
-  background: #f5f5f5;
-  color: #bbb;
-  cursor: default;
-}
-</style>
 </head>
-<body><div id="ai-banner" style="background:linear-gradient(90deg,#0f3460 0%,#1a1a2e 60%,#0f3460 100%);border-bottom:2px solid #f0b429;padding:10px 24px;display:flex;align-items:center;justify-content:center;gap:12px;font-family:'Heebo',Arial,sans-serif;direction:rtl;position:sticky;top:0;z-index:999;box-shadow:0 2px 16px rgba(240,180,41,0.15);"><span style="font-size:22px;">🤖</span><span style="color:#f0b429;font-weight:800;font-size:15px;">מאמן AI אישי</span><span style="color:rgba(255,255,255,0.6);font-size:13px;">|</span><span style="color:rgba(255,255,255,0.85);font-size:13px;">שאל כל שאלה על החומר — זמין</span><span style="background:#22c55e;color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;">● 24/7</span><button onclick="document.getElementById('ai-chat-window').style.display='flex';document.getElementById('ai-chat-window').style.flexDirection='column';" style="background:#f0b429;color:#0f3460;border:none;border-radius:20px;padding:6px 18px;font-weight:800;font-size:13px;cursor:pointer;margin-right:8px;">💬 שוחח עם המאמן</button></div>
+<body>
+<div style="background:linear-gradient(90deg,#0f3460,#1a1a2e,#0f3460);border-bottom:2px solid #f0b429;padding:10px 24px;display:flex;align-items:center;justify-content:center;gap:12px;font-family:'Heebo',Arial,sans-serif;direction:rtl;position:sticky;top:0;z-index:999;">
+  <span style="font-size:22px;">🤖</span>
+  <span style="color:#f0b429;font-weight:800;font-size:15px;">מאמן AI אישי</span>
+  <span style="color:rgba(255,255,255,0.6);font-size:13px;">|</span>
+  <span style="color:rgba(255,255,255,0.85);font-size:13px;">שאל כל שאלה על החומר — זמין</span>
+  <span style="background:#22c55e;color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;">● 24/7</span>
+  <button onclick="document.getElementById('ai-chat-window').style.display='flex';document.getElementById('ai-chat-window').style.flexDirection='column'" style="background:#f0b429;color:#0f3460;border:none;border-radius:20px;padding:6px 18px;font-weight:800;font-size:13px;cursor:pointer;margin-right:8px;">💬 שוחח עם המאמן</button>
+</div>
+
+
 <div class="page">
-<!-- HEADER -->
-<div class="header">
-<div class="course-tag">קורס מסחר מקצועי · שיעור 1 מתוך 6</div>
-<h1>מבוא לשוק ההון</h1>
-<p class="subtitle">הבסיס שכל סוחר מקצועי חייב להכיר — לפני שמסחרים, מבינים</p>
-<div class="header-meta">
-<div class="meta-item"><span class="icon">⏱</span> 60 דקות</div>
-<div class="meta-item"><span class="icon">📊</span> רמה: מתחיל</div>
-<div class="meta-item"><span class="icon">📋</span> כולל תרגיל</div>
-</div>
-</div>
-<!-- OBJECTIVES -->
-<div class="objectives">
-<h3>🎯 מטרות השיעור</h3>
-<ul>
-<li>להבין מהו שוק ההון ואיך הוא עובד</li>
-<li>להכיר את המינוח הבסיסי של המסחר</li>
-<li>לדעת מה זה מניה ולמה חברות מנפיקות אותה</li>
-<li>להכיר את השחקנים המרכזיים בשוק</li>
-<li>להבין את ההבדל בין שוק שורי לדובי</li>
-<li>להיות מוכן לשיעור 2 — ניתוח טכני</li>
-</ul>
-</div>
-<!-- CONTENT -->
-<div class="content">
-<!-- SECTION 1 -->
-<div class="section">
-<div class="section-header">
-<div class="section-number">1</div>
-<div class="section-title">מה זה שוק ההון?</div>
-</div>
-<p>שוק ההון הוא המקום שבו חברות, ממשלות ומשקיעים מגייסים ומשקיעים כסף. בניגוד לשוק המוצרים שבו קונים ומוכרים מוצרים פיזיים — בשוק ההון קונים ומוכרים <strong>נכסים פיננסיים</strong> כמו מניות, אגרות חוב ותעודות סל.</p>
-<div class="cards-grid">
-<div class="card">
-<div class="card-icon">🏦</div>
-<h4>שוק ראשוני (Primary Market)</h4>
-<p>המקום שבו חברות מנפיקות מניות לראשונה — כמו IPO. הכסף עובר ישירות לחברה.</p>
-</div>
-<div class="card">
-<div class="card-icon">🔄</div>
-<h4>שוק משני (Secondary Market)</h4>
-<p>המסחר היומיומי בבורסה — קנייה ומכירה בין משקיעים. הכסף עובר בין הצדדים.</p>
-</div>
-<div class="card">
-<div class="card-icon">📈</div>
-<h4>שוק המניות (Stock Market)</h4>
-<p>החלק של שוק ההון שבו נסחרות מניות של חברות ציבוריות.</p>
-</div>
-<div class="card">
-<div class="card-icon">📜</div>
-<h4>שוק האג"ח (Bond Market)</h4>
-<p>שוק ההלוואות — חברות וממשלות לווים כסף ומבטיחים להחזיר עם ריבית.</p>
-</div>
-</div>
-</div>
-<div class="divider"></div>
-<!-- SECTION 2 -->
-<div class="section">
-<div class="section-header">
-<div class="section-number">2</div>
-<div class="section-title">מה זה מניה?</div>
-</div>
-<p>מניה היא <strong>חלק בעלות בחברה</strong>. כשאתה קונה מניה של Apple, אתה הופך לבעלים של חלק קטן מ-Apple. אם החברה מרוויחה — ערך המניה עולה. אם היא מפסידה — ערך המניה יורד.</p>
-<div class="example-box">
-<div class="example-label">📌 דוגמה</div>
-<p>חברת XYZ שווה 1,000,000 ₪ ויש לה 100,000 מניות. מחיר כל מניה = 10 ₪.<br/>
-        קנית 1,000 מניות = השקעת 10,000 ₪ = בעלות על 1% מהחברה.<br/>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="course-tag">קורס מסחר מקצועי · שיעור 1 מתוך 6</div>
+    <h1>מבוא לשוק ההון</h1>
+    <p class="subtitle">הבסיס שכל סוחר מקצועי חייב להכיר — לפני שמסחרים, מבינים</p>
+    <div class="header-meta">
+      <div class="meta-item"><span class="icon">⏱</span> 60 דקות</div>
+      <div class="meta-item"><span class="icon">📊</span> רמה: מתחיל</div>
+      <div class="meta-item"><span class="icon">📋</span> כולל תרגיל</div>
+    </div>
+  </div>
+
+  <!-- OBJECTIVES -->
+  <div class="objectives">
+    <h3>🎯 מטרות השיעור</h3>
+    <ul>
+      <li>להבין מהו שוק ההון ואיך הוא עובד</li>
+      <li>להכיר את המינוח הבסיסי של המסחר</li>
+      <li>לדעת מה זה מניה ולמה חברות מנפיקות אותה</li>
+      <li>להכיר את השחקנים המרכזיים בשוק</li>
+      <li>להבין את ההבדל בין שוק שורי לדובי</li>
+      <li>להיות מוכן לשיעור 2 — ניתוח טכני</li>
+    </ul>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- SECTION 1 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div class="section-title">מה זה שוק ההון?</div>
+      </div>
+
+      <p>שוק ההון הוא המקום שבו חברות, ממשלות ומשקיעים מגייסים ומשקיעים כסף. בניגוד לשוק המוצרים שבו קונים ומוכרים מוצרים פיזיים — בשוק ההון קונים ומוכרים <strong>נכסים פיננסיים</strong> כמו מניות, אגרות חוב ותעודות סל.</p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🏦</div>
+          <h4>שוק ראשוני (Primary Market)</h4>
+          <p>המקום שבו חברות מנפיקות מניות לראשונה — כמו IPO. הכסף עובר ישירות לחברה.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔄</div>
+          <h4>שוק משני (Secondary Market)</h4>
+          <p>המסחר היומיומי בבורסה — קנייה ומכירה בין משקיעים. הכסף עובר בין הצדדים.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h4>שוק המניות (Stock Market)</h4>
+          <p>החלק של שוק ההון שבו נסחרות מניות של חברות ציבוריות.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📜</div>
+          <h4>שוק האג"ח (Bond Market)</h4>
+          <p>שוק ההלוואות — חברות וממשלות לווים כסף ומבטיחים להחזיר עם ריבית.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div class="section-title">מה זה מניה?</div>
+      </div>
+
+      <p>מניה היא <strong>חלק בעלות בחברה</strong>. כשאתה קונה מניה של Apple, אתה הופך לבעלים של חלק קטן מ-Apple. אם החברה מרוויחה — ערך המניה עולה. אם היא מפסידה — ערך המניה יורד.</p>
+
+      <div class="example-box">
+        <div class="example-label">📌 דוגמה</div>
+        <p>חברת XYZ שווה 1,000,000 ₪ ויש לה 100,000 מניות. מחיר כל מניה = 10 ₪.<br>
+        קנית 1,000 מניות = השקעת 10,000 ₪ = בעלות על 1% מהחברה.<br>
         אם שווי החברה עלה ל-1,500,000 ₪ — המניה שלך שווה עכשיו 15 ₪. רווח של 5,000 ₪ (50%).</p>
+      </div>
+
+      <p>חברות מנפיקות מניות כדי <strong>לגייס הון</strong> לצמיחה, מחקר ופיתוח — במקום ללוות מהבנק. המשקיע מקבל בתמורה שותפות ברווחים העתידיים.</p>
+
+      <div class="highlight-box">
+        <h4>💡 האם מניות תמיד עולות?</h4>
+        <p>לא. מניות עולות ויורדות בהתאם לביצועי החברה, הכלכלה, הריבית, חדשות, ומה שמשקיעים <em>מאמינים</em> שיקרה בעתיד. זו בדיוק הסיבה שחובה ללמוד ניהול סיכונים לפני שמתחילים לסחור.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">מה זה בורסה וסוגי מדדים</div>
+      </div>
+
+      <p>הבורסה היא שוק מסודר שבו קונים ומוכרים מניות. היא מווסתת על ידי גופי פיקוח (כמו ה-SEC בארה"ב) כדי להגן על המשקיעים.</p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🇺🇸</div>
+          <h4>NYSE</h4>
+          <p>הבורסה הגדולה בעולם — נוי יורק. מכילה חברות כמו Coca-Cola, ExxonMobil.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💻</div>
+          <h4>NASDAQ</h4>
+          <p>בורסת הטכנולוגיה. Apple, Google, Microsoft, Meta — כולן כאן.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🇮🇱</div>
+          <h4>תל אביב (TASE)</h4>
+          <p>הבורסה הישראלית. מדד ת"א 35 כולל 35 החברות הגדולות בישראל.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h4>S&P 500</h4>
+          <p>מדד 500 החברות הגדולות בארה"ב — הברומטר הכי חשוב לבריאות הכלכלה האמריקאית.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">השחקנים בשוק</div>
+      </div>
+
+      <div class="players-row">
+        <div class="player-card">
+          <div class="p-icon">👤</div>
+          <h4>Retail Traders</h4>
+          <p>משקיעים קטנים כמוך — פועלים דרך ברוקר מהבית</p>
+        </div>
+        <div class="player-card">
+          <div class="p-icon">🏛</div>
+          <h4>Institutional Investors</h4>
+          <p>קרנות פנסיה, גידור וביטוח — מהלכים מאות מיליונים</p>
+        </div>
+        <div class="player-card">
+          <div class="p-icon">🤖</div>
+          <h4>Market Makers</h4>
+          <p>מספקים נזילות — תמיד מוכנים לקנות ולמכור</p>
+        </div>
+        <div class="player-card">
+          <div class="p-icon">🏦</div>
+          <h4>ברוקרים</h4>
+          <p>מתווכים בין הקונה למוכר — Interactive Brokers, eToro וכו'</p>
+        </div>
+      </div>
+
+      <div class="rule-box" style="margin-top: 20px;">
+        <div class="rule-icon">⚠️</div>
+        <p><strong>חשוב לדעת:</strong> הגופים המוסדיים (Institutions) שולטים בנפח עצום של המסחר. כסוחרים קטנים, אנחנו צריכים <em>לזהות לאן הכסף הגדול זורם</em> — ולסחור בכיוון שלו, לא נגדו.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">מינוח בסיסי שחייבים להכיר</div>
+      </div>
+
+      <table class="terms-table">
+        <thead>
+          <tr>
+            <th>מושג</th>
+            <th>באנגלית</th>
+            <th>הסבר</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>שוק שורי</td>
+            <td>Bull Market</td>
+            <td>שוק עולה — מחירים עולים 20%+ מהשפל</td>
+          </tr>
+          <tr>
+            <td>שוק דובי</td>
+            <td>Bear Market</td>
+            <td>שוק יורד — מחירים ירדו 20%+ מהשיא</td>
+          </tr>
+          <tr>
+            <td>נפח מסחר</td>
+            <td>Volume</td>
+            <td>כמות המניות שנסחרו בפרק זמן מסוים</td>
+          </tr>
+          <tr>
+            <td>שווי שוק</td>
+            <td>Market Cap</td>
+            <td>מחיר מניה × מספר מניות = שווי כולל של החברה</td>
+          </tr>
+          <tr>
+            <td>פער מחירים</td>
+            <td>Spread</td>
+            <td>ההפרש בין מחיר הקנייה (Ask) למחיר המכירה (Bid)</td>
+          </tr>
+          <tr>
+            <td>נזילות</td>
+            <td>Liquidity</td>
+            <td>קלות הקנייה/מכירה של נכס ללא פגיעה במחיר</td>
+          </tr>
+          <tr>
+            <td>תנודתיות</td>
+            <td>Volatility</td>
+            <td>עוצמת תנועות המחיר — גבוהה = סיכון + הזדמנות</td>
+          </tr>
+          <tr>
+            <td>ניסחר בפער</td>
+            <td>Gap</td>
+            <td>פתיחה במחיר שונה מסגירת יום קודם — אירוע מסחרי חשוב</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6 — QUIZ -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div class="section-title">בדיקת הבנה — שאלות לחשיבה</div>
+      </div>
+
+      <div class="quiz-section">
+        <h3>🧠 שאלות חשיבה</h3>
+        <p class="quiz-subtitle">ענה על השאלות הבאות בכתב — השאלות האלו ילוו אותנו לאורך כל הקורס</p>
+
+        <div class="quiz-question">
+          <div class="q-number">שאלה 1</div>
+          <p>חברה מנפיקה IPO במחיר של 50$ למניה. שבוע לאחר מכן המניה עומדת על 42$. מה לדעתך יכול להסביר את הירידה? האם זה אומר שהחברה גרועה?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+
+        <div class="quiz-question">
+          <div class="q-number">שאלה 2</div>
+          <p>מה ההבדל בין להיות בעל מניה ב-Apple לבין לקנות מוצר של Apple? איזו מהן עדיפה מבחינת בניית עושר לאורך זמן?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+
+        <div class="quiz-question">
+          <div class="q-number">שאלה 3</div>
+          <p>אם נפח המסחר (Volume) של מניה מסוימת עולה פי 5 מהממוצע ביום מסוים, מה זה יכול לאותת לך כסוחר? למה זה חשוב?</p>
+          <div class="quiz-answer-space"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOMEWORK -->
+    <div class="homework">
+      <div class="hw-header">
+        <div class="hw-icon">📝</div>
+        <h3>מטלה לשיעור הבא</h3>
+      </div>
+      <ol>
+        <li>היכנס לאתר <strong>finance.yahoo.com</strong> וחפש 3 חברות שאתה מכיר (למשל Apple, Tesla, Microsoft). רשום את שווי השוק (Market Cap) ונפח המסחר (Volume) של כל אחת.</li>
+        <li>עקוב אחרי מדד S&P 500 במשך שבוע — בדוק בכל יום האם עלה או ירד ורשום את הסיבה שדיווחו עליה בחדשות.</li>
+        <li>בחר מניה אחת שמעניינת אותך ורשום <strong>למה</strong> אתה חושב שהיא מעניינת לסחור בה.</li>
+      </ol>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    קורס מסחר מקצועי · שיעור 1 מתוך 6 &nbsp;|&nbsp; כל הזכויות שמורות <span>©</span> 2025
+    &nbsp;|&nbsp; לחץ Ctrl+P להדפסה כ-PDF
+  </div>
+
 </div>
-<p>חברות מנפיקות מניות כדי <strong>לגייס הון</strong> לצמיחה, מחקר ופיתוח — במקום ללוות מהבנק. המשקיע מקבל בתמורה שותפות ברווחים העתידיים.</p>
-<div class="highlight-box">
-<h4>💡 האם מניות תמיד עולות?</h4>
-<p>לא. מניות עולות ויורדות בהתאם לביצועי החברה, הכלכלה, הריבית, חדשות, ומה שמשקיעים <em>מאמינים</em> שיקרה בעתיד. זו בדיוק הסיבה שחובה ללמוד ניהול סיכונים לפני שמתחילים לסחור.</p>
+
+<div id="ai-chat-window" style="display:none;position:fixed;bottom:90px;left:24px;width:360px;max-height:520px;background:#1a1a2e;border:1px solid rgba(240,180,41,0.35);border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,0.5);z-index:9999;font-family:'Heebo',Arial,sans-serif;direction:rtl;overflow:hidden;flex-direction:column;">
+  <div style="background:linear-gradient(135deg,#0f3460,#16213e);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(240,180,41,0.2);">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="font-size:24px;">🤖</span>
+      <div>
+        <div style="color:#f0b429;font-weight:800;font-size:14px;">מאמן AI אישי</div>
+        <div style="color:#22c55e;font-size:11px;font-weight:600;">● מחובר | זמין 24/7</div>
+      </div>
+    </div>
+    <button onclick="document.getElementById('ai-chat-window').style.display='none'" style="background:rgba(255,255,255,0.08);border:none;color:#fff;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px;">✕</button>
+  </div>
+  <div id="ai-messages" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:340px;">
+    <div style="background:rgba(240,180,41,0.1);border:1px solid rgba(240,180,41,0.2);border-radius:14px 14px 14px 2px;padding:12px 14px;color:rgba(255,255,255,0.9);font-size:13px;line-height:1.6;">
+      שלום\! אני המאמן האישי שלך 🎯<br>שאל אותי כל שאלה על החומר\!
+    </div>
+  </div>
+  <div style="padding:12px;border-top:1px solid rgba(255,255,255,0.08);display:flex;gap:8px;align-items:center;">
+    <input id="ai-input" type="text" placeholder="שאל שאלה..." style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(240,180,41,0.2);border-radius:20px;padding:10px 16px;color:#fff;font-size:13px;direction:rtl;outline:none;" onkeydown="if(event.key==='Enter'){sendAIMessage()}" />
+    <button onclick="sendAIMessage()" style="background:#f0b429;border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:16px;">➤</button>
+  </div>
 </div>
-</div>
-<div class="divider"></div>
-<!-- SECTION 3 -->
-<div class="section">
-<div class="section-header">
-<div class="section-number">3</div>
-<div class="section-title">מה זה בורסה וסוגי מדדים</div>
-</div>
-<p>הבורסה היא שוק מסודר שבו קונים ומוכרים מניות. היא מווסתת על ידי גופי פיקוח (כמו ה-SEC בארה"ב) כדי להגן על המשקיעים.</p>
-<div class="cards-grid">
-<div class="card">
-<div class="card-icon">🇺🇸</div>
-<h4>NYSE</h4>
-<p>הבורסה הגדולה בעולם — נוי יורק. מכילה חברות כמו Coca-Cola, ExxonMobil.</p>
-</div>
-<div class="card">
-<div class="card-icon">💻</div>
-<h4>NASDAQ</h4>
-<p>בורסת הטכנולוגיה. Apple, Google, Microsoft, Meta — כולן כאן.</p>
-</div>
-<div class="card">
-<div class="card-icon">🇮🇱</div>
-<h4>תל אביב (TASE)</h4>
-<p>הבורסה הישראלית. מדד ת"א 35 כולל 35 החברות הגדולות בישראל.</p>
-</div>
-<div class="card">
-<div class="card-icon">📊</div>
-<h4>S&amp;P 500</h4>
-<p>מדד 500 החברות הגדולות בארה"ב — הברומטר הכי חשוב לבריאות הכלכלה האמריקאית.</p>
-</div>
-</div>
-</div>
-<div class="divider"></div>
-<!-- SECTION 4 -->
-<div class="section">
-<div class="section-header">
-<div class="section-number">4</div>
-<div class="section-title">השחקנים בשוק</div>
-</div>
-<div class="players-row">
-<div class="player-card">
-<div class="p-icon">👤</div>
-<h4>Retail Traders</h4>
-<p>משקיעים קטנים כמוך — פועלים דרך ברוקר מהבית</p>
-</div>
-<div class="player-card">
-<div class="p-icon">🏛</div>
-<h4>Institutional Investors</h4>
-<p>קרנות פנסיה, גידור וביטוח — מהלכים מאות מיליונים</p>
-</div>
-<div class="player-card">
-<div class="p-icon">🤖</div>
-<h4>Market Makers</h4>
-<p>מספקים נזילות — תמיד מוכנים לקנות ולמכור</p>
-</div>
-<div class="player-card">
-<div class="p-icon">🏦</div>
-<h4>ברוקרים</h4>
-<p>מתווכים בין הקונה למוכר — Interactive Brokers, eToro וכו'</p>
-</div>
-</div>
-<div class="rule-box" style="margin-top: 20px;">
-<div class="rule-icon">⚠️</div>
-<p><strong>חשוב לדעת:</strong> הגופים המוסדיים (Institutions) שולטים בנפח עצום של המסחר. כסוחרים קטנים, אנחנו צריכים <em>לזהות לאן הכסף הגדול זורם</em> — ולסחור בכיוון שלו, לא נגדו.</p>
-</div>
-</div>
-<div class="divider"></div>
-<!-- SECTION 5 -->
-<div class="section">
-<div class="section-header">
-<div class="section-number">5</div>
-<div class="section-title">מינוח בסיסי שחייבים להכיר</div>
-</div>
-<table class="terms-table">
-<thead>
-<tr>
-<th>מושג</th>
-<th>באנגלית</th>
-<th>הסבר</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>שוק שורי</td>
-<td>Bull Market</td>
-<td>שוק עולה — מחירים עולים 20%+ מהשפל</td>
-</tr>
-<tr>
-<td>שוק דובי</td>
-<td>Bear Market</td>
-<td>שוק יורד — מחירים ירדו 20%+ מהשיא</td>
-</tr>
-<tr>
-<td>נפח מסחר</td>
-<td>Volume</td>
-<td>כמות המניות שנסחרו בפרק זמן מסוים</td>
-</tr>
-<tr>
-<td>שווי שוק</td>
-<td>Market Cap</td>
-<td>מחיר מניה × מספר מניות = שווי כולל של החברה</td>
-</tr>
-<tr>
-<td>פער מחירים</td>
-<td>Spread</td>
-<td>ההפרש בין מחיר הקנייה (Ask) למחיר המכירה (Bid)</td>
-</tr>
-<tr>
-<td>נזילות</td>
-<td>Liquidity</td>
-<td>קלות הקנייה/מכירה של נכס ללא פגיעה במחיר</td>
-</tr>
-<tr>
-<td>תנודתיות</td>
-<td>Volatility</td>
-<td>עוצמת תנועות המחיר — גבוהה = סיכון + הזדמנות</td>
-</tr>
-<tr>
-<td>ניסחר בפער</td>
-<td>Gap</td>
-<td>פתיחה במחיר שונה מסגירת יום קודם — אירוע מסחרי חשוב</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="divider"></div>
-<!-- SECTION 6 — QUIZ -->
-<div class="section">
-<div class="section-header">
-<div class="section-number">6</div>
-<div class="section-title">בדיקת הבנה — שאלות לחשיבה</div>
-</div>
-<div class="quiz-section">
-<h3>🧠 שאלות חשיבה</h3>
-<p class="quiz-subtitle">ענה על השאלות הבאות בכתב — השאלות האלו ילוו אותנו לאורך כל הקורס</p>
-<div class="quiz-question">
-<div class="q-number">שאלה 1</div>
-<p>חברה מנפיקה IPO במחיר של 50$ למניה. שבוע לאחר מכן המניה עומדת על 42$. מה לדעתך יכול להסביר את הירידה? האם זה אומר שהחברה גרועה?</p>
-<div class="quiz-answer-space"></div>
-</div>
-<div class="quiz-question">
-<div class="q-number">שאלה 2</div>
-<p>מה ההבדל בין להיות בעל מניה ב-Apple לבין לקנות מוצר של Apple? איזו מהן עדיפה מבחינת בניית עושר לאורך זמן?</p>
-<div class="quiz-answer-space"></div>
-</div>
-<div class="quiz-question">
-<div class="q-number">שאלה 3</div>
-<p>אם נפח המסחר (Volume) של מניה מסוימת עולה פי 5 מהממוצע ביום מסוים, מה זה יכול לאותת לך כסוחר? למה זה חשוב?</p>
-<div class="quiz-answer-space"></div>
-</div>
-</div>
-</div>
-<!-- HOMEWORK -->
-<div class="homework">
-<div class="hw-header">
-<div class="hw-icon">📝</div>
-<h3>מטלה לשיעור הבא</h3>
-</div>
-<ol>
-<li>היכנס לאתר <strong>finance.yahoo.com</strong> וחפש 3 חברות שאתה מכיר (למשל Apple, Tesla, Microsoft). רשום את שווי השוק (Market Cap) ונפח המסחר (Volume) של כל אחת.</li>
-<li>עקוב אחרי מדד S&amp;P 500 במשך שבוע — בדוק בכל יום האם עלה או ירד ורשום את הסיבה שדיווחו עליה בחדשות.</li>
-<li>בחר מניה אחת שמעניינת אותך ורשום <strong>למה</strong> אתה חושב שהיא מעניינת לסחור בה.</li>
-</ol>
-</div>
-</div>
-<!-- FOOTER -->
-<div class="footer">
-    קורס מסחר מקצועי · שיעור 1 מתוך 6  |  כל הזכויות שמורות <span>©</span> 2025
-     |  לחץ Ctrl+P להדפסה כ-PDF
-  </div><div class="lesson-nav"><a class="nav-back-students" href="students.html">🏠 אזור התלמידים</a><button class="nav-disabled" disabled="">← אין שיעור קודם</button><a class="nav-next" href="students.html">🎉 חזרה לאזור התלמידים</a></div>
-</div>
-<div id="ai-chat-window" style="display:none;position:fixed;bottom:90px;left:24px;width:360px;max-height:520px;background:#1a1a2e;border:1px solid rgba(240,180,41,0.35);border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,0.5);z-index:9999;font-family:'Heebo',Arial,sans-serif;direction:rtl;overflow:hidden;flex-direction:column;"><div style="background:linear-gradient(135deg,#0f3460,#16213e);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(240,180,41,0.2);"><div style="display:flex;align-items:center;gap:10px;"><span style="font-size:24px;">🤖</span><div><div style="color:#f0b429;font-weight:800;font-size:14px;">מאמן AI אישי</div><div style="color:#22c55e;font-size:11px;font-weight:600;">● מחובר | זמין 24/7</div></div></div><button onclick="document.getElementById('ai-chat-window').style.display='none';" style="background:rgba(255,255,255,0.08);border:none;color:#fff;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px;">✕</button></div><div id="ai-messages" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:340px;"><div style="background:rgba(240,180,41,0.1);border:1px solid rgba(240,180,41,0.2);border-radius:14px 14px 14px 2px;padding:12px 14px;color:rgba(255,255,255,0.9);font-size:13px;line-height:1.6;">שלום\! אני המאמן האישי שלך 🎯<br/>שאל אותי כל שאלה על החומר — אני כאן בשבילך\!</div></div><div style="padding:12px;border-top:1px solid rgba(255,255,255,0.08);display:flex;gap:8px;align-items:center;"><input id="ai-input" onkeydown="if(event.key==='Enter') sendAIMessage()" placeholder="שאל שאלה על המסחר..." style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(240,180,41,0.2);border-radius:20px;padding:10px 16px;color:#fff;font-size:13px;font-family:'Heebo',Arial,sans-serif;direction:rtl;outline:none;" type="text"/><button onclick="sendAIMessage()" style="background:#f0b429;border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:16px;flex-shrink:0;">➤</button></div></div><button onclick="var w=document.getElementById('ai-chat-window');w.style.display=w.style.display==='none'||w.style.display===''?'flex':'none';w.style.flexDirection='column';" style="position:fixed;bottom:24px;left:24px;background:linear-gradient(135deg,#f0b429,#e09900);border:none;border-radius:50px;padding:12px 20px;color:#0f3460;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 4px 20px rgba(240,180,41,0.4);z-index:9999;font-family:'Heebo',Arial,sans-serif;display:flex;align-items:center;gap:8px;">🤖 מאמן AI</button><script>const OPENAI_API_KEY='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';async function sendAIMessage(){const input=document.getElementById('ai-input');const messages=document.getElementById('ai-messages');const userText=input.value.trim();if(\!userText)return;const userMsg=document.createElement('div');userMsg.style.cssText='background:rgba(15,52,96,0.8);border:1px solid rgba(255,255,255,0.1);border-radius:14px 14px 2px 14px;padding:10px 14px;color:rgba(255,255,255,0.9);font-size:13px;line-height:1.6;align-self:flex-end;max-width:85%;';userMsg.textContent=userText;messages.appendChild(userMsg);input.value='';messages.scrollTop=messages.scrollHeight;const loadingMsg=document.createElement('div');loadingMsg.id='ai-loading';loadingMsg.style.cssText='background:rgba(240,180,41,0.1);border:1px solid rgba(240,180,41,0.2);border-radius:14px 14px 14px 2px;padding:10px 14px;color:rgba(255,255,255,0.6);font-size:13px;';loadingMsg.textContent='⏳ חושב...';messages.appendChild(loadingMsg);messages.scrollTop=messages.scrollHeight;try{const response=await fetch('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+OPENAI_API_KEY},body:JSON.stringify({model:'gpt-4o-mini',messages:[{role:'system',content:'אתה מאמן מסחר מקצועי של קורס TradeAcademy IL. עונה תמיד בעברית, בצורה ברורה וידידותית.'},{role:'user',content:userText}],max_tokens:500,temperature:0.7})});const data=await response.json();document.getElementById('ai-loading').remove();const aiMsg=document.createElement('div');aiMsg.style.cssText='background:rgba(240,180,41,0.1);border:1px solid rgba(240,180,41,0.2);border-radius:14px 14px 14px 2px;padding:12px 14px;color:rgba(255,255,255,0.9);font-size:13px;line-height:1.6;';aiMsg.textContent=data.choices[0].message.content;messages.appendChild(aiMsg);messages.scrollTop=messages.scrollHeight;}catch(e){document.getElementById('ai-loading').remove();const errMsg=document.createElement('div');errMsg.style.cssText='background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);border-radius:14px;padding:10px 14px;color:#fca5a5;font-size:13px;';errMsg.textContent='⚠️ שגיאה בחיבור. בדוק את מפתח ה-API.';messages.appendChild(errMsg);}}</script></body>
+<button onclick="var w=document.getElementById('ai-chat-window');w.style.display=w.style.display==='flex'?'none':'flex';w.style.flexDirection='column'" style="position:fixed;bottom:24px;left:24px;background:linear-gradient(135deg,#f0b429,#e09900);border:none;border-radius:50px;padding:12px 20px;color:#0f3460;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 4px 20px rgba(240,180,41,0.4);z-index:9999;font-family:'Heebo',Arial,sans-serif;display:flex;align-items:center;gap:8px;">🤖 מאמן AI</button>
+<script>
+var OPENAI_API_KEY = "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";
+async function sendAIMessage() {
+  var input = document.getElementById('ai-input');
+  var messages = document.getElementById('ai-messages');
+  var userText = input.value.trim();
+  if (\!userText) return;
+  var userMsg = document.createElement('div');
+  userMsg.style.cssText = 'background:rgba(15,52,96,0.8);border-radius:14px 14px 2px 14px;padding:10px 14px;color:#fff;font-size:13px;margin-bottom:4px;';
+  userMsg.textContent = userText;
+  messages.appendChild(userMsg);
+  input.value = '';
+  messages.scrollTop = messages.scrollHeight;
+  var loading = document.createElement('div');
+  loading.id = 'ai-loading';
+  loading.style.cssText = 'background:rgba(240,180,41,0.1);border-radius:14px 14px 14px 2px;padding:10px 14px;color:rgba(255,255,255,0.6);font-size:13px;';
+  loading.textContent = '⏳ חושב...';
+  messages.appendChild(loading);
+  messages.scrollTop = messages.scrollHeight;
+  try {
+    var res = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','Authorization':'Bearer '+OPENAI_API_KEY},
+      body: JSON.stringify({model:'gpt-4o-mini',messages:[{role:'system',content:'אתה מאמן מסחר מקצועי של TradeAcademy IL. עונה בעברית בצורה ברורה וידידותית.'},{role:'user',content:userText}],max_tokens:500})
+    });
+    var data = await res.json();
+    document.getElementById('ai-loading').remove();
+    var aiMsg = document.createElement('div');
+    aiMsg.style.cssText = 'background:rgba(240,180,41,0.1);border:1px solid rgba(240,180,41,0.2);border-radius:14px 14px 14px 2px;padding:12px 14px;color:#fff;font-size:13px;line-height:1.6;';
+    aiMsg.textContent = data.choices[0].message.content;
+    messages.appendChild(aiMsg);
+    messages.scrollTop = messages.scrollHeight;
+  } catch(e) {
+    document.getElementById('ai-loading').remove();
+    var errMsg = document.createElement('div');
+    errMsg.style.cssText = 'background:rgba(239,68,68,0.1);border-radius:14px;padding:10px 14px;color:#fca5a5;font-size:13px;';
+    errMsg.textContent = 'שגיאה: ' + e.message;
+    messages.appendChild(errMsg);
+  }
+}
+</script>
+</body>
 </html>
