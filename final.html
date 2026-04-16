@@ -570,7 +570,7 @@ async function sendAIMessage() {
   messages.appendChild(loading);
   messages.scrollTop = messages.scrollHeight;
   try {
-    var res = await fetch('https://api.openai.com/v1/chat/completions', {
+    var res = await fetch('https://trade-ai-proxy.noam545735519.workers.dev', {
       method: 'POST',
       headers: {'Content-Type':'application/json','Authorization':'Bearer '+OPENAI_API_KEY},
       body: JSON.stringify({model:'gpt-4o-mini',messages:[{role:'system',content:'אתה מאמן מסחר מקצועי של TradeAcademy IL. עונה בעברית בצורה ברורה וידידותית.'},{role:'user',content:userText}],max_tokens:500})
